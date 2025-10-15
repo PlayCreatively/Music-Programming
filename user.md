@@ -1,0 +1,1 @@
+The target audience are kids that might be interested in music creation or being generally creative; as well as visual learners like myself that enjoys colour and whimsy.

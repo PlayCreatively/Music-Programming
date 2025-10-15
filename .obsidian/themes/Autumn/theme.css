@@ -1,0 +1,465 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=M+PLUS+Rounded+1c&display=swap");
+
+/*
+  Cozy Autumn — Obsidian CSS snippet
+  Warm oranges, deep browns, soft creams, and gentle motion.
+  Drop this file into: .obsidian/snippets/ and enable it in Settings → Appearance → CSS snippets.
+*/
+
+:root {
+  /* Typography */
+  --font-interface: "Acme", "M PLUS Rounded 1c", ui-sans-serif, -apple-system,
+    Segoe UI, Roboto, Inter, system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Acme", "M PLUS Rounded 1c", "Georgia", "Iowan Old Style",
+    "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --font-monospace: ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* Core palette (autumn) */
+  --autumn-amber: #d97706; /* warm amber */
+  --autumn-pumpkin: #c2410c; /* pumpkin orange */
+  --autumn-cinnamon: #7c3f18; /* cinnamon brown */
+  --autumn-cocoa: #3f2a1c; /* dark cocoa */
+  --autumn-sage: #56624b; /* muted green */
+  --autumn-moss: #354235; /* deep moss */
+  --autumn-cream: #f6efe6; /* parchment */
+  --autumn-fog: #e9ddd0; /* pale fog */
+  --autumn-ink: #2a241f; /* text dark */
+
+  /* Motion */
+  --cozy-transition: 160ms ease;
+  --cozy-radius: 14px;
+  --cozy-shadow: 0 6px 20px rgba(34, 20, 6, 0.18);
+}
+
+/* ===================== */
+/* THEME: DARK & LIGHT   */
+/* ===================== */
+
+body.theme-dark {
+  --background-primary: #1f1915; /* chestnut */
+  --background-secondary: #211b17;
+  --background-modifier-hover: rgba(255, 255, 255, 0.04);
+  --background-modifier-active: rgba(255, 255, 255, 0.06);
+  --background-modifier-border: rgba(255, 255, 255, 0.06);
+  --background-modifier-form-field: #281f1a;
+  --text-normal: #f3e8d8;
+  --text-muted: #e7d9c7cc;
+  --text-faint: #e7d9c799;
+  --text-accent: var(--autumn-amber);
+  --interactive-accent: var(--autumn-pumpkin);
+  --interactive-accent-hover: #e05914;
+  --link-color: #f59e0b;
+  --link-color-hover: #fbbf24;
+  --h1-color: #ffe8c7;
+  --h2-color: #ffd79a;
+  --h3-color: #fcb664;
+  --blockquote-border-color: #9a5325;
+  --code-background: #2a211c;
+  --code-normal: #ffe7c2;
+  --tag-background: #3b2a1f;
+  --tag-color: #ffd9a1;
+}
+
+body.theme-light {
+  --background-primary: var(--autumn-cream);
+  --background-secondary: #fffdf8;
+  --background-modifier-hover: rgba(0, 0, 0, 0.04);
+  --background-modifier-active: rgba(0, 0, 0, 0.06);
+  --background-modifier-border: rgba(0, 0, 0, 0.08);
+  --background-modifier-form-field: #fff8f1;
+  --text-normal: #2b211a;
+  --text-muted: #3b3027cc;
+  --text-faint: #3b302799;
+  --text-accent: var(--autumn-pumpkin);
+  --interactive-accent: #b45309;
+  --interactive-accent-hover: #9a3412;
+  --link-color: #b45309;
+  --link-color-hover: #9a3412;
+  --h1-color: #7c3f18;
+  --h2-color: #8f4a20;
+  --h3-color: #a25a2a;
+  --blockquote-border-color: #d7b493;
+  --code-background: #fff5ea;
+  --code-normal: #3b2f28;
+  --tag-background: #f2e4d3;
+  --tag-color: #7c3f18;
+}
+
+/* Subtle paper texture using layered gradients */
+body {
+  background: radial-gradient(
+      80% 120% at 20% -20%,
+      rgba(245, 158, 11, 0.06),
+      transparent 60%
+    ),
+    radial-gradient(
+      80% 120% at 120% 20%,
+      rgba(194, 65, 12, 0.08),
+      transparent 60%
+    ),
+    var(--background-primary);
+  font-family: var(--font-text) !important;
+  transition: background-color var(--cozy-transition),
+    color var(--cozy-transition);
+}
+
+.app-container,
+.workspace,
+.view-content,
+.markdown-reading-view,
+.markdown-source-view {
+  background: transparent !important;
+}
+
+/* Cards & panes */
+.workspace-split,
+.workspace-leaf {
+  border-radius: var(--cozy-radius);
+}
+
+.workspace-leaf-content,
+.view-header,
+.view-content {
+  background-color: color-mix(
+    in oklab,
+    var(--background-secondary) 85%,
+    transparent
+  );
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: var(--cozy-shadow);
+}
+
+.view-header {
+  backdrop-filter: blur(8px) saturate(1.05);
+}
+
+/* Headings with leaf markers */
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.cm-s-obsidian .cm-heading.cm-heading-1,
+.cm-s-obsidian .cm-heading.cm-heading-2,
+.cm-s-obsidian .cm-heading.cm-heading-3 {
+  font-family: var(--font-interface);
+  letter-spacing: 0.01em;
+}
+
+.markdown-rendered h1,
+.cm-heading.cm-heading-1 {
+  color: var(--h1-color);
+}
+.markdown-rendered h2,
+.cm-heading.cm-heading-2 {
+  color: var(--h2-color);
+}
+.markdown-rendered h3,
+.cm-heading.cm-heading-3 {
+  color: var(--h3-color);
+}
+
+.markdown-rendered h1::before,
+.markdown-rendered h2::before,
+.markdown-rendered h3::before {
+  content: "🍂";
+  margin-right: 0.45rem;
+  opacity: 0.9;
+}
+
+/* Paragraph rhythm */
+.markdown-rendered p {
+  line-height: 1.7;
+}
+
+/* Blockquotes like warm index cards */
+.markdown-rendered blockquote {
+  background: linear-gradient(
+    180deg,
+    color-mix(in lab, var(--code-background) 70%, transparent),
+    transparent
+  );
+  border-left: 4px solid var(--blockquote-border-color);
+  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) inset;
+}
+
+/* Inline code & code blocks */
+.markdown-rendered code,
+.cm-s-obsidian span.cm-inline-code {
+  background: var(--code-background);
+  color: var(--code-normal);
+  padding: 0.15em 0.35em;
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.markdown-source-view .cm-scroller,
+.markdown-reading-view .markdown-preview-view {
+  font-variant-ligatures: contextual common-ligatures;
+}
+
+pre code,
+.markdown-rendered pre {
+  background: var(--code-background) !important;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--cozy-radius);
+  padding: 1rem;
+  box-shadow: var(--cozy-shadow);
+}
+
+/* Links */
+.markdown-rendered a,
+.cm-url {
+  color: var(--link-color);
+  text-decoration-color: color-mix(in lab, var(--link-color) 45%, transparent);
+  text-underline-offset: 3px;
+  transition: color var(--cozy-transition),
+    text-decoration-color var(--cozy-transition);
+}
+
+.markdown-rendered a:hover {
+  color: var(--link-color-hover);
+  text-decoration-color: var(--link-color-hover);
+}
+
+/* Lists with gentle bullets */
+.markdown-rendered ul > li {
+  margin: 0.2rem 0;
+}
+.markdown-rendered ul > li::marker {
+  content: "• ";
+  color: color-mix(in lab, var(--text-accent) 80%, var(--text-normal));
+}
+
+/* Tasks */
+.markdown-rendered input[type="checkbox"] {
+  width: 1.05em;
+  height: 1.05em;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid
+    color-mix(in lab, var(--interactive-accent) 40%, var(--text-normal));
+  background: linear-gradient(
+    180deg,
+    color-mix(in lab, var(--background-secondary) 80%, transparent),
+    transparent
+  );
+  transition: transform var(--cozy-transition),
+    background var(--cozy-transition);
+}
+.markdown-rendered input[type="checkbox"]:checked {
+  background: radial-gradient(
+    120% 120% at 10% 10%,
+    var(--interactive-accent) 0%,
+    var(--interactive-accent-hover) 60%,
+    transparent 61%
+  );
+  transform: scale(0.98);
+}
+
+/***** Callouts *****/
+.callout {
+  border-radius: var(--cozy-radius);
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in lab, var(--background-secondary) 85%, transparent),
+    transparent
+  );
+  box-shadow: var(--cozy-shadow);
+}
+.callout-title {
+  font-family: var(--font-interface);
+}
+.callout[data-callout="note"] {
+  border-left: 5px solid var(--autumn-amber);
+}
+.callout[data-callout="tip"] {
+  border-left: 5px solid var(--autumn-sage);
+}
+.callout[data-callout="warning"] {
+  border-left: 5px solid var(--autumn-pumpkin);
+}
+
+/* Tags */
+.tag,
+.cm-hashtag {
+  background: var(--tag-background);
+  color: var(--tag-color) !important;
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+}
+
+/* Graph view colors */
+.graph-view.color-fill {
+  color: #e7c69a;
+}
+.graph-view.color-line {
+  color: #9a6c3f;
+}
+.graph-view.color-text {
+  color: var(--text-normal);
+}
+.graph-view.color-fill-highlight {
+  color: #f59e0b;
+}
+.graph-view.color-line-highlight {
+  color: #b45309;
+}
+
+/* Editor chrome */
+.titlebar,
+.status-bar,
+.workspace-ribbon,
+.sidebar-toggle-button {
+  background: color-mix(in lab, var(--background-secondary) 85%, transparent);
+  border-color: var(--background-modifier-border);
+}
+
+.status-bar {
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+/* Scrollbar */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    color-mix(in lab, var(--autumn-cinnamon) 45%, transparent),
+    color-mix(in lab, var(--autumn-pumpkin) 45%, transparent)
+  );
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    color-mix(in lab, var(--autumn-cinnamon) 65%, transparent),
+    color-mix(in lab, var(--autumn-pumpkin) 65%, transparent)
+  );
+}
+
+/* Modals & menus */
+.modal,
+.prompt,
+.menu {
+  background: color-mix(in lab, var(--background-secondary) 92%, transparent);
+  border: 1px solid var(--background-modifier-border);
+  backdrop-filter: blur(10px);
+  border-radius: var(--cozy-radius);
+  box-shadow: var(--cozy-shadow);
+}
+
+/* Embeds */
+.markdown-embed,
+.file-embed {
+  border-radius: var(--cozy-radius);
+  border: 1px solid var(--background-modifier-border);
+  background: linear-gradient(
+    180deg,
+    color-mix(in lab, var(--background-secondary) 85%, transparent),
+    transparent
+  );
+  box-shadow: var(--cozy-shadow);
+}
+
+/* Table styling */
+.markdown-rendered table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: color-mix(in lab, var(--background-secondary) 85%, transparent);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--cozy-shadow);
+}
+.markdown-rendered thead th {
+  font-family: var(--font-interface);
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  background: color-mix(
+    in lab,
+    var(--autumn-amber) 18%,
+    var(--background-secondary)
+  );
+}
+.markdown-rendered tbody td {
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+/* Subtle focus rings */
+input,
+textarea,
+.cm-editor,
+select,
+button {
+  transition: outline-color var(--cozy-transition),
+    box-shadow var(--cozy-transition), border-color var(--cozy-transition);
+}
+
+:focus-visible {
+  outline: 2px solid
+    color-mix(in lab, var(--interactive-accent) 70%, transparent);
+  outline-offset: 2px;
+}
+
+/* Gentle hover pop for buttons */
+button,
+.clickable-icon,
+.workspace-tab-header {
+  transition: transform var(--cozy-transition),
+    background var(--cozy-transition), color var(--cozy-transition);
+}
+button:hover,
+.clickable-icon:hover,
+.workspace-tab-header:hover {
+  transform: translateY(-1px);
+}
+
+/* Ribbon icons and active states */
+.is-active .workspace-tab-header-inner,
+.workspace-tab-header.is-active {
+  color: var(--text-accent);
+  box-shadow: inset 0 -2px 0 0 color-mix(in lab, var(--interactive-accent) 60%, transparent);
+}
+
+/* Daily notes title flourish */
+.view-header-title::after {
+  content: "  ·  sweater weather";
+  font-size: 0.9em;
+  opacity: 0.6;
+}
+
+/* Optional: reduce noise in source mode */
+.cm-editor .cm-activeLine {
+  background: color-mix(in lab, var(--background-secondary) 40%, transparent);
+}
+.cm-editor .cm-gutters {
+  background: transparent;
+  border-right: 1px dashed var(--background-modifier-border);
+}
+.cm-editor .cm-selectionBackground {
+  background: color-mix(
+    in lab,
+    var(--interactive-accent) 35%,
+    transparent
+  ) !important;
+}
+
+/* Mobile tweaks */
+.is-mobile .view-content,
+.is-mobile .workspace-ribbon {
+  box-shadow: none;
+  border: none;
+}

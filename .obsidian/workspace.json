@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "Project v0.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Welcome"
+              "title": "Project v0"
+            }
+          },
+          {
+            "id": "1f24ad8b7720a01d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Project v0.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Project v0"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -169,11 +184,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "8cd5ebf7f63b9f67",
+  "active": "1f24ad8b7720a01d",
   "lastOpenFiles": [
-    "Untitled.md",
+    "Project v1.md",
+    "Project v0.md",
+    "quirky interfaces.md",
+    "user.md",
     "Welcome.md",
     "Untitled.base",
+    "Untitled 1.base",
     "S2.scd"
   ]
 }
