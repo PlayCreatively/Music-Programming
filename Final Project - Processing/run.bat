@@ -1,0 +1,1 @@
+sclang -D supercollider.scd

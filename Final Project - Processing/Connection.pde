@@ -8,8 +8,8 @@ class Node {
   boolean dragging = false;
   PVector dragOff = new PVector();
 
-  ArrayList<Port> inputs = new ArrayList<Port>();
-  ArrayList<Port> outputs = new ArrayList<Port>();
+  ArrayList<PortIn> inputs = new ArrayList<PortIn>();
+  ArrayList<PortOut> outputs = new ArrayList<PortOut>();
 
   Node(String title, float x, float y) {
     this.title = title;
@@ -17,30 +17,36 @@ class Node {
     this.w = 200; this.h = 120; // height grows with ports too
   }
 
-  void addInput(String label, Listener listener) 
+  PortIn addInput(String label) 
   {
-    inputs.add(new Port(this, PortKind.INPUT, label, listener));
+    PortIn port = new PortIn(this, label);
+    inputs.add(port);
     autoSize();
+    return port;
   }
 
-  void addInput(String label, Listener listener, float defaultValue) {
-    addInput(label, listener);
-    set(label, defaultValue);
+  PortIn addInput(String label, float defaultValue) {
+    PortIn port = addInput(label);
+    port.set(defaultValue);
+    return port;
   }
 
-  void addOutput(String label, Listener listener) {
-    outputs.add(new Port(this, PortKind.OUTPUT, label, listener));
+  PortOut addOutput(String label) {
+    PortOut port = new PortOut(this, label);
+    outputs.add(port);
     autoSize();
+    return port;
   }
 
-  void set(String label, float value) 
+  PortIn set(String label, float value) 
   {
-      for (Port p : inputs)
-        if (p.label.equals(label)) 
-        {
-          p.set(value);
-          return;
-        }
+    for (PortIn p : inputs)
+      if (p.label.equals(label)) 
+      {
+        p.set(value);
+        return p;
+      }
+    return null;
   }
 
   void autoSize() {
@@ -49,6 +55,14 @@ class Node {
     h = 42 + 22 * bodyRows + 18;
     w = max(160, textWidth(title) + 60);
   }
+
+  void update() {
+    // override in subclasses
+  }
+
+  boolean onMousePressed(float mx, float my) { return false; }
+  void onMouseDragged(float mx, float my) {}
+  void onMouseReleased(float mx, float my) {}
 
   void beginDrag(float mx, float my) {
     dragging = true;
@@ -97,7 +111,7 @@ class Node {
       float py = y + 48 + i * 22;
       // input label
       if (i < inputs.size()) {
-        Port in = inputs.get(i);
+        PortIn in = inputs.get(i);
         in.slotIndex = i;
         PVector p = in.screenPos();
         fill(40, 160, 255);
@@ -105,7 +119,7 @@ class Node {
         fill(20);
         textAlign(LEFT, CENTER);
         
-        text(in.label + " : " + nf(in.value, 0, 0), x + 18, py);
+        text(in.label + " : " + nf(in.value, 0, 2), x + 18, py);
       }
       // output label
       if (i < outputs.size()) {
@@ -140,67 +154,145 @@ class SynthNode extends Node {
     synth.create();
   }
 
+  PortIn addInput(String label, float defaultValue) {
+    PortIn port = super.addInput(label, defaultValue);
+    synth.set(label, defaultValue);
+    port.listener = (float value) -> {
+      synth.set(label, value);
+      print("Input " + label + " set to " + value);
+    };
+    return port;
+  }
+
   void free() {
     synth.free();
-  }
-
-  void addInput(String label, float defaultValue) {
-    addInput(label);
-    set(label, defaultValue);
-  }
-
-  void addInput(String label) {
-    inputs.add(new Port(this, PortKind.INPUT, label, new Listener() {
-      public void set(float v) {
-        synth.set(label, v);
-      }
-    }));
-    autoSize();
   }
 }
 
 class SliderNode extends Node {
-  float min, max;
+  float min = 0.0;
+  float max = 1.0;
+
+  // current value the slider holds (and publishes to outputs[0])
+  float value = 0.5;
+
+  // interaction
+  boolean draggingKnob = false;
+  float sliderPadding = 20;     // left/right space
+  float knobHalfW = 6;          // half width of knob rect
+  float knobH = 16;
+  float sliderYOffset = 30;     // distance from bottom to slider line
 
   SliderNode(String title, float x, float y) {
     super(title, x, y);
-    this.min = 0.0;
-    this.max = 1.0;
-
-    addOutput("value", new Listener() {
-      public void set(float v) {
-        // no-op
-      }
-    });
+    addOutput("");
   }
-
-
 
   void setRange(float min, float max) {
+    if (min == max) max = min + 1e-6f;
     this.min = min;
     this.max = max;
+    value = constrain(value, min, max);
   }
 
+  // Helpers ---------------------------------------------------------
+  float sliderY() { return y + h - sliderYOffset; }
+  float trackLeft() { return x + sliderPadding; }
+  float trackRight() { return x + w - sliderPadding; }
+  float trackWidth() { return trackRight() - trackLeft(); }
+
+  float valueToX(float v) {
+    float t = (v - min) / (max - min);
+    return trackLeft() + constrain(t, 0, 1) * trackWidth();
+  }
+
+  float xToValue(float px) {
+    float t = (px - trackLeft()) / max(1e-6f, trackWidth());
+    return constrain(lerp(min, max, constrain(t, 0, 1)), min, max);
+  }
+
+  boolean knobHit(float mx, float my) {
+    float kx = valueToX(value);
+    float ky = sliderY();
+    return (mx >= kx - knobHalfW && mx <= kx + knobHalfW &&
+            my >= ky - knobH*0.5f && my <= ky + knobH*0.5f);
+  }
+
+  boolean trackHit(float mx, float my) {
+    float ky = sliderY();
+    // generous 8px hit thickness around the line to allow clicking track to jump
+    return (mx >= trackLeft() && mx <= trackRight() &&
+            abs(my - ky) <= 8);
+  }
+
+  // Node lifecycle ---------------------------------------------------
+  void update() {
+    // publish held value each frame
+    outputs.get(0).set(value);
+  }
+
+  void draw() {
+    super.draw();
+
+    // track
+    float ky = sliderY();
+    stroke(0, 60);
+    strokeWeight(1.5);
+    line(trackLeft(), ky, trackRight(), ky);
+
+    // knob
+    noStroke();
+    fill(100, 200, 100);
+    float kx = valueToX(value);
+    rect(kx - knobHalfW, ky - knobH*0.5f, knobHalfW*2, knobH, 4);
+
+    // value text
+    fill(20);
+    textAlign(CENTER, TOP);
+    text(nf(value, 0, 2), kx, ky + knobH*0.5f);
+
+  }
+
+  // Scalable mouse contract (see section 2):
+  // Return true on press if we capture the mouse.
+  boolean onMousePressed(float mx, float my) {
+    // prefer knob; fall back to clicking track to jump-to and capture
+    if (knobHit(mx, my) || trackHit(mx, my)) {
+      value = xToValue(mx);      // jump-to on click anywhere on track
+      draggingKnob = true;
+      return true;
+    }
+    return false;
+  }
+
+  void onMouseDragged(float mx, float my) {
+    if (draggingKnob) {
+      value = xToValue(mx);
+    }
+  }
+
+  void onMouseReleased(float mx, float my) {
+    draggingKnob = false;
+  }
 }
 
-class Port implements Listener {
+
+
+class Port {
   Node node;
   PortKind kind;
   String label;
-  float value = 0.0;
   int slotIndex = 0; // row within its side
-  ArrayList<Port> connections = null;
 
   Port(Node n, PortKind k, String label) {
     this.node = n;
     this.kind = k;
     this.label = label;
-    this.listener = null;
   }
-
-  void set(float v) {
-    value = v;
-    if (listener != null) listener.set(v);
+  
+  boolean hit(float mx, float my) {
+    PVector p = screenPos();
+    return dist(mx, my, p.x, p.y) <= 7;
   }
 
   PVector screenPos() {
@@ -208,50 +300,68 @@ class Port implements Listener {
     float px = (kind == PortKind.INPUT) ? node.x + 10 : node.x + node.w - 10;
     return new PVector(px, py);
   }
+}
 
-  boolean hit(float mx, float my) {
-    PVector p = screenPos();
-    return dist(mx, my, p.x, p.y) <= 7;
+class PortIn extends Port
+{
+  float value = 0.0;
+  Listener listener = null;
+
+  PortIn(Node n, String label) { super(n, PortKind.INPUT, label); }
+
+  void set(float v) {
+    value = v;
+    if (listener != null)
+      listener.set(v);
+  }
+}
+
+class PortOut extends Port
+{
+  ArrayList<PortIn> connections = new ArrayList<PortIn>();
+
+  PortOut(Node n, String label) { super(n, PortKind.OUTPUT, label); }
+
+  void set(float v) {
+    for (PortIn in : connections)
+      in.set(v);
   }
 }
 
 class Connection {
-  Port out, in;
-  Connection(Port o, Port i) { out = o; in = i; }
+  PortOut out;
+  PortIn in;
+
+  Connection(PortOut out, PortIn in) {
+    this.out = out;
+    this.in = in;
+
+    out.connections.add(in);
+  }
+
+  void disconnect() {
+    out.connections.remove(in);
+  }
 
   void draw() {
-    PVector a = out.screenPos();
-    PVector b = in.screenPos();
-    drawBezier(a, b);
+    drawBezier(out.screenPos(), in.screenPos());
   }
 
   // Distance from mouse to the curve (sampled polyline)
   float distanceTo(float mx, float my) {
-    PVector a = out.screenPos();
-    PVector b = in.screenPos();
     // Sample 24 points along the cubic
+    PVector a = out .screenPos();
+    PVector b = in  .screenPos();
+    
     float best = 10e9;
     PVector prev = bezPoint(a, b, 0);
     for (int i = 1; i <= 24; i++) {
       float t = i/24.0;
       PVector cur = bezPoint(a, b, t);
       float d = distToSegment(mx, my, prev.x, prev.y, cur.x, cur.y);
-      if (d < best) best = d;
-      prev = cur;
-    }
+        if (d < best) best = d;
+          prev = cur;
+      }
     return best;
-  }
-
-  PVector bezPoint(PVector a, PVector b, float t) {
-    // Handles 100% of horizontal distance along X, fixed at endpoints' Y
-    float dx = b.x - a.x;
-    float h = 1.0 * dx;
-    PVector c1 = new PVector(a.x + h, a.y);
-    PVector c2 = new PVector(b.x - h, b.y);
-    // Cubic Bézier interpolation
-    float u = 1 - t;
-    float bx = u*u*u*a.x + 3*u*u*t*c1.x + 3*u*t*t*c2.x + t*t*t*b.x;
-    float by = u*u*u*a.y + 3*u*u*t*c1.y + 3*u*t*t*c2.y + t*t*t*b.y;
-    return new PVector(bx, by);
   }
 }

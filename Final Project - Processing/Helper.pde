@@ -20,3 +20,16 @@ float distToSegment(float px, float py, float x1, float y1, float x2, float y2) 
   float projx = x1 + t * vx, projy = y1 + t * vy;
   return dist(px, py, projx, projy);
 }
+
+PVector bezPoint(PVector a, PVector b, float t) {
+  // Handles 100% of horizontal distance along X, fixed at endpoints' Y
+  float dx = b.x - a.x;
+  float h = 1.0 * dx;
+  PVector c1 = new PVector(a.x + h, a.y);
+  PVector c2 = new PVector(b.x - h, b.y);
+  // Cubic Bézier interpolation
+  float u = 1 - t;
+  float bx = u*u*u*a.x + 3*u*u*t*c1.x + 3*u*t*t*c2.x + t*t*t*b.x;
+  float by = u*u*u*a.y + 3*u*u*t*c1.y + 3*u*t*t*c2.y + t*t*t*b.y;
+  return new PVector(bx, by);
+}

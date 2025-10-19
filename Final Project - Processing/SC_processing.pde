@@ -5,6 +5,10 @@ import netP5.*;
 
 import processing.javafx.*; // for FX2D renderer
 
+// to run .bat file
+import java.io.*;
+import java.util.concurrent.*;
+
 // --- Minimal Visual Node Graph ---
 // Controls:
 //  - Drag nodes by their title bar.
@@ -20,7 +24,41 @@ float worldMouseX, worldMouseY;
 
 SynthNode osc;
 
+void runBatOnce() throws Exception {
+  ProcessBuilder pb = new ProcessBuilder(
+    "cmd.exe", "/c", "C:\\Users\\lexi-\\Documents\\Porstmouth University\\Music-Programming\\Final Project - Processing\\SC_processing\\run.bat"
+  );
+  pb.directory(new File("C:\\Users\\lexi-\\Documents\\Porstmouth University\\Music-Programming\\Final Project - Processing\\SC_processing"));  // optional working dir
+  pb.redirectErrorStream(true);            // merge stderr→stdout
+
+  Process p = pb.start();
+
+  try (BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream(), "UTF-8"))) {
+    String line;
+    while ((line = r.readLine()) != null) {
+      System.out.println("[bat] " + line);
+    }
+  }
+
+  // Optional timeout
+  boolean done = p.waitFor(30, TimeUnit.SECONDS);
+  if (!done) {
+    p.destroyForcibly();
+    throw new RuntimeException("SuperCollider timed out");
+  }
+  if (p.exitValue() != 0) {
+    throw new RuntimeException("SuperCollider failed with code " + p.exitValue());
+  }
+}
+
 void setup() {
+  // try{
+  //   runBatOnce();
+
+  // } catch (Exception e) {
+  //   e.printStackTrace();
+  // }
+  
     // Use P2D or FX2D (FX2D = nicest AA + HiDPI text, a bit heavier)
   size(1200, 800, FX2D);      // or: size(1200, 800, FX2D);
 
@@ -42,23 +80,24 @@ void setup() {
   // Demo nodes
   osc = new SynthNode("sine", 120, 160);
   osc.addInput("freq", 80);
-  osc.addInput("amp", 0.5);
-  osc.addOutput("signal", null);
+  osc.addInput("amp", 0.001);
+  osc.addOutput("signal");
 
+  graph.add(new SliderNode("slider", 190, 160));
 
   Node env = new Node("Envelope", 460, 120);
-  env.addInput("Gate", null);
-  env.addOutput("Env", null);
+  env.addInput("Gate");
+  env.addOutput("Env");
 
   Node filter = new Node("Filter", 460, 360);
-  filter.addInput("In", null);
-  filter.addInput("Cutoff", null);
-  filter.addInput("Res", null);
-  filter.addOutput("Out", null);
+  filter.addInput("In");
+  filter.addInput("Cutoff");
+  filter.addInput("Res");
+  filter.addOutput("Out");
 
   Node out = new Node("Output", 760, 260);
-  out.addInput("L", null);
-  out.addInput("R", null);
+  out.addInput("L");
+  out.addInput("R");
 
   graph.add(osc);
   graph.add(env);

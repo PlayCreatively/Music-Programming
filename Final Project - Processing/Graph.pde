@@ -1,11 +1,11 @@
 class Graph {
   ArrayList<Node> nodes = new ArrayList<Node>();
   ArrayList<Connection> conns = new ArrayList<Connection>();
-
-  Port draggingFrom = null; // must be OUTPUT
+  PortOut draggingFrom = null; // must be OUTPUT
   PVector dragPos = new PVector();
 
   Connection hoverConn = null;
+  Node mouseCapture = null;
 
   void add(Node n) { nodes.add(n); }
 
@@ -19,6 +19,7 @@ class Graph {
       float d = c.distanceTo(worldMouseX, worldMouseY);
       if (d < 12 && d < bestD) { bestD = d; hoverConn = c; }
     }
+    for (Node n : nodes) n.update(); // only being used for slider so far
   }
 
   void draw() {
@@ -54,15 +55,30 @@ class Graph {
   }
 
   void mousePressed(float mx, float my) {
+
+  PVector m = mouseWorld();
+  // Iterate front-to-back so topmost gets first dibs.
+  for (int i = nodes.size()-1; i >= 0; --i) {
+    Node n = nodes.get(i);
+    if (n.onMousePressed(m.x, m.y)) {
+      mouseCapture = n;
+      // optionally bring to front if captured
+      nodes.remove(i);
+      nodes.add(n);
+      break;
+    }
+  }
+  if (mouseCapture != null) return;
+
     // Try ports first (outputs start a wire; inputs finish one if dragging)
     Port p = findPortAt(mx, my);
     if (p != null) {
       if (p.kind == PortKind.OUTPUT) {
-        draggingFrom = p;
+        draggingFrom = (PortOut)p;
         dragPos.set(mx, my);
         return;
       } else if (p.kind == PortKind.INPUT && draggingFrom != null) {
-        tryConnect(draggingFrom, p);
+        tryConnect(draggingFrom, (PortIn)p);
         draggingFrom = null;
         return;
       }
@@ -82,11 +98,26 @@ class Graph {
   }
 
   void mouseDragged(float mx, float my) {
+
+    if (mouseCapture != null) {
+      PVector m = mouseWorld();
+      mouseCapture.onMouseDragged(m.x, m.y);
+      return;
+    }
+
     for (Node n : nodes) n.drag(mx, my);
-    dragPos.set(mx, my);
+        dragPos.set(mx, my);
   }
 
   void mouseReleased(float mx, float my) {
+
+    if (mouseCapture != null) {
+      PVector m = mouseWorld();
+      mouseCapture.onMouseReleased(m.x, m.y);
+      mouseCapture = null;
+      return;
+    }
+
     // Release node drags
     for (Node n : nodes) n.endDrag();
 
@@ -94,7 +125,7 @@ class Graph {
     if (draggingFrom != null) {
       Port p = findPortAt(mx, my);
       if (p != null && p.kind == PortKind.INPUT) {
-        tryConnect(draggingFrom, p);
+        tryConnect(draggingFrom, (PortIn)p);
       }
       draggingFrom = null;
     }
@@ -111,7 +142,7 @@ class Graph {
     }
   }
 
-  void tryConnect(Port out, Port in) {
+  void tryConnect(PortOut out, PortIn in) {
     if (out == null || in == null) return;
     if (out.kind != PortKind.OUTPUT || in.kind != PortKind.INPUT) return;
     if (out.node == in.node) return; // no self-looping a single node side
