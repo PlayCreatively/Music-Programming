@@ -133,6 +133,7 @@ class Graph {
 
   void keyPressed(char k, int keyCode) {
     if ((keyCode == DELETE || keyCode == BACKSPACE) && hoverConn != null) {
+      hoverConn.disconnect();
       conns.remove(hoverConn);
       hoverConn = null;
     }

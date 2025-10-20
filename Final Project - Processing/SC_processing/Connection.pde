@@ -8,7 +8,7 @@ class Node {
   boolean dragging = false;
   PVector dragOff = new PVector();
 
-  ArrayList<PortIn> inputs = new ArrayList<PortIn>();
+  ArrayList<PortInInteractive> inputs = new ArrayList<PortInInteractive>();
   ArrayList<PortOut> outputs = new ArrayList<PortOut>();
 
   Node(String title, float x, float y) {
@@ -17,22 +17,24 @@ class Node {
     this.w = 200; this.h = 120; // height grows with ports too
   }
 
-  PortIn addInput(String label) 
+  PortInInteractive addInput(String label) 
   {
-    PortIn port = new PortIn(this, label);
+    PortInInteractive port = new PortInInteractive(this, label);
+    port.slotIndex = inputs.size();
     inputs.add(port);
     autoSize();
     return port;
   }
 
-  PortIn addInput(String label, float defaultValue) {
-    PortIn port = addInput(label);
+  PortInInteractive addInput(String label, float defaultValue) {
+    PortInInteractive port = addInput(label);
     port.set(defaultValue);
     return port;
   }
 
   PortOut addOutput(String label) {
     PortOut port = new PortOut(this, label);
+    port.slotIndex = outputs.size();
     outputs.add(port);
     autoSize();
     return port;
@@ -60,9 +62,23 @@ class Node {
     // override in subclasses
   }
 
-  boolean onMousePressed(float mx, float my) { return false; }
-  void onMouseDragged(float mx, float my) {}
-  void onMouseReleased(float mx, float my) {}
+  boolean onMousePressed(float mx, float my) 
+  {
+    for( PortInInteractive p : inputs) 
+      if (p.onMousePressed(mx, my)) 
+        return true; // captured
+    return false;
+  }
+  void onMouseDragged(float mx, float my)
+  {
+    for( PortInInteractive p : inputs) 
+      p.onMouseDragged(mx, my);
+  }
+  void onMouseReleased(float mx, float my)
+  {
+    for( PortInInteractive p : inputs) 
+      p.onMouseReleased(mx, my);
+  }
 
   void beginDrag(float mx, float my) {
     dragging = true;
@@ -105,34 +121,23 @@ class Node {
     text(title, x+10, y+16);
 
     // Port rows
+    int yOff = 2; // fine-tune port vertical alignment
     textSize(12);
-    int rows = max(inputs.size(), outputs.size());
-    for (int i = 0; i < rows; i++) {
+    for (int i = 0; i < outputs.size(); i++) {
       float py = y + 48 + i * 22;
-      // input label
-      if (i < inputs.size()) {
-        PortIn in = inputs.get(i);
-        in.slotIndex = i;
-        PVector p = in.screenPos();
-        fill(40, 160, 255);
-        circle(p.x, p.y, 10);
-        fill(20);
-        textAlign(LEFT, CENTER);
-        
-        text(in.label + " : " + nf(in.value, 0, 2), x + 18, py);
-      }
       // output label
-      if (i < outputs.size()) {
-        Port out = outputs.get(i);
-        out.slotIndex = i;
-        PVector p = out.screenPos();
-        fill(255, 150, 60);
-        circle(p.x, p.y, 10);
-        fill(20);
-        textAlign(RIGHT, CENTER);
-        text(out.label, x + w - 18, py);
-      }
+      Port out = outputs.get(i);
+      out.slotIndex = i;
+      PVector p = out.screenPos();
+      fill(255, 150, 60);
+      circle(p.x, p.y + yOff, 10);
+      fill(20);
+      textAlign(RIGHT, CENTER);
+      text(out.label, x + w - 18, py);
     }
+    for (int i = 0; i < inputs.size(); i++)
+      inputs.get(i).draw();
+
     // border last
     noFill();
     stroke(0, 60);
@@ -154,12 +159,11 @@ class SynthNode extends Node {
     synth.create();
   }
 
-  PortIn addInput(String label, float defaultValue) {
-    PortIn port = super.addInput(label, defaultValue);
+  PortInInteractive addInput(String label, float defaultValue) {
+    PortInInteractive port = super.addInput(label, defaultValue);
     synth.set(label, defaultValue);
     port.listener = (float value) -> {
       synth.set(label, value);
-      print("Input " + label + " set to " + value);
     };
     return port;
   }
@@ -295,6 +299,21 @@ class Port {
     return dist(mx, my, p.x, p.y) <= 7;
   }
 
+  boolean hitLabel(float mx, float my) {
+    float tx, ty;
+    if (kind == PortKind.INPUT) {
+      tx = node.x + 18;
+      ty = node.y + 48 + slotIndex * 22;
+      return (mx >= tx && mx <= tx + textWidth(label) + 40 &&
+              my >= ty - 8 && my <= ty + 8);
+    } else {
+      tx = node.x + node.w - 18 - textWidth(label);
+      ty = node.y + 48 + slotIndex * 22;
+      return (mx >= tx - 40 && mx <= tx + textWidth(label) &&
+              my >= ty - 8 && my <= ty + 8);
+    }
+  }
+
   PVector screenPos() {
     float py = node.y + 48 + slotIndex * 22;
     float px = (kind == PortKind.INPUT) ? node.x + 10 : node.x + node.w - 10;
@@ -313,6 +332,130 @@ class PortIn extends Port
     value = v;
     if (listener != null)
       listener.set(v);
+  }
+}
+
+class PortInInteractive extends PortIn
+{
+  PortInInteractive(Node n, String label) { super(n, label); }
+  float minV = 0;
+  float maxV = 1;
+  float step = 0;        // 0 means continuous (no stepping)
+  int decimals = 2;      // display precision
+  String unit = "";      // e.g. "Hz", "%"
+
+  // interaction
+  boolean hovered = false;
+  boolean dragging = false;
+  float dragStartY;
+  float valueAtPress;
+
+  // tuning
+  // how many px of vertical drag to traverse full range (default ~200px)
+  float pixelsForFullRange = 200;
+
+  // state
+  boolean changedThisFrame = false;
+
+  void setRange(float minV, float maxV) {
+    if (minV == maxV) maxV += 1e-6f;
+    this.minV = minV;
+    this.maxV = maxV;
+    value = constrain(value, minV, maxV);
+  }
+
+  void set(float v) {
+    value = clampAndStep(v);
+    if (listener != null) listener.set(value);
+  }
+
+  float get() { return value; }
+
+  void setStep(float step) { 
+    this.step = max(0, step);
+    value = clampAndStep(value);
+  }
+
+  void setDecimals(int d) { decimals = max(0, d); }
+
+  void setUnit(String u) { unit = (u == null) ? "" : u; }
+
+  void setPixelsForFullRange(float px) { pixelsForFullRange = max(8, px); }
+
+  void setLabel(String s) { label = s == null ? "" : s; }
+
+  boolean isDragging() { return dragging; }
+
+  boolean wasChangedThisFrame() { 
+    boolean c = changedThisFrame; 
+    changedThisFrame = false; 
+    return c; 
+  }
+
+  // ----- Drawing -----
+  void draw() {
+    // hover detection uses current mouse pos; feel free to move to onMouseMoved if you have it
+    hovered = hitLabel(worldMouseX, worldMouseY);
+
+    int yOff = 2; // fine-tune port vertical alignment
+    textSize(12);
+    float py = node.y + 48 + slotIndex * 22;
+    PVector p = screenPos();
+    fill(40, 160, 255);
+    circle(p.x, p.y + yOff, 10);
+    textAlign(LEFT, CENTER);
+    String vStr = nf(value, 0, decimals) + (unit.length() > 0 ? " " + unit : "");
+    if(hovered || dragging) fill(255, 150, 60);
+    else                    fill(20);
+    text(label + " : " + vStr, node.x + 18, py);
+  }
+
+  // ----- Mouse contract (call from your graph/sketch) -----
+  boolean onMousePressed(float mx, float my) {
+    if (!hit(mx, my)) return false;
+    dragging = true;
+    dragStartY = my;
+    valueAtPress = value;
+    return true; // capture
+  }
+
+  void onMouseDragged(float mx, float my) {
+    if (!dragging) return;
+    // vertical drag: moving up increases value
+    float dy = dragStartY - my;
+    float range = (maxV - minV);
+    float sensitivity = range / pixelsForFullRange;
+
+    // modifiers: Shift = fine, Ctrl/Cmd = coarse
+    boolean fine = keyPressed && (keyCode == SHIFT);
+    boolean coarse = keyPressed && (keyCode == CONTROL || keyCode == 157); // 157 ~ CMD on mac
+
+    if (fine) sensitivity *= 0.2f;
+    if (coarse) sensitivity *= 4.0f;
+
+    float newV = valueAtPress + dy * sensitivity;
+    float clamped = clampAndStep(newV);
+    if (clamped != value) {
+      value = clamped;
+      changedThisFrame = true;
+      if (listener != null) listener.set(value);
+    }
+  }
+
+  void onMouseReleased(float mx, float my) {
+    dragging = false;
+  }
+
+  // ----- Internals -----
+
+  float clampAndStep(float v) {
+    float c = constrain(v, minV, maxV);
+    if (step > 0) {
+      c = round(c / step) * step;
+      // keep inside bounds after rounding
+      c = constrain(c, minV, maxV);
+    }
+    return c;
   }
 }
 

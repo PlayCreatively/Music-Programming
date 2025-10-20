@@ -17,12 +17,14 @@ import java.util.concurrent.*;
 //  - Hover a wire and press DELETE/BACKSPACE to remove it.
 
 Graph graph;
-PShape svg;
+PShape[] svgs;
 Camera2D cam;
 
 float worldMouseX, worldMouseY;
 
 SynthNode osc;
+OscP5 oscP5;
+NetAddress sender;
 
 void runBatOnce() throws Exception {
   ProcessBuilder pb = new ProcessBuilder(
@@ -58,6 +60,12 @@ void setup() {
   // } catch (Exception e) {
   //   e.printStackTrace();
   // }
+
+  
+  // OSC setup
+  oscP5 = new OscP5(this, 12000);
+  sender = new NetAddress("127.0.0.1", 57120); // 57150  57110
+
   
     // Use P2D or FX2D (FX2D = nicest AA + HiDPI text, a bit heavier)
   size(1200, 800, FX2D);      // or: size(1200, 800, FX2D);
@@ -71,19 +79,29 @@ void setup() {
   hint(ENABLE_STROKE_PURE);     // crisper 1px lines on the pixel grid
   textFont(createFont("Inter", 14, true)); // native font for sharper text
   
-  svg = loadShape("mario.svg");
+  svgs = new PShape[2];
+  svgs[0] = loadShape("mario.svg");
+  svgs[1] = loadShape("Odder.svg");
   
   graph = new Graph();
 
   cam = new Camera2D();
 
+
   // Demo nodes
   osc = new SynthNode("sine", 120, 160);
-  osc.addInput("freq", 80);
-  osc.addInput("amp", 0.001);
+  osc.addInput("freq", 80).setRange(40,1440);
+  osc.addInput("amp", 0.001).setRange(0,2);
   osc.addOutput("signal");
 
-  graph.add(new SliderNode("slider", 190, 160));
+  // SynthNode osc2 = new SynthNode("sine", 120, 160);
+  // osc2.addInput("freq", 80);
+  // osc2.addInput("amp", 0.001);
+  // osc2.addOutput("signal");
+  // graph.add(osc2);
+
+  graph.add(new SliderNode("slider", 190, 360));
+  graph.add(new SliderNode("slider", 190, 260));
 
   Node env = new Node("Envelope", 460, 120);
   env.addInput("Gate");
@@ -116,14 +134,32 @@ void draw() {
   pushMatrix();
   cam.apply();          // translate/scale world to screen
   
+  for(int i = 0; i < svgs.length; i++)
+    shape(svgs[i], 100, 300 * i, 200, 200);  // Draw it at position (100,100)
+  
   graph.update();
   graph.draw();
-  shape(svg, 100, 100, 200, 200);  // Draw it at position (100,100)
   
   popMatrix();
 
   // --- UI OVERLAY ---
   drawHud();
+}
+
+void CreateNewSynth(String synthName, NetAddress remoteLocation)
+{
+  // Create a new OSC message, define the address pattern
+  OscMessage msg = new OscMessage("/s_new");
+  
+  // Add arguments (matching what the receiver expects)
+  // Example: instrument name, nodeID, addAction, targetGroup, then params like freq, amp
+  msg.add(synthName);        // instrument name
+  msg.add(0);          // node ID (you can choose or let server auto-assign with 0)
+  msg.add(0);             // addAction (0 = add to head)
+  msg.add(0);             // targetGroup (0 means default)
+  
+  // Send the message
+  oscP5.send(msg, remoteLocation);
 }
 
 void mousePressed()  { 
@@ -146,7 +182,7 @@ void keyPressed()    { graph.keyPressed(key, keyCode); }
 
 void mouseMoved ()
 {
-    osc.set("freq", 40 + (mouseX * 3)); 
+    // osc.set("freq", 40 + (mouseX * 3)); 
 }
 
 PVector mouseWorld() { 
