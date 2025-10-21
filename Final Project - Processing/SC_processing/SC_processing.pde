@@ -9,6 +9,12 @@ import processing.javafx.*; // for FX2D renderer
 import java.io.*;
 import java.util.concurrent.*;
 
+// runtime interpreter (Groovy lang)
+import groovy.lang.GroovyShell;
+
+GroovyShell shell;
+
+
 // --- Minimal Visual Node Graph ---
 // Controls:
 //  - Drag nodes by their title bar.
@@ -60,8 +66,16 @@ void setup() {
   // } catch (Exception e) {
   //   e.printStackTrace();
   // }
-
   
+  shell = new GroovyShell();
+  Object result = shell.evaluate("{ x -> x * x }");
+
+  print("results");
+
+  if (result instanceof Closure) {
+    Closure<?> fn = (Closure<?>) result;
+    println("Result of fn(5): " + fn.call(5));  // prints 25
+  }  
   // OSC setup
   oscP5 = new OscP5(this, 12000);
   sender = new NetAddress("127.0.0.1", 57120); // 57150  57110
@@ -133,7 +147,7 @@ void draw() {
 // --- WORLD ---
   pushMatrix();
   cam.apply();          // translate/scale world to screen
-  
+
   for(int i = 0; i < svgs.length; i++)
     shape(svgs[i], 100, 300 * i, 200, 200);  // Draw it at position (100,100)
   

@@ -405,14 +405,14 @@ class PortInInteractive extends PortIn
     circle(p.x, p.y + yOff, 10);
     textAlign(LEFT, CENTER);
     String vStr = nf(value, 0, decimals) + (unit.length() > 0 ? " " + unit : "");
-    if(hovered || dragging) fill(255, 150, 60);
+    if(hovered || dragging) {fill(255, 150, 60); cursor(loadImage("vertical-resize.png")); }
     else                    fill(20);
     text(label + " : " + vStr, node.x + 18, py);
   }
 
   // ----- Mouse contract (call from your graph/sketch) -----
   boolean onMousePressed(float mx, float my) {
-    if (!hit(mx, my)) return false;
+    if (!hitLabel(mx, my)) return false;
     dragging = true;
     dragStartY = my;
     valueAtPress = value;

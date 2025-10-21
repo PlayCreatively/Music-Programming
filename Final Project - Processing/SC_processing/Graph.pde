@@ -6,6 +6,7 @@ class Graph {
 
   Connection hoverConn = null;
   Node mouseCapture = null;
+  int curCursor = ARROW;
 
   void add(Node n) { nodes.add(n); }
 
@@ -23,6 +24,14 @@ class Graph {
   }
 
   void draw() {
+
+    surface.setCursor(ARROW);
+    // Update cursor
+    if (curCursor != HAND && (hoverConn != null || mouseCapture != null))
+      surface.setCursor(curCursor = HAND);
+    else if (curCursor != ARROW && hoverConn == null && mouseCapture == null)
+      surface.setCursor(curCursor = ARROW);
+
     // Connections first (under nodes)
     stroke(40);
     strokeWeight(2.5);
