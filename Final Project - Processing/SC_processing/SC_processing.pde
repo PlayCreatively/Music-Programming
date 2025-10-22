@@ -108,6 +108,8 @@ void setup() {
   osc.addInput("amp", 0.001).setRange(0,2);
   osc.addOutput("signal");
 
+  graph.add(new GraphFunctionNode("Curve", 80, 80));
+
   // SynthNode osc2 = new SynthNode("sine", 120, 160);
   // osc2.addInput("freq", 80);
   // osc2.addInput("amp", 0.001);

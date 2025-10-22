@@ -62,7 +62,7 @@ class Node {
     // override in subclasses
   }
 
-  boolean onMousePressed(float mx, float my) 
+  boolean onMousePressed(float mx, float my, Graph g) 
   {
     for( PortInInteractive p : inputs) 
       if (p.onMousePressed(mx, my)) 
@@ -79,6 +79,8 @@ class Node {
     for( PortInInteractive p : inputs) 
       p.onMouseReleased(mx, my);
   }
+
+  void onKeyPressed(char k, int keyCode) {}
 
   void beginDrag(float mx, float my) {
     dragging = true;
@@ -325,6 +327,7 @@ class PortIn extends Port
 {
   float value = 0.0;
   Listener listener = null;
+  boolean connected = false;
 
   PortIn(Node n, String label) { super(n, PortKind.INPUT, label); }
 
@@ -479,10 +482,12 @@ class Connection {
     this.out = out;
     this.in = in;
 
+    in.connected = true; 
     out.connections.add(in);
   }
 
   void disconnect() {
+    in.connected = false;
     out.connections.remove(in);
   }
 

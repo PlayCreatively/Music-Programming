@@ -6,7 +6,10 @@ class Graph {
 
   Connection hoverConn = null;
   Node mouseCapture = null;
+  Node keyFocus = null;
   int curCursor = ARROW;
+
+  void setKeyFocus(Node n) { keyFocus = n; }
 
   void add(Node n) { nodes.add(n); }
 
@@ -69,7 +72,7 @@ class Graph {
   // Iterate front-to-back so topmost gets first dibs.
   for (int i = nodes.size()-1; i >= 0; --i) {
     Node n = nodes.get(i);
-    if (n.onMousePressed(m.x, m.y)) {
+    if (n.onMousePressed(m.x, m.y, this)) {
       mouseCapture = n;
       // optionally bring to front if captured
       nodes.remove(i);
@@ -101,6 +104,16 @@ class Graph {
         // bring to front
         nodes.remove(i);
         nodes.add(n);
+        return;
+      }
+    }
+
+    // Try full node hit-test for mouse capture
+    for (int i = nodes.size()-1; i >= 0; --i) 
+    {
+      Node n = nodes.get(i);
+      if (n.onMousePressed(mx, my, this)) {
+        mouseCapture = n;
         return;
       }
     }
@@ -146,10 +159,12 @@ class Graph {
       conns.remove(hoverConn);
       hoverConn = null;
     }
-    if (keyCode == ESC) { // cancel pending wire without quitting sketch
+    else if (keyCode == ESC) { // cancel pending wire without quitting sketch
       key = 0;
       draggingFrom = null;
     }
+
+    else if (keyFocus != null) keyFocus.onKeyPressed(k, keyCode);
   }
 
   void tryConnect(PortOut out, PortIn in) {
