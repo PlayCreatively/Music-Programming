@@ -357,7 +357,7 @@
   "autocompleteAcceptKey": "Tab",
   "allowAdditionalContext": true,
   "enableWordCompletion": false,
-  "lastDismissedVersion": null,
+  "lastDismissedVersion": "3.1.1",
   "passMarkdownImages": true,
   "enableAutonomousAgent": false,
   "enableCustomPromptTemplating": true,
@@ -381,5 +381,6 @@
   "enableRecentConversations": false,
   "maxRecentConversations": 30,
   "enableSavedMemory": false,
-  "enableInlineCitations": true
+  "enableInlineCitations": true,
+  "quickCommandIncludeNoteContext": true
 }
