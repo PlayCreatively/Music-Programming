@@ -1,5 +1,21 @@
+import platform
+import ctypes
+
+from slider import build_custom_slider_theme, CustomSlider
+
+# --- Add this block ---
+# Make the app DPI-aware on Windows
+if platform.system() == "Windows":
+    try:
+        # SetProcessDpiAwareness(2) = Per-Monitor DPI-Aware
+        ctypes.windll.shcore.SetProcessDpiAwareness(2) 
+    except Exception as e:
+        print(f"[Warning] Could not set DPI awareness: {e}")
+# ---------------------
+
+
+
 # pip install dearpygui
-from tkinter import font
 import dearpygui.dearpygui as dpg
 
 PAD_W, PAD_H = 860, 600
@@ -62,7 +78,7 @@ def build_theme():
 			dpg.add_theme_color(dpg.mvThemeCol_Separator, (70,70,70,255))
    
 		with dpg.font_registry():
-			font = dpg.add_font("C:/Windows/Fonts/SegoeUI.ttf", 18)  # or Inter/Roboto
+			font = dpg.add_font("C:/Windows/Fonts/SegoeUI.ttf", 26)  # or Inter/Roboto
    
 	dpg.bind_theme("app_theme")
 	dpg.bind_font(font)
@@ -138,6 +154,9 @@ dpg.create_viewport(title="Slice Explorer UI", width=1280, height=760)
 
 build_theme()
 build_header_theme()
+build_custom_slider_theme()
+dpg.bind_theme("custom_slider_theme")
+
 
 with dpg.window(no_title_bar=True, no_move=True, no_resize=True, pos=(12,12), width=1260, height=736):
 	with dpg.group(horizontal=True):
@@ -154,8 +173,10 @@ with dpg.window(no_title_bar=True, no_move=True, no_resize=True, pos=(12,12), wi
 			# Three sliders with editable min/max labels (stub visuals)
 			for dim in ["freq1","freq2","freq3"]:
 				with dpg.group(horizontal=True):
+					dpg.add_text(dim.capitalize())
+					dpg.add_spacer(width=10)
 					dpg.add_text("0")		  # min label (you'll hook double-click edit)
-					dpg.add_slider_float(label=dim, width=210, min_value=0.0, max_value=1.0, format="")  # hide numeric text
+					dpg.add_slider_float(width=210, min_value=0.0, max_value=1.0, format="")  # hide numeric text
 					dpg.add_text("1")		  # max label
 			dpg.add_separator()
 			pill_button("+")  # add dimension
