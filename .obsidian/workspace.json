@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "READE - Proposal.md",
+                "file": "Notes/Numpy - Structure of Arrays (SoA) vs (AoS).md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "READE - Proposal"
+              "title": "Numpy - Structure of Arrays (SoA) vs (AoS)"
             }
           }
         ]
@@ -183,14 +183,27 @@
   },
   "active": "610289dc12593e8f",
   "lastOpenFiles": [
+    "python version/main.py",
+    "python version/__pycache__/style.cpython-312.pyc",
+    "python version/style.py",
+    "python version/style",
+    "python version/imgui.ini",
+    "python version/__pycache__/globals.cpython-312.pyc",
+    "python version/globals.py",
+    "python version/global.py",
+    "Clippings/ChatGPT.md",
+    "Notes/Numpy - Structure of Arrays (SoA) vs (AoS).md",
+    "Clippings/Sound and Music Programming assessment handbook 2025-26.docx.md",
+    "Clippings/Untitled.md",
     "Notes/Week 3 November - 9 November  Sound and Music Programming (2025)  My Moodle Sites.md",
-    "READE - Proposal.md",
-    "Notes/Project v0.md",
-    "Notes/2025-10-15.md",
-    "Notes/Project 2 - 2D pad Fourier-Transform matrix vector interpolation.md",
-    "Notes/Gram-Schmidt.md",
-    "Notes",
     "Notes/Journal.md",
+    "Notes/2025-10-15.md",
+    "Notes/Untitled.md",
+    "Notes/Gram-Schmidt.md",
+    "Notes/Project v0.md",
+    "Notes/Project 2 - 2D pad Fourier-Transform matrix vector interpolation.md",
+    "READE - Proposal.md",
+    "Notes",
     "attachments/Pasted image 20251104212521.png",
     "Week 2",
     "Notes/quirky interfaces.md",
@@ -209,15 +222,6 @@
     "Sound and Music Programming Proposal Form (ai).md",
     "user.md",
     "attachments",
-    "python version/globalState.py",
-    "python version/globalState",
-    "python version/__pycache__/slider.cpython-312.pyc",
-    "python version/slider.py",
-    "python version/helpers/__pycache__/helper.cpython-312.pyc",
-    "python version/helpers/__pycache__",
-    "python version/helpers/helper.py",
-    "Clippings/Untitled.md",
-    "Clippings/Sound and Music Programming assessment handbook 2025-26.docx.md",
     "Pasted.md",
     "Welcome.md",
     "Untitled.canvas",
@@ -225,9 +229,6 @@
     "Week 4/SOMUP to week 4/SOMUP_handbook_2025-26.md",
     "Week 4/SOMUP to week 4/SOMUP-week4.md",
     "Week 4/SOMUP to week 4/SOMUP lecture 3.md",
-    "Week 4/SOMUP to week 4/SOMUP lecture 2.md",
-    "Week 4/SOMUP to week 4/SOMUP MIDI and OSC.md",
-    "Week 4/Notes.md",
-    "2025-10-21.md"
+    "Week 4/SOMUP to week 4/SOMUP lecture 2.md"
   ]
 }

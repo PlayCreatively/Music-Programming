@@ -1,234 +1,374 @@
-# pip install PySide6 pyqtgraph
-from PySide6 import QtCore, QtGui, QtWidgets
-import pyqtgraph as pg
-import random, itertools
+import platform
+import ctypes
 
-class NDModel(QtCore.QObject):
-    changed = QtCore.Signal()
+# --- DPI awareness (same as your original) ---
+if platform.system() == "Windows":
+    try:
+        ctypes.windll.shcore.SetProcessDpiAwareness(2)
+    except Exception as e:
+        print(f"[Warning] Could not set DPI awareness: {e}")
 
-    def __init__(self):
-        super().__init__()
-        self.dims = {}  # name -> (min,max)
-        self.vectors = {}  # name -> {dim: value}
-        self.palette = itertools.cycle(['#ff4d4d','#5cf2d6','#8aff3b','#ffca28','#bb86fc','#ff66cc','#64b5f6'])
+# --- ImGui + GLFW stack ---
+import glfw
+import OpenGL.GL as gl
+import imgui
+from imgui.integrations.glfw import GlfwRenderer
 
-    def add_dim(self, name, dmin=0.0, dmax=1.0):
-        self.dims[name] = (float(dmin), float(dmax))
-        # backfill missing values in vectors
-        for v in self.vectors.values():
-            v.setdefault(name, (dmin + dmax)/2)
-        self.changed.emit()
+import state as S
+import globals as G
+import style
 
-    def add_vector(self, name=None):
-        if not self.dims: return
-        name = name or f"vec{len(self.vectors)+1}"
-        color = next(self.palette)
-        self.vectors[name] = {dim: random.uniform(*rng) for dim, rng in self.dims.items()}
-        self.vectors[name]['__color'] = color
-        self.changed.emit()
 
-    def delete_vectors(self, names):
-        for n in names:
-            self.vectors.pop(n, None)
-        self.changed.emit()
+# Simple helper for colors: 0–255 -> ImGui RGBA (0–1)
+def rgba_f(r, g, b, a=255):
+    return r / 255.0, g / 255.0, b / 255.0, a / 255.0
 
-class ScatterPad(pg.PlotWidget):
-    pointRightClicked = QtCore.Signal(str)       # vector name
-    pointCtrlClicked = QtCore.Signal(str, bool)  # (vector name, additive)
-    emptyRightClicked = QtCore.Signal(QtCore.QPoint)
 
-    def __init__(self, model: NDModel):
-        super().__init__(background=(30,30,30))
-        self.model = model
-        self.setAspectLocked(True)
-        self.showGrid(x=True, y=True, alpha=0.2)
-        self.getPlotItem().hideButtons()
-        self.scatter = pg.ScatterPlotItem(size=12, pxMode=True, pen=pg.mkPen(width=0))
-        self.addItem(self.scatter)
-        self.scatter.sigClicked.connect(self._on_click)
-        self.scene().sigMouseClicked.connect(self._scene_click)
-        self.x_dim, self.y_dim = None, None
-        self.selected = set()
-        self.model.changed.connect(self.refresh)
+def rgba_u32(r, g, b, a=255):
+    """Convert 0–255 RGBA to ImGui packed color (for draw_list)."""
+    return imgui.get_color_u32_rgba(*rgba_f(r, g, b, a))
 
-    def set_axes(self, xdim, ydim):
-        self.x_dim, self.y_dim = xdim, ydim
-        self.refresh()
+# Drag state for pad circles
+PAD_DRAG = {
+    "active": False,     # whether a drag is in progress
+    "idx": None,         # index of the preset being dragged
+    "start_mouse": (0.0, 0.0),
+    "start_tx_ty": (0.0, 0.0),  # normalized plane coords at drag start
+}
 
-    def refresh(self):
-        if not (self.x_dim and self.y_dim and self.model.dims):
-            self.scatter.setData([])
+def init_state():
+    S.init_space(["freq1", "freq2", "freq3"], n_vectors=0)
+    S.add_preset("Piano", (255, 205, 50))
+    S.add_preset("Fiddle", (255, 105, 150))
+    S.add_preset("Film", (255, 15, 250))
+
+# ---------- PAD DRAWING (ImGui draw list) ----------
+def draw_pad():
+    
+    # Top-left of the pad in screen coordinates
+    pad_x, pad_y = imgui.get_cursor_screen_pos()
+    pad_x2 = pad_x + G.PAD_W
+    pad_y2 = pad_y + G.PAD_H
+
+    draw_list = imgui.get_window_draw_list()
+
+    # Background rounded rectangle
+    bg_col = rgba_u32(36, 36, 36)
+    border_col = rgba_u32(42, 42, 42)
+    draw_list.add_rect_filled(pad_x, pad_y, pad_x2, pad_y2, bg_col, rounding=18)
+    
+    mouse_over_pad = imgui.is_mouse_hovering_rect(pad_x, pad_y, pad_x2, pad_y2)
+    
+    draw_list.add_rect(pad_x, pad_y, pad_x2, pad_y2, border_col, rounding=18, thickness=1.0)
+
+    # Grid dots
+    cols, rows = 12, 8
+    dot_col = rgba_u32(54, 54, 54)
+    for i in range(cols):
+        for j in range(rows):
+            gx = G.PAD_MARGIN + i * (G.PAD_W - 2 * G.PAD_MARGIN) / (cols - 1)
+            gy = G.PAD_MARGIN + j * (G.PAD_H - 2 * G.PAD_MARGIN) / (rows - 1)
+            draw_list.add_circle_filled(pad_x + gx, pad_y + gy, 2.0, dot_col)
+
+    # --- Sample points (your projection) ---
+    presets_2d = S.get_presets_on_plane()  # shape (V, 2)
+    if presets_2d is None:
+        return
+    white = rgba_u32(255, 255, 255)
+    any_hovered = False
+
+    for idx, ((tx, ty), col) in enumerate(zip(presets_2d, S.preset_colors)):
+        x = pad_x + G.PAD_MARGIN + tx * (G.PAD_W - 2 * G.PAD_MARGIN)
+        y = pad_y + G.PAD_MARGIN + (1 - ty) * (G.PAD_H - 2 * G.PAD_MARGIN)
+        
+        selected: bool = idx in S.selection
+        
+        r = 8
+        is_hovered = S.is_cursor_within_circle((x, y), r)
+        if is_hovered:
+            r += 2  # slightly larger on hover
+            any_hovered = True
+        
+        if G.mouse_clicked and is_hovered:
+            S.record_selection(idx)
+        
+        # Drag start: click on a hovered circle
+        if is_hovered and G.mouse_down and not PAD_DRAG["active"]:          
+            if not imgui.get_io().key_ctrl:  # hold Ctrl to multi-select
+                PAD_DRAG["active"] = True
+                PAD_DRAG["dragging"] = False
+                PAD_DRAG["idx"] = idx
+                PAD_DRAG["start_mouse"] = G.mouse_pos
+                PAD_DRAG["start_tx_ty"] = (tx, ty)
+                PAD_DRAG["start_value"] = S.Presets[idx, :].copy()
+
+        # If this preset is the one being dragged, compute new position
+        if PAD_DRAG["active"] and PAD_DRAG["idx"] == idx:
+            if G.mouse_down:
+                mx, my = G.mouse_pos
+                sx, sy = PAD_DRAG["start_mouse"]
+                dx = mx - sx
+                dy = my - sy
+                # Convert pixel delta into normalized pad delta
+                norm_dx = dx / (G.PAD_W - 2 * G.PAD_MARGIN)
+                norm_dy = -dy / (G.PAD_H - 2 * G.PAD_MARGIN)  # Y is inverted
+                new_tx = PAD_DRAG["start_tx_ty"][0] + norm_dx
+                new_ty = PAD_DRAG["start_tx_ty"][1] + norm_dy
+                # clamp 0..1
+                new_tx = min(max(new_tx, 0.0), 1.0)
+                new_ty = min(max(new_ty, 0.0), 1.0)
+                
+                if not PAD_DRAG["dragging"]:
+                    dist_from_start = ((mx - sx) ** 2 + (my - sy) ** 2)
+                    if dist_from_start > 1:
+                        PAD_DRAG["dragging"] = True
+                else:
+                    start_tx, start_ty = PAD_DRAG["start_tx_ty"]
+                    delta_tx, delta_ty = new_tx - start_tx, new_ty - start_ty
+                    U = S.Basis[0, :] * delta_tx
+                    V = S.Basis[1, :] * delta_ty
+                    S.Presets[idx, :] = PAD_DRAG["start_value"] + U + V
+                    
+            else:
+                # mouse released -> end drag
+                PAD_DRAG["active"] = False
+                PAD_DRAG["dragging"] = False
+                PAD_DRAG["idx"] = None
+
+        if selected:
+            # draw a line across the pad at the slider's value
+            if S.hovered_parameter_slider != -1:
+                slope_u, slope_v = S.get_slope_of_parameter_in_plane(S.hovered_parameter_slider)
+                
+                if not (slope_u == 0 and slope_v == 0):
+                    line_col = rgba_u32(255, 130, 0)
+
+                    pad_x_min = pad_x + G.PAD_MARGIN
+                    pad_x_max = pad_x2 - G.PAD_MARGIN
+                    pad_y_min = pad_y + G.PAD_MARGIN
+                    pad_y_max = pad_y + G.PAD_H - G.PAD_MARGIN
+
+                    # y is already an absolute screen coordinate
+                    line_y = y
+
+                    # Avoid division by zero: if slope_u ~ 0, the line is vertical at x
+                    if abs(slope_u) < 1e-8:
+                        draw_list.add_line(x, pad_y_min, x, pad_y_max, line_col, thickness=2.0)
+                    else:
+                        m = -slope_v / slope_u
+                        y1 = line_y + m * (pad_x_min - x)
+                        y2 = line_y + m * (pad_x_max - x)
+                        draw_list.add_line(pad_x_min, y1, pad_x_max, y2, line_col, thickness=2.0)
+            
+            draw_list.add_circle_filled(x, y, r + 3, white)
+
+        cr, cg, cb = col[:3]
+        draw_list.add_circle_filled(x, y, r, rgba_u32(cr, cg, cb))
+
+    dx, dy = G.mouse_pos[0] - (pad_x + G.PAD_MARGIN), G.mouse_pos[1] - (pad_y + G.PAD_MARGIN)
+    mouse_pad_x = dx / (G.PAD_W - 2 * G.PAD_MARGIN)
+    mouse_pad_y = dy / (G.PAD_H - 2 * G.PAD_MARGIN)  # Y is inverted
+    
+    # Mouse is over pad
+    if mouse_over_pad and not any_hovered:
+        if G.mouse_clicked:
+            S.active_preset_value = None
+            S.selection = set()
+        if G.mouse_down:
+            S.active_preset_value = S.get_preset_from_coordinates(mouse_pad_x, 1-mouse_pad_y)
+            
+            
+    if S.selection == set() and S.active_preset_value is not None:
+        x, y = S.project_point_on_plane(S.active_preset_value)
+        px, py = pad_x + G.PAD_MARGIN + x * (G.PAD_W - 2 * G.PAD_MARGIN), pad_y + G.PAD_MARGIN + (1 - y) * (G.PAD_H - 2 * G.PAD_MARGIN)
+        r = 8
+        draw_list.add_circle_filled(px, py, r + 3, white)
+        draw_list.add_circle_filled(px, py, r, rgba_u32(155, 155, 155, 255))
+
+# ---------- RIGHT PANEL HELPERS ----------
+def header(text: str):
+    imgui.text(text)
+    imgui.separator()
+
+
+def draw_preset_row(idx):
+    """Simple horizontal row with a colored bullet and label."""
+    name = S.preset_names[idx]
+    color = S.preset_colors[idx]
+    cr, cg, cb = color[:3]
+    is_selected = idx in S.selection
+
+    imgui.text_colored("o", *(c / 255.0 for c in (cr, cg, cb)), 1.0)
+    imgui.same_line()
+    # Invisible ID: '##' prefix makes the label hidden, but keeps IDs unique.
+    clicked, _ = imgui.selectable(f"{name}##preset_{idx}", is_selected)
+    if clicked:
+        S.record_selection(idx)
+
+def draw_inspector():
+    # Top: current preset + sliders
+    header(S.get_selection_name())
+    
+    if(S.selection is None or len(S.selection) == 0):
+        if S.active_preset_value is None:
+            imgui.text("No preset selected.")
             return
-        xs, ys, brushes, data = [], [], [], []
-        xmin,xmax = self.model.dims[self.x_dim]
-        ymin,ymax = self.model.dims[self.y_dim]
-        for name, vec in self.model.vectors.items():
-            if name.startswith('_'): continue
-            x = vec.get(self.x_dim, (xmin+xmax)/2)
-            y = vec.get(self.y_dim, (ymin+ymax)/2)
-            xs.append(x); ys.append(y)
-            c = vec.get('__color', '#ffffff')
-            sel = name in self.selected
-            brushes.append(pg.mkBrush(QtGui.QColor(c) if not sel else QtGui.QColor('white')))
-            data.append({'name': name})
-        self.scatter.setData(xs, ys, brush=brushes, data=data)
-        self.setXRange(*self.model.dims[self.x_dim], padding=0.05)
-        self.setYRange(*self.model.dims[self.y_dim], padding=0.05)
-
-    def _on_click(self, scatter, points):
-        name = points[0].data()['name']
-        mods = QtWidgets.QApplication.keyboardModifiers()
-        additive = bool(mods & QtCore.Qt.ControlModifier)
-        self.pointCtrlClicked.emit(name, additive)
-
-    def _scene_click(self, ev):
-        if ev.button() == QtCore.Qt.RightButton:
-            items = self.itemsAt(ev.scenePos())
-            if self.scatter in items:
-                # right-click on a point
-                mousePoint = self.getPlotItem().vb.mapSceneToView(ev.scenePos())
-                pts = self.scatter.pointsAt(mousePoint)
-                if pts:
-                    self.pointRightClicked.emit(pts[0].data()['name'])
-                    return
-            self.emptyRightClicked.emit(ev.screenPos().toPoint())
-
-class Main(QtWidgets.QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("N-D Explorer (2D slice)")
-        self.resize(1100, 700)
-        self.model = NDModel()
-
-        # Center: 2D pad
-        self.pad = ScatterPad(self.model)
-        self.setCentralWidget(self.pad)
-
-        # Right dock: vectors list
-        self.vecList = QtWidgets.QListWidget()
-        self.vecList.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
-        vecDock = QtWidgets.QDockWidget("Vectors"); vecDock.setWidget(self.vecList)
-        self.addDockWidget(QtCore.Qt.RightDockWidgetArea, vecDock)
-
-        # Middle dock: selected panel (sliders later)
-        self.selectedPanel = QtWidgets.QListWidget()
-        selDock = QtWidgets.QDockWidget("Selected"); selDock.setWidget(self.selectedPanel)
-        self.addDockWidget(QtCore.Qt.RightDockWidgetArea, selDock)
-
-        # Left dock: dims + controls
-        left = QtWidgets.QWidget(); form = QtWidgets.QFormLayout(left)
-        self.xCombo = QtWidgets.QComboBox(); self.yCombo = QtWidgets.QComboBox()
-        form.addRow("X axis", self.xCombo); form.addRow("Y axis", self.yCombo)
-        self.dimName = QtWidgets.QLineEdit(); self.dmin = QtWidgets.QDoubleSpinBox(); self.dmax = QtWidgets.QDoubleSpinBox()
-        self.dmin.setRange(-1e6,1e6); self.dmax.setRange(-1e6,1e6); self.dmin.setValue(0); self.dmax.setValue(1)
-        addDimBtn = QtWidgets.QPushButton("Add dimension")
-        addVecBtn = QtWidgets.QPushButton("Add vector")
-        form.addRow("Dim name", self.dimName); form.addRow("Min", self.dmin); form.addRow("Max", self.dmax)
-        form.addRow(addDimBtn); form.addRow(addVecBtn)
-        dimDock = QtWidgets.QDockWidget("Axes & Dimensions"); dimDock.setWidget(left)
-        self.addDockWidget(QtCore.Qt.LeftDockWidgetArea, dimDock)
-
-        # Signals
-        addDimBtn.clicked.connect(self.add_dim)
-        addVecBtn.clicked.connect(self.add_vec)
-        self.xCombo.currentTextChanged.connect(self._axes_changed)
-        self.yCombo.currentTextChanged.connect(self._axes_changed)
-        self.model.changed.connect(self._rebuild_ui)
-        self.pad.pointCtrlClicked.connect(self._toggle_selection)
-        self.pad.pointRightClicked.connect(self._point_context)
-        self.pad.emptyRightClicked.connect(self._empty_context)
-        self.vecList.itemSelectionChanged.connect(self._sync_from_list)
-
-        # Keyboard delete
-        self.shortDel = QtGui.QShortcut(QtGui.QKeySequence.Delete, self, activated=self._delete_selected)
-
-        # Seed a couple of dims + vectors to see something
-        for nm, lo, hi in [("freq1",0,1),("freq2",0,1),("freq3",0,1)]:
-            self.model.add_dim(nm, lo, hi)
-        for _ in range(6): self.model.add_vector()
-        self._rebuild_ui()
-        self.xCombo.setCurrentText("freq1"); self.yCombo.setCurrentText("freq2")
-
-    # UI actions
-    def add_dim(self):
-        name = self.dimName.text().strip()
-        if not name or name in self.model.dims: return
-        self.model.add_dim(name, self.dmin.value(), self.dmax.value())
-        self.dimName.clear()
-
-    def add_vec(self):
-        self.model.add_vector()
-
-    def _axes_changed(self):
-        self.pad.set_axes(self.xCombo.currentText(), self.yCombo.currentText())
-
-    def _rebuild_ui(self):
-        # combos
-        dims = list(self.model.dims.keys())
-        with QtCore.QSignalBlocker(self.xCombo):
-            self.xCombo.clear(); self.xCombo.addItems(dims)
-        with QtCore.QSignalBlocker(self.yCombo):
-            self.yCombo.clear(); self.yCombo.addItems(dims)
-        # vectors list
-        with QtCore.QSignalBlocker(self.vecList):
-            self.vecList.clear()
-            for name in self.model.vectors.keys():
-                if name.startswith('_'): continue
-                item = QtWidgets.QListWidgetItem(name)
-                self.vecList.addItem(item)
-                item.setSelected(name in self.pad.selected)
-        # selected panel
-        self.selectedPanel.clear()
-        for n in sorted(self.pad.selected):
-            self.selectedPanel.addItem(n)
-        self.pad.refresh()
-
-    def _toggle_selection(self, name, additive):
-        if not additive:
-            self.pad.selected = {name}
         else:
-            if name in self.pad.selected: self.pad.selected.remove(name)
-            else: self.pad.selected.add(name)
-        self._rebuild_ui()
+            selected_preset = S.active_preset_value
+    elif(len(S.selection) == 3):
+        # Button to create a new plane projection from three selected presets
+        if imgui.button("Define plane from these 3 presets"):
+            S.assign_basis_from_three_presets(list(S.selection))
+        
+        return
+    elif(len(S.selection) > 1):
+        imgui.text("Multiple presets selected.")
+        return
+    
+    else:
+        selected_idx = next(iter(S.selection))
+        selected_preset = S.Presets[selected_idx, :]
 
-    def _sync_from_list(self):
-        self.pad.selected = {i.text() for i in self.vecList.selectedItems()}
-        self._rebuild_ui()
+    any_hovered = False
+    
+    for i in range(len(S.param_names)):
+        param = S.param_names[i]
+        min = S.mins[i]
+        max = S.maxs[i] 
+        
+        
+        imgui.text(param.capitalize())
+        imgui.same_line()
 
-    # Context menus
-    def _point_context(self, name):
-        menu = QtWidgets.QMenu(self)
-        actRename = menu.addAction("Rename…")
-        actDup = menu.addAction("Duplicate")
-        actDel = menu.addAction("Delete")
-        chosen = menu.exec(QtGui.QCursor.pos())
-        if chosen == actRename:
-            new, ok = QtWidgets.QInputDialog.getText(self, "Rename", "New name:", text=name)
-            if ok and new and new not in self.model.vectors:
-                self.model.vectors[new] = self.model.vectors.pop(name)
-                self.pad.selected = {new if s==name else s for s in self.pad.selected}
-                self.model.changed.emit()
-        elif chosen == actDup:
-            base = name + "_copy"
-            i=1
-            while f"{base}{i}" in self.model.vectors: i+=1
-            self.model.vectors[f"{base}{i}"] = dict(self.model.vectors[name])
-            self.model.changed.emit()
-        elif chosen == actDel:
-            self.model.delete_vectors([name])
+        imgui.text(str(min))
+        imgui.same_line()
+        
+        inspecting_unsaved_point: bool = (S.selection == set() and S.active_preset_value is not None)
 
-    def _empty_context(self, screenPos):
-        menu = QtWidgets.QMenu(self)
-        menu.addAction("Add vector", self.add_vec)
-        menu.exec(screenPos)
+        # Keep the slider compact and ID separate from label with '##'
+        changed, new_val = imgui.slider_float(
+            f"##{param}_slider",  # ImGui ID (label part hidden by '##')
+            selected_preset[i] if not inspecting_unsaved_point else S.active_preset_value[i],
+            min,
+            max,
+            ""  # empty format string -> no numeric text displayed
+        )
 
-    def _delete_selected(self):
-        if self.pad.selected:
-            self.model.delete_vectors(list(self.pad.selected))
-            self.pad.selected.clear()
+        # Check if the last item (this slider) is hovered
+
+        if imgui.is_item_hovered() | imgui.is_item_active():
+            any_hovered = True
+            S.hovered_parameter_slider = i
+        if changed:
+            if inspecting_unsaved_point: # unsaved active preset
+                S.active_preset_value[i] = new_val
+            else:
+                S.Presets[selected_idx, i] = new_val
+
+        imgui.same_line()
+        imgui.text(str(max))
+
+    if not any_hovered:
+        S.hovered_parameter_slider = -1
+    
+    # "Add dimension" pill button
+    if imgui.button("+##add_parameter", width=26, height=26):
+        S.add_parameter(f"param{len(S.param_names)+1}")
+
+
+def draw_presets():
+        # Bottom: presets list
+    header("Presets")
+    for idx in range(len(S.preset_names)):
+        draw_preset_row(idx)
+    
+    if S.selection == set() and S.active_preset_value is not None:
+        # "Add preset" pill button
+        if imgui.button("+##add_preset", width=26, height=26):
+            print("Added new preset from unsaved active preset.")
+            S.add_preset(f"preset {len(S.preset_names)+1}", value=S.active_preset_value)
+
+# ---------- MAIN WINDOW BUILD ----------
+def draw_main_window():
+    # Fix position & size so it roughly matches your original layout
+    imgui.set_next_window_position(12, 12)
+    imgui.set_next_window_size(1260, 736)
+
+    flags = (
+        imgui.WINDOW_NO_TITLE_BAR
+        | imgui.WINDOW_NO_MOVE
+        | imgui.WINDOW_NO_RESIZE
+    )
+
+    imgui.begin("Slice Explorer UI", flags=flags)
+
+    # LEFT: pad
+    imgui.begin_child("pad_child", width=G.PAD_W, height=G.PAD_H, border=False)
+    draw_pad()
+    imgui.end_child()
+
+    imgui.same_line()
+
+    # RIGHT: panel
+    imgui.begin_child("right_panel", width=340, height=G.PAD_H, border=False)
+    draw_inspector()
+    imgui.spacing()
+    imgui.spacing()
+    draw_presets()
+    imgui.end_child()
+
+    imgui.end()
+
+
+# ---------- GLFW + ImGui loop ----------
+def create_window():
+    if not glfw.init():
+        raise SystemExit("Could not initialize GLFW")
+
+    # Basic OpenGL setup (pyimgui docs pattern)
+    glfw.window_hint(glfw.CONTEXT_VERSION_MAJOR, 3)
+    glfw.window_hint(glfw.CONTEXT_VERSION_MINOR, 3)
+    glfw.window_hint(glfw.OPENGL_PROFILE, glfw.OPENGL_CORE_PROFILE)
+    glfw.window_hint(glfw.OPENGL_FORWARD_COMPAT, gl.GL_TRUE)
+
+    window = glfw.create_window(1280, 760, "Slice Explorer UI", None, None)
+    if not window:
+        glfw.terminate()
+        raise SystemExit("Could not create window")
+
+    glfw.make_context_current(window)
+    return window
+
+
+def main():
+    init_state()
+
+    window = create_window()
+
+    imgui.create_context()
+    style.setup_style()
+    impl = GlfwRenderer(window)
+
+    gl.glClearColor(0.1, 0.1, 0.1, 1.0)
+
+    # Main frame loop: everything is rebuilt every iteration.
+    while not glfw.window_should_close(window):
+        glfw.poll_events()
+        impl.process_inputs()
+
+        imgui.new_frame()
+        G.update_globals()
+
+        draw_main_window()
+
+        # Render
+        gl.glClear(gl.GL_COLOR_BUFFER_BIT)
+        imgui.render()
+        impl.render(imgui.get_draw_data())
+        glfw.swap_buffers(window)
+
+    impl.shutdown()
+    glfw.terminate()
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication([])
-    pg.setConfigOptions(antialias=True)
-    w = Main(); w.show()
-    app.exec()
+    main()
