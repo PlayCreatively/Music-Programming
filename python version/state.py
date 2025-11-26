@@ -20,7 +20,7 @@ Presets: np.ndarray # shape (V, D) | [Preset Index] -> Preset vector
 
 # 2D basis for the current slice
 Basis: np.ndarray # shape (2, D) | [Basis Vector Index "U,V"] -> Basis vector
-SliceOrigin: np.ndarray | None = None # shape (D,) | Origin point of the slice in unit space
+Slice_origin: np.ndarray | None = None # shape (D,) | Origin point of the slice in unit space
 
 # Names + colors per vector
 preset_names: list[str] = [] # len V
@@ -47,7 +47,7 @@ active_preset_value: np.ndarray | None = None
 # ---------- simple helpers ----------
 def init_space(dims: list[str], n_vectors: int = 0):
     """Initialize global space with given dimensions and optional empty vectors."""
-    global param_names, mins, maxs, Basis, SliceOrigin, Presets, preset_names, preset_colors
+    global param_names, mins, maxs, Basis, Slice_origin, Presets, preset_names, preset_colors
     param_names = list(dims)
     param_names = list(dims)
     D = len(param_names)
@@ -70,10 +70,10 @@ def init_space(dims: list[str], n_vectors: int = 0):
         Basis = np.zeros((2, D), dtype=float)
         Basis[0, 0] = 1.0  # x axis = dim 0
         Basis[1, 1] = 1.0  # y axis = dim 1
-        SliceOrigin = np.zeros(D, dtype=float)
+        Slice_origin = np.zeros(D, dtype=float)
     else:
         Basis = np.zeros((2, D), dtype=float)
-        SliceOrigin = np.zeros(D, dtype=float)
+        Slice_origin = np.zeros(D, dtype=float)
 
 def add_preset(name: str, color: tuple[int,int,int] = None, value: np.ndarray = None) -> int:
     """Append a new vector at the midpoint of each dimension. Returns its index."""
@@ -99,7 +99,7 @@ def add_preset(name: str, color: tuple[int,int,int] = None, value: np.ndarray = 
 
 def add_parameter(name: str, vmin: float = 0.0, vmax: float = 1.0):
     """Append a new dimension to all vectors and update mins/maxs/B."""
-    global param_names, mins, maxs, Presets, Basis, SliceOrigin, active_preset_value
+    global param_names, mins, maxs, Presets, Basis, Slice_origin, active_preset_value
     param_names.append(name)
     D_new = len(param_names)
 
@@ -125,10 +125,10 @@ def add_parameter(name: str, vmin: float = 0.0, vmax: float = 1.0):
         extra_col = np.zeros((2, 1), dtype=float)
         Basis = np.hstack([Basis, extra_col])
         
-    if SliceOrigin is None:
-        SliceOrigin = np.zeros(D_new, dtype=float)
+    if Slice_origin is None:
+        Slice_origin = np.zeros(D_new, dtype=float)
     else:
-        SliceOrigin = np.concatenate([SliceOrigin, [0.0]])
+        Slice_origin = np.concatenate([Slice_origin, [0.0]])
         
     if active_preset_value is not None:
         # extend active_preset_value by one dimension with the midpoint
@@ -144,7 +144,7 @@ def get_preset(i: int) -> np.ndarray: # shape (D,)
 def get_preset_from_coordinates(u: float, v: float) -> np.ndarray:
     """Return the high-D vector at given (u,v) coordinates on the current 2D plane."""
     assert Basis is not None
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    origin = Slice_origin if Slice_origin is not None else np.zeros(len(param_names))
     unit_point = origin + u * Basis[0, :] + v * Basis[1, :]
     point = from_unit(unit_point, mins, maxs)
     return point
@@ -152,7 +152,7 @@ def get_preset_from_coordinates(u: float, v: float) -> np.ndarray:
 def get_unit_from_coordinates(u: float, v: float) -> np.ndarray:
     """Return the high-D unit vector at given (u,v) coordinates."""
     assert Basis is not None
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    origin = Slice_origin if Slice_origin is not None else np.zeros(len(param_names))
     return origin + u * Basis[0, :] + v * Basis[1, :]
 
 def is_point_valid(u: float, v: float) -> bool:
@@ -172,7 +172,7 @@ def get_slice_polygon_vertices() -> list[tuple[float, float]]:
     limit = np.sqrt(len(param_names)) * 2.0
     poly = [(-limit, -limit), (limit, -limit), (limit, limit), (-limit, limit)]
     
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    origin = Slice_origin if Slice_origin is not None else np.zeros(len(param_names))
     
     # Helper to clip polygon by line ax + by + c <= 0
     def clip(poly_in, a, b, c):
@@ -283,7 +283,7 @@ def update_preset_on_plane(preset: int, u: float, v: float):
     
     # Calculate movement vector in the plane to reach (u,v)
     # We preserve the off-plane components of the vector.
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    origin = Slice_origin if Slice_origin is not None else np.zeros(len(param_names))
     
     # Current projection u,v
     cur_u = np.dot(current_unit - origin, Basis[0])
@@ -306,7 +306,7 @@ def get_presets_on_plane() -> tuple[np.ndarray, np.ndarray]: # shape (V,2), (V,)
     assert Basis is not None and Presets is not None
     unit_presets = to_unit(Presets, mins, maxs)
     
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    origin = Slice_origin if Slice_origin is not None else np.zeros(len(param_names))
     
     # Project relative to slice origin
     # P_proj = (P - Origin) . Basis^T
@@ -327,7 +327,7 @@ def project_point_on_plane(point: np.ndarray) -> tuple[np.ndarray, np.ndarray]: 
     assert Basis is not None and Presets is not None
     unit_presets = to_unit(point, mins, maxs)
     
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    origin = Slice_origin if Slice_origin is not None else np.zeros(len(param_names))
     
     Presets_2D = (unit_presets - origin) @ Basis.T
     
@@ -386,20 +386,20 @@ def get_slope_of_parameter_in_plane(param_idx: int) -> tuple[float,float]:
 # Build basis
 
 def assign_parameters_to_basis(x_param: int, y_param: int):
-    global Basis, SliceOrigin
+    global Basis, Slice_origin
     D = len(param_names)
     Basis = np.zeros((2, D), float)
     Basis[0, x_param] = 1.0
     Basis[1, y_param] = 1.0
-    SliceOrigin = np.zeros(D, float) # Axis views usually start at origin
+    Slice_origin = np.zeros(D, float) # Axis views usually start at origin
 
 # QR decomposition version
 def assign_basis_from_three_points(p1, p2, p3):
-    global Basis, SliceOrigin
+    global Basis, Slice_origin
     A = np.stack([p2 - p1, p3 - p1], axis=1)  # (D,2)
     Q, R = np.linalg.qr(A)
     Basis = Q.T  # (2,D), columns are orthonormal
-    SliceOrigin = (p1 + p2 + p3) / 3.0  # Center the slice at the centroid of the three points
+    Slice_origin = (p1 + p2 + p3) / 3.0  # Center the slice at the centroid of the three points
     
 def assign_basis_from_three_presets(presets: list[int]):
     global Basis

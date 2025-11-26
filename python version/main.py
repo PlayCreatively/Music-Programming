@@ -286,7 +286,6 @@ def draw_pad():
             dist_inv = 1.0 - dist
             dist_inv = round(dist_inv ** 5, 5)  # emphasize closeness
             
-            print(dist_inv)
             draw_list.add_circle_filled(x, y, (r + 3) * dist_inv, white)
 
         dist_inv = 1.0 - dist

@@ -48,7 +48,8 @@ DEFAULT_DX7_SPEC = {
     "lfo_delay": { "range": [0.0, 3.0] },
     "pitch_mod_depth": { "range": [0, 99] },
     "amp_mod_depth": { "range": [0, 42] },
-    "pitch_eg_levels": { "range": [-48, 48] }
+    "pitch_eg_levels": { "range": [-48, 48] },
+    "wiring": { "range": [0.0, 12.57] } # [0..4pi]
   },
   "operator": {
     "frequency_ratio_mode": { "range": [0.5, 31.99] },
@@ -113,9 +114,11 @@ def load_dx7_json(file_path):
             maxs.append(rmax)
 
     # 2. Matrix
+    wiring_spec = glob_spec.get("wiring", DEFAULT_DX7_SPEC["global"]["wiring"])
+    w_min, w_max = parse_range(wiring_spec["range"])
     for i in range(SIZE_MATRIX):
         dims.append(f"wiring_{i}")
-        mins.append(0.0); maxs.append(7.0)
+        mins.append(w_min); maxs.append(w_max)
 
     # 3. Mixer
     for i in range(SIZE_MIXER):
@@ -195,6 +198,18 @@ def load_dx7_json(file_path):
                 vector.append(float(stage_data['level']))
 
         col_tuple = get_color_from_name(p_name)
+
+        # Validate bounds before adding
+        v_arr = np.array(vector)
+        # Use a small epsilon for floating point comparisons
+        violations = np.where((v_arr < S.mins - 1e-5) | (v_arr > S.maxs + 1e-5))[0]
+        if len(violations) > 0:
+            idx = violations[0]
+            param = S.param_names[idx]
+            val = v_arr[idx]
+            mn, mx = S.mins[idx], S.maxs[idx]
+            raise AssertionError(f"Preset '{p_name}' param '{param}' value {val} is out of bounds [{mn}, {mx}]")
+
         S.add_preset(p_name, color=col_tuple, value=np.array([vector]))
     
     print(f"Loaded {len(S.preset_names)} presets.")
