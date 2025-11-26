@@ -65,25 +65,78 @@ def draw_pad():
     
     draw_list.add_rect(pad_x, pad_y, pad_x2, pad_y2, border_col, rounding=18, thickness=1.0)
 
+    # --- Coordinate Transforms ---
+    pad_inner_w = G.PAD_W - 2 * G.PAD_MARGIN
+    pad_inner_h = G.PAD_H - 2 * G.PAD_MARGIN
+    
+    def unit_to_screen(u, v):
+        su = (u + S.pad_offset[0]) * S.pad_zoom
+        sv = ((1.0 - v) + S.pad_offset[1]) * S.pad_zoom
+        sx = pad_x + G.PAD_MARGIN + su * pad_inner_w
+        sy = pad_y + G.PAD_MARGIN + sv * pad_inner_h
+        return sx, sy
+
+    def screen_to_unit(sx, sy):
+        su = (sx - (pad_x + G.PAD_MARGIN)) / pad_inner_w
+        sv = (sy - (pad_y + G.PAD_MARGIN)) / pad_inner_h
+        u = su / S.pad_zoom - S.pad_offset[0]
+        v = 1.0 - (sv / S.pad_zoom - S.pad_offset[1])
+        return u, v
+
+    # --- Pan & Zoom Interaction ---
+    io = imgui.get_io()
+    if mouse_over_pad:
+        # Zoom
+        if io.mouse_wheel != 0:
+            zoom_factor = 1.1 if io.mouse_wheel > 0 else 0.9
+            mx, my = G.mouse_pos
+            u_mouse, v_mouse = screen_to_unit(mx, my)
+            
+            S.pad_zoom *= zoom_factor
+            
+            # Adjust offset to keep mouse point stable
+            su = (mx - (pad_x + G.PAD_MARGIN)) / pad_inner_w
+            sv = (my - (pad_y + G.PAD_MARGIN)) / pad_inner_h
+            
+            new_off_x = su / S.pad_zoom - u_mouse
+            new_off_y = sv / S.pad_zoom - (1.0 - v_mouse)
+            S.pad_offset = (new_off_x, new_off_y)
+
+        # Pan (Right Mouse or Middle Mouse)
+        if imgui.is_mouse_down(1) or imgui.is_mouse_down(2):
+            dx, dy = io.mouse_delta
+            S.pad_offset = (
+                S.pad_offset[0] + dx / (pad_inner_w * S.pad_zoom),
+                S.pad_offset[1] + dy / (pad_inner_h * S.pad_zoom)
+            )
+
+    # Clip drawing to pad area
+    draw_list.push_clip_rect(pad_x, pad_y, pad_x2, pad_y2, True)
+
     # Grid dots
     cols, rows = 12, 8
     dot_col = rgba_u32(54, 54, 54)
     for i in range(cols):
         for j in range(rows):
-            gx = G.PAD_MARGIN + i * (G.PAD_W - 2 * G.PAD_MARGIN) / (cols - 1)
-            gy = G.PAD_MARGIN + j * (G.PAD_H - 2 * G.PAD_MARGIN) / (rows - 1)
-            draw_list.add_circle_filled(pad_x + gx, pad_y + gy, 2.0, dot_col)
+            u = i / (cols - 1)
+            v = j / (rows - 1) # 0..1 (visual top-down)
+            # Map visual grid to unit space? 
+            # Let's assume grid is 0..1 in unit space.
+            # j=0 is top, so v=1? 
+            # Let's just draw a grid in unit space 0..1
+            sx, sy = unit_to_screen(u, 1.0 - v)
+            draw_list.add_circle_filled(sx, sy, 2.0, dot_col)
 
     # --- Sample points (your projection) ---
-    presets_2d = S.get_presets_on_plane()  # shape (V, 2)
+    presets_2d, dists = S.get_presets_on_plane()  # shape (V, 2)
     if presets_2d is None:
+        draw_list.pop_clip_rect()
         return
     white = rgba_u32(255, 255, 255)
     any_hovered = False
 
-    for idx, ((tx, ty), col) in enumerate(zip(presets_2d, S.preset_colors)):
-        x = pad_x + G.PAD_MARGIN + tx * (G.PAD_W - 2 * G.PAD_MARGIN)
-        y = pad_y + G.PAD_MARGIN + (1 - ty) * (G.PAD_H - 2 * G.PAD_MARGIN)
+    for idx, ((tx, ty), dist, col) in enumerate(zip(presets_2d, dists, S.preset_colors)):
+        x, y = unit_to_screen(tx, ty)
         
         selected: bool = idx in S.selection
         
@@ -113,9 +166,11 @@ def draw_pad():
                 sx, sy = PAD_DRAG["start_mouse"]
                 dx = mx - sx
                 dy = my - sy
-                # Convert pixel delta into normalized pad delta
-                norm_dx = dx / (G.PAD_W - 2 * G.PAD_MARGIN)
-                norm_dy = -dy / (G.PAD_H - 2 * G.PAD_MARGIN)  # Y is inverted
+                
+                # Convert pixel delta into normalized pad delta (taking zoom into account)
+                norm_dx = dx / (pad_inner_w * S.pad_zoom)
+                norm_dy = -dy / (pad_inner_h * S.pad_zoom)  # Y is inverted
+                
                 new_tx = PAD_DRAG["start_tx_ty"][0] + norm_dx
                 new_ty = PAD_DRAG["start_tx_ty"][1] + norm_dy
                 # clamp 0..1
@@ -144,10 +199,10 @@ def draw_pad():
                     movement_nd = (S.Basis[0, :] * delta_tx) + (S.Basis[1, :] * delta_ty)
 
                     # D. Apply movement
-                    new_norm = start_norm + movement_nd
+                    target_norm = start_norm + movement_nd
 
-                    # E. Clamp values to valid 0.0-1.0 range (Optional but recommended)
-                    new_norm = np.clip(new_norm, 0.0, 1.0)
+                    # E. Clamp values to valid 0.0-1.0 range using ray casting to stop at edges
+                    new_norm = S.clamp_movement(start_norm, target_norm)
 
                     # F. Convert back to Real Units
                     S.Presets[idx, :] = S.from_unit(new_norm, S.mins, S.maxs)
@@ -166,31 +221,32 @@ def draw_pad():
                 if not (slope_u == 0 and slope_v == 0):
                     line_col = rgba_u32(255, 130, 0)
 
-                    pad_x_min = pad_x + G.PAD_MARGIN
-                    pad_x_max = pad_x2 - G.PAD_MARGIN
-                    pad_y_min = pad_y + G.PAD_MARGIN
-                    pad_y_max = pad_y + G.PAD_H - G.PAD_MARGIN
-
-                    # y is already an absolute screen coordinate
-                    line_y = y
-
-                    # Avoid division by zero: if slope_u ~ 0, the line is vertical at x
+                    # Draw line passing through (tx, ty) with slope m
+                    # v - ty = m * (u - tx)
+                    # We pick two points far away to ensure they cover the view
+                    u1, u2 = -100.0, 100.0
+                    
                     if abs(slope_u) < 1e-8:
-                        draw_list.add_line(x, pad_y_min, x, pad_y_max, line_col, thickness=2.0)
+                        # Vertical line at u = tx
+                        sx1, sy1 = unit_to_screen(tx, -100.0)
+                        sx2, sy2 = unit_to_screen(tx, 100.0)
                     else:
                         m = -slope_v / slope_u
-                        y1 = line_y + m * (pad_x_min - x)
-                        y2 = line_y + m * (pad_x_max - x)
-                        draw_list.add_line(pad_x_min, y1, pad_x_max, y2, line_col, thickness=2.0)
+                        v1 = ty + m * (u1 - tx)
+                        v2 = ty + m * (u2 - tx)
+                        sx1, sy1 = unit_to_screen(u1, v1)
+                        sx2, sy2 = unit_to_screen(u2, v2)
+                        
+                    draw_list.add_line(sx1, sy1, sx2, sy2, line_col, thickness=2.0)
             
-            draw_list.add_circle_filled(x, y, r + 3, white)
+            print(dist)
+            draw_list.add_circle_filled(x, y, r + 3, rgba_u32(255, 255, 255, 255 * (1-dist)))
 
         cr, cg, cb = col[:3]
-        draw_list.add_circle_filled(x, y, r, rgba_u32(cr, cg, cb))
+        draw_list.add_circle_filled(x, y, r, rgba_u32(cr, cg, cb, 255 * (1-dist)))
 
-    dx, dy = G.mouse_pos[0] - (pad_x + G.PAD_MARGIN), G.mouse_pos[1] - (pad_y + G.PAD_MARGIN)
-    mouse_pad_x = dx / (G.PAD_W - 2 * G.PAD_MARGIN)
-    mouse_pad_y = dy / (G.PAD_H - 2 * G.PAD_MARGIN)  # Y is inverted
+    # Mouse interaction for creating/selecting
+    mouse_pad_x, mouse_pad_y = screen_to_unit(G.mouse_pos[0], G.mouse_pos[1])
     
     # Mouse is over pad
     if mouse_over_pad and not any_hovered:
@@ -198,15 +254,17 @@ def draw_pad():
             S.active_preset_value = None
             S.selection = set()
         if G.mouse_down:
-            S.active_preset_value = S.get_preset_from_coordinates(mouse_pad_x, 1-mouse_pad_y)
+            S.active_preset_value = S.get_preset_from_coordinates(mouse_pad_x, mouse_pad_y)
             
             
     if S.selection == set() and S.active_preset_value is not None:
-        x, y = S.project_point_on_plane(S.active_preset_value)
-        px, py = pad_x + G.PAD_MARGIN + x * (G.PAD_W - 2 * G.PAD_MARGIN), pad_y + G.PAD_MARGIN + (1 - y) * (G.PAD_H - 2 * G.PAD_MARGIN)
+        (x, y), _ = S.project_point_on_plane(S.active_preset_value)
+        px, py = unit_to_screen(x, y)
         r = 8
         draw_list.add_circle_filled(px, py, r + 3, white)
         draw_list.add_circle_filled(px, py, r, rgba_u32(155, 155, 155, 255))
+        
+    draw_list.pop_clip_rect()
 
 # ---------- RIGHT PANEL HELPERS ----------
 def header(text: str):

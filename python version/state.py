@@ -150,27 +150,91 @@ def update_preset_parameter(preset: str, param: str, value: float):
     assert preset_names is not None and param_names is not None
     update_preset_parameter_index(preset_names.index(preset), param_names.index(param), value)
 
+def clamp_movement(start: np.ndarray, end: np.ndarray) -> np.ndarray:
+    """
+    Return the point on the segment [start, end] that is closest to end
+    while remaining within the unit hypercube [0, 1]^D.
+    """
+    direction = end - start
+    t_max = 1.0
+    epsilon = 1e-9
+    
+    for i in range(len(start)):
+        d = direction[i]
+        s = start[i]
+        
+        if abs(d) < epsilon:
+            continue
+            
+        if d > 0:
+            # Moving towards 1
+            t = (1.0 - s) / d
+        else:
+            # Moving towards 0
+            t = (0.0 - s) / d
+            
+        if t < t_max:
+            # We only care about t >= 0, but if we are slightly out of bounds
+            # and moving in, t might be negative? 
+            # If s=1.1, d=-0.1 (moving in), t=(0-1.1)/-0.1 = 11.
+            # If s=1.1, d=0.1 (moving out), t=(1-1.1)/0.1 = -1.
+            # We want to restrict movement that goes OUT of bounds.
+            # If we are already out, and moving further out, t < 0.
+            # If we are out and moving in, t > 1 (for the far wall) or t large.
+            
+            # Simple logic: we want the smallest positive t that hits a boundary.
+            # But we also want to handle the case where we are already out?
+            # Assuming start is valid [0,1].
+            if t >= 0:
+                t_max = t
+            
+    t_max = max(0.0, min(t_max, 1.0))
+    return start + t_max * direction
+
 def update_preset_on_plane(preset: int, u: float, v: float):
     """Update the preset vector to lie on the current 2D plane at (u,v) coords."""
     assert Basis is not None and Presets is not None
-    updated_unit_point = u * Basis[0, :] + v * Basis[1, :]
-    updated_point = from_unit(updated_unit_point, mins, maxs)
+    
+    current_unit = to_unit(Presets[preset], mins, maxs)
+    target_unit = u * Basis[0, :] + v * Basis[1, :]
+    
+    # Restrict movement to bounds
+    final_unit = clamp_movement(current_unit, target_unit)
+    
+    updated_point = from_unit(final_unit, mins, maxs)
     Presets[preset, :] = updated_point
     
-def get_presets_on_plane() -> np.ndarray: # shape (V,D)
+def get_presets_on_plane() -> tuple[np.ndarray, np.ndarray]: # shape (V,2), (V,)
     """Return all preset vectors projected onto the current 2D plane at (u,v) coords."""
     assert Basis is not None and Presets is not None
     unit_presets = to_unit(Presets, mins, maxs)
     Presets_2D = unit_presets @ Basis.T
-    return Presets_2D
+    
+    # Calculate distance to plane in unit space
+    projected_back = Presets_2D @ Basis # To measure distance in the original D‑dimensional space we must reconstruct the corresponding D‑dimensional point that lies on the plane and compare that to the original preset.
+    diff = unit_presets - projected_back
+    dists = np.linalg.norm(diff, axis=1)
+    MAX_DIST = np.sqrt(len(param_names))  # max possible distance in unit space
+    dists = np.clip(dists / MAX_DIST, 0.0, 1.0)  # normalize to 0..1
+    
+    return Presets_2D, dists
 
-def project_point_on_plane(point: np.ndarray) -> np.ndarray: # shape (V,D)
+def project_point_on_plane(point: np.ndarray) -> tuple[np.ndarray, np.ndarray]: # shape (V,D)
     """Return all preset vectors projected onto the current 2D plane at (u,v) coords."""
     assert Basis is not None and Presets is not None
     unit_presets = to_unit(point, mins, maxs)
     Presets_2D = unit_presets @ Basis.T
-    return Presets_2D
     
+    # Calculate distance to plane in unit space
+    projected_back = Presets_2D @ Basis # To measure distance in the original D‑dimensional space we must reconstruct the corresponding D‑dimensional point that lies on the plane and compare that to the original preset.
+    diff = unit_presets - projected_back
+    
+    if diff.ndim == 1:
+        dists = np.linalg.norm(diff)
+    else:
+        dists = np.linalg.norm(diff, axis=1)
+        
+    return Presets_2D, dists
 def get_selection_name() -> str:
     """Return the names of all currently selected presets."""
     assert preset_names is not None
