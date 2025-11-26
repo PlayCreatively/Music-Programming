@@ -20,6 +20,7 @@ Presets: np.ndarray # shape (V, D) | [Preset Index] -> Preset vector
 
 # 2D basis for the current slice
 Basis: np.ndarray # shape (2, D) | [Basis Vector Index "U,V"] -> Basis vector
+SliceOrigin: np.ndarray | None = None # shape (D,) | The anchor point of the plane in unit space
 
 # Names + colors per vector
 preset_names: list[str] = [] # len V
@@ -46,7 +47,7 @@ active_preset_value: np.ndarray | None = None
 # ---------- simple helpers ----------
 def init_space(dims: list[str], n_vectors: int = 0):
     """Initialize global space with given dimensions and optional empty vectors."""
-    global param_names, mins, maxs, Basis, Presets, preset_names, preset_colors
+    global param_names, mins, maxs, Basis, SliceOrigin, Presets, preset_names, preset_colors
     param_names = list(dims)
     param_names = list(dims)
     D = len(param_names)
@@ -71,6 +72,8 @@ def init_space(dims: list[str], n_vectors: int = 0):
         Basis[1, 1] = 1.0  # y axis = dim 1
     else:
         Basis = np.zeros((2, D), dtype=float)
+        
+    SliceOrigin = np.zeros(D, dtype=float) # Default slice passes through origin
 
 def add_preset(name: str, color: tuple[int,int,int] = None, value: np.ndarray = None) -> int:
     """Append a new vector at the midpoint of each dimension. Returns its index."""
@@ -96,7 +99,7 @@ def add_preset(name: str, color: tuple[int,int,int] = None, value: np.ndarray = 
 
 def add_parameter(name: str, vmin: float = 0.0, vmax: float = 1.0):
     """Append a new dimension to all vectors and update mins/maxs/B."""
-    global param_names, mins, maxs, Presets, Basis, active_preset_value
+    global param_names, mins, maxs, Presets, Basis, SliceOrigin, active_preset_value
     param_names.append(name)
     D_new = len(param_names)
 
@@ -122,6 +125,10 @@ def add_parameter(name: str, vmin: float = 0.0, vmax: float = 1.0):
         extra_col = np.zeros((2, 1), dtype=float)
         Basis = np.hstack([Basis, extra_col])
         
+    if SliceOrigin is None:
+        SliceOrigin = np.zeros(D_new, dtype=float)
+    else:
+        SliceOrigin = np.concatenate([SliceOrigin, [0.0]])
         
     if active_preset_value is not None:
         # extend active_preset_value by one dimension with the midpoint
@@ -137,7 +144,8 @@ def get_preset(i: int) -> np.ndarray: # shape (D,)
 def get_preset_from_coordinates(u: float, v: float) -> np.ndarray:
     """Return the high-D vector at given (u,v) coordinates on the current 2D plane."""
     assert Basis is not None
-    unit_point = u * Basis[0, :] + v * Basis[1, :]
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    unit_point = origin + u * Basis[0, :] + v * Basis[1, :]
     point = from_unit(unit_point, mins, maxs)
     return point
 def update_preset_parameter_index(preset: int, param: int, value: float):
@@ -196,7 +204,9 @@ def update_preset_on_plane(preset: int, u: float, v: float):
     assert Basis is not None and Presets is not None
     
     current_unit = to_unit(Presets[preset], mins, maxs)
-    target_unit = u * Basis[0, :] + v * Basis[1, :]
+    
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    target_unit = origin + u * Basis[0, :] + v * Basis[1, :]
     
     # Restrict movement to bounds
     final_unit = clamp_movement(current_unit, target_unit)
@@ -207,12 +217,22 @@ def update_preset_on_plane(preset: int, u: float, v: float):
 def get_presets_on_plane() -> tuple[np.ndarray, np.ndarray]: # shape (V,2), (V,)
     """Return all preset vectors projected onto the current 2D plane at (u,v) coords."""
     assert Basis is not None and Presets is not None
-    unit_presets = to_unit(Presets, mins, maxs)
-    Presets_2D = unit_presets @ Basis.T
     
-    # Calculate distance to plane in unit space
-    projected_back = Presets_2D @ Basis # To measure distance in the original D‑dimensional space we must reconstruct the corresponding D‑dimensional point that lies on the plane and compare that to the original preset.
-    diff = unit_presets - projected_back
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    unit_presets = to_unit(Presets, mins, maxs)
+    
+    # 1. Center the universe around the slice origin
+    centered_presets = unit_presets - origin
+    
+    # 2. Project centered vectors onto the basis
+    Presets_2D = centered_presets @ Basis.T
+    
+    # 3. Reconstruct the 3D point on the plane (relative to origin)
+    projected_centered = Presets_2D @ Basis 
+    
+    # 4. Calculate distance between the actual point and the point on the plane
+    diff = centered_presets - projected_centered
+    
     dists = np.linalg.norm(diff, axis=1)
     MAX_DIST = np.sqrt(len(param_names))  # max possible distance in unit space
     dists = np.clip(dists / MAX_DIST, 0.0, 1.0)  # normalize to 0..1
@@ -222,12 +242,15 @@ def get_presets_on_plane() -> tuple[np.ndarray, np.ndarray]: # shape (V,2), (V,)
 def project_point_on_plane(point: np.ndarray) -> tuple[np.ndarray, np.ndarray]: # shape (V,D)
     """Return all preset vectors projected onto the current 2D plane at (u,v) coords."""
     assert Basis is not None and Presets is not None
-    unit_presets = to_unit(point, mins, maxs)
-    Presets_2D = unit_presets @ Basis.T
     
-    # Calculate distance to plane in unit space
-    projected_back = Presets_2D @ Basis # To measure distance in the original D‑dimensional space we must reconstruct the corresponding D‑dimensional point that lies on the plane and compare that to the original preset.
-    diff = unit_presets - projected_back
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    unit_presets = to_unit(point, mins, maxs)
+    
+    centered_presets = unit_presets - origin
+    Presets_2D = centered_presets @ Basis.T
+    
+    projected_centered = Presets_2D @ Basis
+    diff = centered_presets - projected_centered
     
     if diff.ndim == 1:
         dists = np.linalg.norm(diff)
@@ -255,15 +278,20 @@ def from_unit(unit_preset:np.ndarray, mins, maxs):
     return mins + unit_preset * (maxs - mins)
 
 # Project to 2-D and back
-def project(unit_preset:np.ndarray, mins, maxs, basis:np.ndarray):
+def project(unit_preset:np.ndarray, mins, maxs, basis:np.ndarray, origin:np.ndarray=None):
     """(N,D) -> (N,2) in 0..1"""
     T = to_unit(unit_preset, mins, maxs)          # (N,D)
+    if origin is not None:
+        T = T - origin
     Y = T @ basis                            # (N,2)
     return np.clip(Y, 0.0, 1.0)
 
-def lift(selected_unit_presets, mins, maxs, basis):
+def lift(selected_unit_presets, mins, maxs, basis, origin:np.ndarray=None):
     """(k,2) -> (k,D) projected back onto the plane spanned by basis."""
-    T_plane = np.clip(selected_unit_presets @ basis.T, 0.0, 1.0)
+    T_plane = selected_unit_presets @ basis.T
+    if origin is not None:
+        T_plane = T_plane + origin
+    T_plane = np.clip(T_plane, 0.0, 1.0)
     return from_unit(T_plane, mins, maxs)
 
 def get_slope_of_parameter_in_plane(param_idx: int) -> tuple[float,float]:
@@ -275,31 +303,20 @@ def get_slope_of_parameter_in_plane(param_idx: int) -> tuple[float,float]:
 # Build basis
 
 def assign_parameters_to_basis(x_param: int, y_param: int):
-    global Basis
+    global Basis, SliceOrigin
     D = len(param_names)
     Basis = np.zeros((2, D), float)
     Basis[0, x_param] = 1.0
     Basis[1, y_param] = 1.0
+    SliceOrigin = np.zeros(D, float) # Axis views usually start at origin
 
-# Gram–Schmidt version
-def assign_basis_from_three_points(p1, p2, p3):
-    global Basis
-    # All are (D,) in unit space.
-    u = p2 - p1
-    u /= np.linalg.norm(u) + 1e-12
-    w = p3 - p1
-    # Gram–Schmidt: v = w - (u·w)u
-    v = w - np.dot(u, w) * u
-    v /= np.linalg.norm(v) + 1e-12
-    # Pack as columns
-    Basis = np.stack([u, v]) # (2,D)
-    
 # QR decomposition version
 def assign_basis_from_three_points(p1, p2, p3):
-    global Basis
+    global Basis, SliceOrigin
     A = np.stack([p2 - p1, p3 - p1], axis=1)  # (D,2)
     Q, R = np.linalg.qr(A)
     Basis = Q.T  # (2,D), columns are orthonormal
+    SliceOrigin = (p1 + p2 + p3) / 3.0  # Center the slice at the centroid of the three points
     
 def assign_basis_from_three_presets(presets: list[int]):
     global Basis

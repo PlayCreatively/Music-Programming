@@ -239,11 +239,17 @@ def draw_pad():
                         
                     draw_list.add_line(sx1, sy1, sx2, sy2, line_col, thickness=2.0)
             
-            print(dist)
-            draw_list.add_circle_filled(x, y, r + 3, rgba_u32(255, 255, 255, 255 * (1-dist)))
+            dist_inv = 1.0 - dist
+            dist_inv = round(dist_inv ** 5, 5)  # emphasize closeness
+            
+            print(dist_inv)
+            draw_list.add_circle_filled(x, y, (r + 3) * dist_inv, white)
 
+        dist_inv = 1.0 - dist
+        dist_inv = round(dist_inv ** 5, 5) # emphasize closeness
+        
         cr, cg, cb = col[:3]
-        draw_list.add_circle_filled(x, y, r, rgba_u32(cr, cg, cb, 255 * (1-dist)))
+        draw_list.add_circle_filled(x, y, r * dist_inv, rgba_u32(cr, cg, cb))
 
     # Mouse interaction for creating/selecting
     mouse_pad_x, mouse_pad_y = screen_to_unit(G.mouse_pos[0], G.mouse_pos[1])
