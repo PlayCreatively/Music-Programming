@@ -113,19 +113,63 @@ def draw_pad():
     # Clip drawing to pad area
     draw_list.push_clip_rect(pad_x, pad_y, pad_x2, pad_y2, True)
 
-    # Grid dots
-    cols, rows = 12, 8
+    # --- 1. Draw Valid Slice Region ---
+    poly_verts = S.get_slice_polygon_vertices()
+    if len(poly_verts) > 2:
+        screen_poly = []
+        for u, v in poly_verts:
+            sx, sy = unit_to_screen(u, v)
+            screen_poly.append((sx, sy))
+            
+        # Draw filled polygon
+        poly_col = rgba_u32(60, 60, 70, 100) 
+        
+        # Use path API for filled convex polygon
+        draw_list.path_clear()
+        for sx, sy in screen_poly:
+            draw_list.path_line_to(sx, sy)
+        draw_list.path_fill_convex(poly_col)
+        
+        # Draw outline
+        outline_col = rgba_u32(100, 100, 120, 200)
+        # add_polyline(points, color, closed=False, thickness=1.0) -> flags in older versions?
+        # Checking docs/source, some versions use 'closed' as a positional or flags.
+        # But to be safe, let's use path API for stroke too, or just pass positional args if we knew the signature.
+        # Let's use path API for stroke as well, it's safer.
+        draw_list.path_clear()
+        for sx, sy in screen_poly:
+            draw_list.path_line_to(sx, sy)
+        draw_list.path_stroke(outline_col, flags=imgui.DRAW_CLOSED, thickness=1.5)
+
+    # --- 2. Grid dots ---
     dot_col = rgba_u32(54, 54, 54)
-    for i in range(cols):
-        for j in range(rows):
-            u = i / (cols - 1)
-            v = j / (rows - 1) # 0..1 (visual top-down)
-            # Map visual grid to unit space? 
-            # Let's assume grid is 0..1 in unit space.
-            # j=0 is top, so v=1? 
-            # Let's just draw a grid in unit space 0..1
-            sx, sy = unit_to_screen(u, 1.0 - v)
-            draw_list.add_circle_filled(sx, sy, 2.0, dot_col)
+    
+    # Calculate visible range in unit space
+    vis_u_min, vis_v_min = screen_to_unit(pad_x, pad_y2) # Bottom-left screen
+    vis_u_max, vis_v_max = screen_to_unit(pad_x2, pad_y) # Top-right screen
+    
+    # Ensure min < max
+    if vis_u_min > vis_u_max: vis_u_min, vis_u_max = vis_u_max, vis_u_min
+    if vis_v_min > vis_v_max: vis_v_min, vis_v_max = vis_v_max, vis_v_min
+
+    # Round to nearest grid step
+    grid_step = 1.0 / 8.0 
+    
+    start_i = int(np.floor(vis_u_min / grid_step))
+    end_i = int(np.ceil(vis_u_max / grid_step))
+    start_j = int(np.floor(vis_v_min / grid_step))
+    end_j = int(np.ceil(vis_v_max / grid_step))
+
+    # Limit grid drawing to avoid freezing if zoomed out too much
+    if (end_i - start_i) * (end_j - start_j) < 10000:
+        for i in range(start_i, end_i + 1):
+            for j in range(start_j, end_j + 1):
+                u = i * grid_step
+                v = j * grid_step
+                
+                if S.is_point_valid(u, v):
+                    sx, sy = unit_to_screen(u, v)
+                    draw_list.add_circle_filled(sx, sy, 2.0, dot_col)
 
     # --- Sample points (your projection) ---
     presets_2d, dists = S.get_presets_on_plane()  # shape (V, 2)

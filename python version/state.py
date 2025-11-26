@@ -20,7 +20,7 @@ Presets: np.ndarray # shape (V, D) | [Preset Index] -> Preset vector
 
 # 2D basis for the current slice
 Basis: np.ndarray # shape (2, D) | [Basis Vector Index "U,V"] -> Basis vector
-SliceOrigin: np.ndarray | None = None # shape (D,) | The anchor point of the plane in unit space
+SliceOrigin: np.ndarray | None = None # shape (D,) | Origin point of the slice in unit space
 
 # Names + colors per vector
 preset_names: list[str] = [] # len V
@@ -70,10 +70,10 @@ def init_space(dims: list[str], n_vectors: int = 0):
         Basis = np.zeros((2, D), dtype=float)
         Basis[0, 0] = 1.0  # x axis = dim 0
         Basis[1, 1] = 1.0  # y axis = dim 1
+        SliceOrigin = np.zeros(D, dtype=float)
     else:
         Basis = np.zeros((2, D), dtype=float)
-        
-    SliceOrigin = np.zeros(D, dtype=float) # Default slice passes through origin
+        SliceOrigin = np.zeros(D, dtype=float)
 
 def add_preset(name: str, color: tuple[int,int,int] = None, value: np.ndarray = None) -> int:
     """Append a new vector at the midpoint of each dimension. Returns its index."""
@@ -148,6 +148,82 @@ def get_preset_from_coordinates(u: float, v: float) -> np.ndarray:
     unit_point = origin + u * Basis[0, :] + v * Basis[1, :]
     point = from_unit(unit_point, mins, maxs)
     return point
+
+def get_unit_from_coordinates(u: float, v: float) -> np.ndarray:
+    """Return the high-D unit vector at given (u,v) coordinates."""
+    assert Basis is not None
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    return origin + u * Basis[0, :] + v * Basis[1, :]
+
+def is_point_valid(u: float, v: float) -> bool:
+    """Check if a point on the plane is within the unit hypercube."""
+    p = get_unit_from_coordinates(u, v)
+    # Allow a tiny epsilon for floating point noise
+    return np.all((p >= -1e-9) & (p <= 1.0 + 1e-9))
+
+def get_slice_polygon_vertices() -> list[tuple[float, float]]:
+    """
+    Calculate the polygon vertices (u, v) representing the intersection 
+    of the current plane with the unit hypercube [0, 1]^D.
+    """
+    if Basis is None: return []
+    
+    # Start with a large box in (u, v) space
+    limit = np.sqrt(len(param_names)) * 2.0
+    poly = [(-limit, -limit), (limit, -limit), (limit, limit), (-limit, limit)]
+    
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
+    
+    # Helper to clip polygon by line ax + by + c <= 0
+    def clip(poly_in, a, b, c):
+        new_poly = []
+        if not poly_in: return []
+        
+        for i in range(len(poly_in)):
+            curr = poly_in[i]
+            prev = poly_in[(i - 1) % len(poly_in)]
+            
+            curr_in = (a * curr[0] + b * curr[1] + c) <= 1e-9
+            prev_in = (a * prev[0] + b * prev[1] + c) <= 1e-9
+            
+            if curr_in:
+                if not prev_in:
+                    denom = (a * (prev[0] - curr[0]) + b * (prev[1] - curr[1]))
+                    if abs(denom) > 1e-12:
+                        t = (a * prev[0] + b * prev[1] + c) / denom
+                        inter_x = prev[0] + t * (curr[0] - prev[0])
+                        inter_y = prev[1] + t * (curr[1] - prev[1])
+                        new_poly.append((inter_x, inter_y))
+                new_poly.append(curr)
+            elif prev_in:
+                denom = (a * (prev[0] - curr[0]) + b * (prev[1] - curr[1]))
+                if abs(denom) > 1e-12:
+                    t = (a * prev[0] + b * prev[1] + c) / denom
+                    inter_x = prev[0] + t * (curr[0] - prev[0])
+                    inter_y = prev[1] + t * (curr[1] - prev[1])
+                    new_poly.append((inter_x, inter_y))
+                
+        return new_poly
+
+    # For each dimension k, clip against 0 <= x_k <= 1
+    # x_k = origin[k] + u * Basis[0, k] + v * Basis[1, k]
+    for k in range(len(param_names)):
+        b0 = Basis[0, k]
+        b1 = Basis[1, k]
+        o = origin[k]
+        
+        # Lower bound: x_k >= 0  =>  -x_k <= 0
+        # -o - u*b0 - v*b1 <= 0
+        poly = clip(poly, -b0, -b1, -o)
+        if not poly: return []
+        
+        # Upper bound: x_k <= 1  =>  x_k - 1 <= 0
+        # o + u*b0 + v*b1 - 1 <= 0
+        poly = clip(poly, b0, b1, o - 1.0)
+        if not poly: return []
+        
+    return poly
+
 def update_preset_parameter_index(preset: int, param: int, value: float):
     """Update a single parameter of a preset vector by numeric indices."""
     assert Presets is not None
@@ -205,8 +281,19 @@ def update_preset_on_plane(preset: int, u: float, v: float):
     
     current_unit = to_unit(Presets[preset], mins, maxs)
     
+    # Calculate movement vector in the plane to reach (u,v)
+    # We preserve the off-plane components of the vector.
     origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
-    target_unit = origin + u * Basis[0, :] + v * Basis[1, :]
+    
+    # Current projection u,v
+    cur_u = np.dot(current_unit - origin, Basis[0])
+    cur_v = np.dot(current_unit - origin, Basis[1])
+    
+    diff_u = u - cur_u
+    diff_v = v - cur_v
+    
+    movement = diff_u * Basis[0] + diff_v * Basis[1]
+    target_unit = current_unit + movement
     
     # Restrict movement to bounds
     final_unit = clamp_movement(current_unit, target_unit)
@@ -217,22 +304,18 @@ def update_preset_on_plane(preset: int, u: float, v: float):
 def get_presets_on_plane() -> tuple[np.ndarray, np.ndarray]: # shape (V,2), (V,)
     """Return all preset vectors projected onto the current 2D plane at (u,v) coords."""
     assert Basis is not None and Presets is not None
-    
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
     unit_presets = to_unit(Presets, mins, maxs)
     
-    # 1. Center the universe around the slice origin
-    centered_presets = unit_presets - origin
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
     
-    # 2. Project centered vectors onto the basis
-    Presets_2D = centered_presets @ Basis.T
+    # Project relative to slice origin
+    # P_proj = (P - Origin) . Basis^T
+    Presets_2D = (unit_presets - origin) @ Basis.T
     
-    # 3. Reconstruct the 3D point on the plane (relative to origin)
-    projected_centered = Presets_2D @ Basis 
-    
-    # 4. Calculate distance between the actual point and the point on the plane
-    diff = centered_presets - projected_centered
-    
+    # Calculate distance to plane in unit space
+    # P_on_plane = Origin + P_proj . Basis
+    projected_back = origin + Presets_2D @ Basis 
+    diff = unit_presets - projected_back
     dists = np.linalg.norm(diff, axis=1)
     MAX_DIST = np.sqrt(len(param_names))  # max possible distance in unit space
     dists = np.clip(dists / MAX_DIST, 0.0, 1.0)  # normalize to 0..1
@@ -242,15 +325,15 @@ def get_presets_on_plane() -> tuple[np.ndarray, np.ndarray]: # shape (V,2), (V,)
 def project_point_on_plane(point: np.ndarray) -> tuple[np.ndarray, np.ndarray]: # shape (V,D)
     """Return all preset vectors projected onto the current 2D plane at (u,v) coords."""
     assert Basis is not None and Presets is not None
-    
-    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
     unit_presets = to_unit(point, mins, maxs)
     
-    centered_presets = unit_presets - origin
-    Presets_2D = centered_presets @ Basis.T
+    origin = SliceOrigin if SliceOrigin is not None else np.zeros(len(param_names))
     
-    projected_centered = Presets_2D @ Basis
-    diff = centered_presets - projected_centered
+    Presets_2D = (unit_presets - origin) @ Basis.T
+    
+    # Calculate distance to plane in unit space
+    projected_back = origin + Presets_2D @ Basis 
+    diff = unit_presets - projected_back
     
     if diff.ndim == 1:
         dists = np.linalg.norm(diff)
