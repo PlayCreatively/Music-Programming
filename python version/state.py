@@ -254,7 +254,7 @@ def is_cursor_within_circle(circle_center, radius) -> bool:
 
 def record_selection(idx: int):
     """Record the given preset index as selected."""
-    global selection
+    global selection, active_preset_value
     
     is_selected = idx in selection
     if imgui.get_io().key_ctrl:
@@ -265,3 +265,4 @@ def record_selection(idx: int):
             selection.add(idx)
     else:
         selection = {idx}
+        active_preset_value = Presets[idx, :]

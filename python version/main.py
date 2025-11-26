@@ -1,6 +1,9 @@
 import platform
 import ctypes
 
+from matplotlib import patches
+from sympy import false
+
 # --- DPI awareness (same as your original) ---
 if platform.system() == "Windows":
     try:
@@ -12,12 +15,13 @@ if platform.system() == "Windows":
 import glfw
 import OpenGL.GL as gl
 import imgui
+import numpy as np
 from imgui.integrations.glfw import GlfwRenderer
 
 import state as S
 import globals as G
 import style
-
+import dx7_bridge
 
 # Simple helper for colors: 0–255 -> ImGui RGBA (0–1)
 def rgba_f(r, g, b, a=255):
@@ -123,11 +127,30 @@ def draw_pad():
                     if dist_from_start > 1:
                         PAD_DRAG["dragging"] = True
                 else:
-                    start_tx, start_ty = PAD_DRAG["start_tx_ty"]
-                    delta_tx, delta_ty = new_tx - start_tx, new_ty - start_ty
-                    U = S.Basis[0, :] * delta_tx
-                    V = S.Basis[1, :] * delta_ty
-                    S.Presets[idx, :] = PAD_DRAG["start_value"] + U + V
+                    # A. Get the Starting Real Value
+                    start_real = PAD_DRAG["start_value"]
+                    
+                    # B. Convert Start Value to Normalized Space (0.0 to 1.0)
+                    start_norm = S.to_unit(start_real, S.mins, S.maxs)
+                    
+
+                    # C. Calculate the Delta Vector in High-D Normalized Space
+                    # This maps the 2D pad movement onto the high-D hypercube
+                    # Basis vectors are usually unit-length in normalized space
+                    delta_tx = norm_dx 
+                    delta_ty = norm_dy 
+                    
+                    # Movement vector in N-dimensions
+                    movement_nd = (S.Basis[0, :] * delta_tx) + (S.Basis[1, :] * delta_ty)
+
+                    # D. Apply movement
+                    new_norm = start_norm + movement_nd
+
+                    # E. Clamp values to valid 0.0-1.0 range (Optional but recommended)
+                    new_norm = np.clip(new_norm, 0.0, 1.0)
+
+                    # F. Convert back to Real Units
+                    S.Presets[idx, :] = S.from_unit(new_norm, S.mins, S.maxs)
                     
             else:
                 # mouse released -> end drag
@@ -341,7 +364,10 @@ def create_window():
 
 
 def main():
-    init_state()
+    
+    
+    # init_state()
+    dx7_bridge.load_dx7_json("output.json")
 
     window = create_window()
 
@@ -350,6 +376,8 @@ def main():
     impl = GlfwRenderer(window)
 
     gl.glClearColor(0.1, 0.1, 0.1, 1.0)
+    
+    sender = dx7_bridge.DX7OSCClient(ip="127.0.0.1", port=57120)
 
     # Main frame loop: everything is rebuilt every iteration.
     while not glfw.window_should_close(window):
@@ -366,6 +394,15 @@ def main():
         imgui.render()
         impl.render(imgui.get_draw_data())
         glfw.swap_buffers(window)
+        
+        # send OSC updates
+        if S.active_preset_value is not None:
+            sender.send_active_preset(S.active_preset_value)
+            sender.send_gate(G.mouse_down)
+        else: 
+            sender.send_gate(False)
+        
+            
 
     impl.shutdown()
     glfw.terminate()

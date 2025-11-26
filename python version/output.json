@@ -1,0 +1,8105 @@
+{
+  "meta": {
+    "source_file": "Brass.SYX",
+    "patch_count": 32,
+    "spec_version": "1.0"
+  },
+  "patches": [
+    {
+      "identity": {
+        "name": "BRASS 1",
+        "slot": 1
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.7856,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 5,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          3.4,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 8.47,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C8",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1094,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 3.18,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0244,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 0.0186
+            },
+            {
+              "stage": 2,
+              "rate": 0.0003,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0217,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.7856,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1949,
+              "level": 0.2973
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0086,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.5591,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0137,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BRASS 2",
+        "slot": 2
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          1.0188,
+          1.8685,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 5,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 8.47,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0019,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 3.18,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0244,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 0.0186
+            },
+            {
+              "stage": 2,
+              "rate": 0.0003,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 1.8685,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1949,
+              "level": 0.2973
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0244,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.5591,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0244,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BRASS 3",
+        "slot": 3
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          4.8464,
+          12.57,
+          12.57,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4232,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.741,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.4232,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 14.3,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.3472,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.5512,
+              "level": 0.7711
+            },
+            {
+              "stage": 4,
+              "rate": 0.0172,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 2.9,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0061,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2188,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0061,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2188,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0061,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2188,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 4.8464,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 11.4,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.2455,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.3472,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.5512,
+              "level": 0.7711
+            },
+            {
+              "stage": 4,
+              "rate": 0.0172,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0061,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2188,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BRASS 4",
+        "slot": 4
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          4.8464,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.7135,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.285,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.1514,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.565,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 10,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.1514,
+          "frequency_ratio_mode": 3.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 1.94,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0019,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 6.285,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.65,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 1.7135,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -17.1,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0086,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.1378,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.9822,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.1094,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 4.8464,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 17.1,
+          "break_point": "C#3",
+          "scale_depth": 0.81,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 0.6484
+            },
+            {
+              "stage": 2,
+              "rate": 0.6945,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.75,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.3898,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0077,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.1228,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BRASS ENS",
+        "slot": 5
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          3.1425,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.155,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 13,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -17.1,
+          "break_point": "A-1",
+          "scale_depth": 1.94,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.6606,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -17.1,
+          "break_point": "A-1",
+          "scale_depth": 0.65,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 17.1,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0086,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.1378,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.9822,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.1094,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 3.1425,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "C#3",
+          "scale_depth": 0.81,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 0.6484
+            },
+            {
+              "stage": 2,
+              "rate": 0.6945,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 4.9497,
+              "level": 0.5946
+            },
+            {
+              "stage": 4,
+              "rate": 0.1094,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0077,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.1228,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BRASS 5THS",
+        "slot": 6
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          2.8817,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.4269,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.3303,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.8538,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.793,
+        "lfo_delay": 1.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 30.1,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 6.8538,
+          "frequency_ratio_mode": 1.5,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "D#4",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 3.1181,
+              "level": 0.1928
+            },
+            {
+              "stage": 3,
+              "rate": 0.0137,
+              "level": 0.2973
+            },
+            {
+              "stage": 4,
+              "rate": 0.0307,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.3303,
+          "frequency_ratio_mode": 1.5,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "D#4",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 3.1181,
+              "level": 0.1928
+            },
+            {
+              "stage": 3,
+              "rate": 0.0137,
+              "level": 0.2973
+            },
+            {
+              "stage": 4,
+              "rate": 0.0307,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 3.4269,
+          "frequency_ratio_mode": 1.5,
+          "frequency_fixed_mode": null,
+          "detune": -5.7,
+          "break_point": "D#4",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 3.1181,
+              "level": 0.1928
+            },
+            {
+              "stage": 3,
+              "rate": 0.0137,
+              "level": 0.2973
+            },
+            {
+              "stage": 4,
+              "rate": 0.0307,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 11.5267,
+          "frequency_ratio_mode": 1.5,
+          "frequency_fixed_mode": null,
+          "detune": 11.4,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0109,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0043,
+              "level": 0.5453
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.2726
+            },
+            {
+              "stage": 4,
+              "rate": 0.0273,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 2.8817,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -20.0,
+          "break_point": "D#4",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0689,
+              "level": 0.7071
+            },
+            {
+              "stage": 3,
+              "rate": 0.0137,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0307,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0109,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0043,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0273,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "PERCBRASS",
+        "slot": 7
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          5.285,
+          0.0,
+          3.7371,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.3213,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.565,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 10,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 3.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 1.94,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0034,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.3213,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.65,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 3.7371,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -11.4,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0086,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.1378,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.9822,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.1094,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 5.285,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "C#3",
+          "scale_depth": 0.81,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 0.6484
+            },
+            {
+              "stage": 2,
+              "rate": 0.6945,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.75,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.3898,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0077,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.1228,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BRASS BC1",
+        "slot": 8
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          5.285,
+          12.57,
+          12.57,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.6425,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.461,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.6425,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2188,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 0.6945,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0387,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0068,
+              "level": 0.6484
+            },
+            {
+              "stage": 3,
+              "rate": 1.9643,
+              "level": 0.4585
+            },
+            {
+              "stage": 4,
+              "rate": 0.0387,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0068,
+              "level": 0.6484
+            },
+            {
+              "stage": 3,
+              "rate": 1.9643,
+              "level": 0.4585
+            },
+            {
+              "stage": 4,
+              "rate": 0.0387,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0217,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.9643,
+              "level": 0.6484
+            },
+            {
+              "stage": 3,
+              "rate": 1.9643,
+              "level": 0.4585
+            },
+            {
+              "stage": 4,
+              "rate": 0.0387,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 5.285,
+          "frequency_ratio_mode": 0.54,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.1949,
+              "level": 0.0203
+            },
+            {
+              "stage": 3,
+              "rate": 9.8995,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0217,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0137,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0068,
+              "level": 0.0203
+            },
+            {
+              "stage": 3,
+              "rate": 0.0547,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0172,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BRASS BC2",
+        "slot": 9
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.2778,
+          12.57,
+          10.5701,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4232,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.604,
+        "lfo_delay": 1.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.4232,
+          "frequency_ratio_mode": 1.01,
+          "frequency_fixed_mode": null,
+          "detune": -17.1,
+          "break_point": "C3",
+          "scale_depth": 2.26,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0122,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 1.5591,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0547,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 10.5701,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.389,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.2778,
+          "frequency_ratio_mode": 0.82,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "G3",
+          "scale_depth": 9.86,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 2.4749,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "BC BRSENSM",
+        "slot": 10
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          8.1506,
+          12.57,
+          10.5701,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.8817,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.604,
+        "lfo_delay": 1.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.8817,
+          "frequency_ratio_mode": 1.01,
+          "frequency_fixed_mode": null,
+          "detune": -11.4,
+          "break_point": "A-1",
+          "scale_depth": 0.48,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0019,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.4375,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.7711
+            },
+            {
+              "stage": 4,
+              "rate": 0.0345,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 12.57,
+          "frequency_ratio_mode": null,
+          "frequency_fixed_mode": 2.5,
+          "detune": 8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0345,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 10.5701,
+          "frequency_ratio_mode": null,
+          "frequency_fixed_mode": 2.5,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0345,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": null,
+          "frequency_fixed_mode": 2.5,
+          "detune": -8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0345,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 8.1506,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "G3",
+          "scale_depth": 16.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0273,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.5512,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 0.1736,
+              "level": 0.8409
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": null,
+          "frequency_fixed_mode": 1.0,
+          "detune": -20.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0217,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0487,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 0.0773,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0387,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS 1",
+        "slot": 11
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          9.6928,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          0.6058,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.8685,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          -0.5,
+          1.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 1.8685,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.3472,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.875,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.3472,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.875,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.6058,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.4375,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 9.6928,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 11.4,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1949,
+              "level": 0.2973
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0122,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.9822,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.9643,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0244,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS 2",
+        "slot": 12
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          1.0188,
+          2.4232,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          2.8817,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 8.47,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0019,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 3.18,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0244,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 2.8817,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 0.0186
+            },
+            {
+              "stage": 2,
+              "rate": 0.0003,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.4232,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1949,
+              "level": 0.2973
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0122,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.9822,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.9643,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0244,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS 3",
+        "slot": 13
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          3.1425,
+          2.4232,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          7.4742,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.4269,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          3.4,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 3.4269,
+          "frequency_ratio_mode": 8.47,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0019,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 3.18,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0244,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 7.4742,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 0.0186
+            },
+            {
+              "stage": 2,
+              "rate": 0.0003,
+              "level": 0.0526
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.4232,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.9643,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0217,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 3.1425,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0773,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.0434,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0086,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.5591,
+              "level": 0.5453
+            },
+            {
+              "stage": 4,
+              "rate": 0.0137,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS 4",
+        "slot": 14
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          9.6928,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          0.6058,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.8685,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          -0.5,
+          1.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 1.8685,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0019,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.3472,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.875,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.3472,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.875,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.6058,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.4375,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 9.6928,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 11.4,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1949,
+              "level": 0.2973
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0122,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.9822,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.9643,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0244,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS 5",
+        "slot": 15
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          8.1506,
+          12.57,
+          12.57,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.4269,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.528,
+        "lfo_delay": 1.7,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 3.4269,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "C3",
+          "scale_depth": 8.73,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.2455,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.7795,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.5512,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0054,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -5.7,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.5591,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 0.3898,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.5591,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 0.3898,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 1.5591,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 0.3898,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 8.1506,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "C2",
+          "scale_depth": 0.65,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0345,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.6945,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 0.4911,
+              "level": 0.7711
+            },
+            {
+              "stage": 4,
+              "rate": 0.0614,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 2.9,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.6484
+            },
+            {
+              "stage": 3,
+              "rate": 1.75,
+              "level": 0.7711
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS 6",
+        "slot": 16
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          3.1425,
+          12.57,
+          12.57,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.528,
+        "lfo_delay": 1.7,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "C3",
+          "scale_depth": 8.73,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0153,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.7795,
+              "level": 0.6484
+            },
+            {
+              "stage": 3,
+              "rate": 0.5512,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0054,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -5.7,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0345,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2188,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 0.1228,
+              "level": 0.917
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0244,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2188,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 0.1228,
+              "level": 0.917
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0022,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 0.0011,
+              "level": 0.917
+            },
+            {
+              "stage": 4,
+              "rate": 0.0038,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 3.1425,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 5.7,
+          "break_point": "C2",
+          "scale_depth": 0.65,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0345,
+              "level": 0.5946
+            },
+            {
+              "stage": 2,
+              "rate": 0.6945,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 0.4911,
+              "level": 0.8409
+            },
+            {
+              "stage": 4,
+              "rate": 0.0614,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 2.9,
+          "break_point": "C3",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.6484
+            },
+            {
+              "stage": 3,
+              "rate": 1.75,
+              "level": 0.7711
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS 7",
+        "slot": 17
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          3.7371,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.5713,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          8.1506,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 8.1506,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 1.94,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 3.4269,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.65,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0307,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 1.5713,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.5
+            },
+            {
+              "stage": 4,
+              "rate": 0.0487,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": null,
+          "frequency_fixed_mode": 4.5,
+          "detune": -8.6,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0048,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.1378,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.9822,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.0868,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 3.7371,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 8.6,
+          "break_point": "C#3",
+          "scale_depth": 0.81,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0487,
+              "level": 0.6484
+            },
+            {
+              "stage": 2,
+              "rate": 0.6945,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.75,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.1094,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": null,
+          "frequency_fixed_mode": 4.3,
+          "detune": -5.7,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0868,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS BC1",
+        "slot": 18
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          9.6928,
+          4.4442,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          7.4742,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          3.4269,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          3.4,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 3.4269,
+          "frequency_ratio_mode": 8.47,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 3.18,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0244,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 7.4742,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 0.0186
+            },
+            {
+              "stage": 2,
+              "rate": 0.0003,
+              "level": 0.0526
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 4.4442,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0345,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.5512,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 0.0434,
+              "level": 0.3856
+            },
+            {
+              "stage": 4,
+              "rate": 0.0217,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 9.6928,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0345,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.5512,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 0.0434,
+              "level": 0.4585
+            },
+            {
+              "stage": 4,
+              "rate": 0.0217,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.5591,
+              "level": 0.5453
+            },
+            {
+              "stage": 4,
+              "rate": 0.0137,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "HORNS BC2",
+        "slot": 19
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          2.6425,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          2.8817,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          -0.5,
+          1.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 7.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 4.02,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0244,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 2.8817,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 0.0186
+            },
+            {
+              "stage": 2,
+              "rate": 0.0003,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.7711
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 2.6425,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1949,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0122,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.5512,
+              "level": 0.5453
+            },
+            {
+              "stage": 3,
+              "rate": 0.0868,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0244,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "FRENCHHORN",
+        "slot": 20
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.7856,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0188,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 3,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          3.4,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 8.47,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0868,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 1.0188,
+          "frequency_ratio_mode": 3.18,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0244,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 0.0186
+            },
+            {
+              "stage": 2,
+              "rate": 0.0003,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0405
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.2455,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0217,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.7856,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1949,
+              "level": 0.2973
+            },
+            {
+              "stage": 2,
+              "rate": 0.2756,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.4749,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0086,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0193,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.5591,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0137,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "TRUMPET",
+        "slot": 21
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.1801,
+          2.2221,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          1.4408,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.1801,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.604,
+        "lfo_delay": 1.36,
+        "pitch_mod_depth": 5,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          2.4,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 8.47,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0689,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.389,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0043,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.1801,
+          "frequency_ratio_mode": 6.24,
+          "frequency_fixed_mode": null,
+          "detune": -2.9,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0547,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 3.5,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0372
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 1.4408,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "C5",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0068,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0022,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0372
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 2.2221,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.1228,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 3.5,
+              "level": 0.0372
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0372
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.1801,
+          "frequency_ratio_mode": 2.1,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "F5",
+          "scale_depth": 15.52,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 0.2973
+            },
+            {
+              "stage": 2,
+              "rate": 3.5,
+              "level": 0.0
+            },
+            {
+              "stage": 3,
+              "rate": 1.1024,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0434,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.875,
+              "level": 0.3242
+            },
+            {
+              "stage": 3,
+              "rate": 1.5591,
+              "level": 0.3242
+            },
+            {
+              "stage": 4,
+              "rate": 0.0244,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "ANLGBRASS",
+        "slot": 22
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          4.0753,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.8817,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          12.57,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.286,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 11,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 2.0,
+          "frequency_fixed_mode": null,
+          "detune": -17.1,
+          "break_point": "A-1",
+          "scale_depth": 2.75,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0019,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.3898,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.6606,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.7071
+            },
+            {
+              "stage": 4,
+              "rate": 0.1378,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 2.8817,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": -17.1,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0043,
+              "level": 0.4585
+            },
+            {
+              "stage": 2,
+              "rate": 0.6187,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 2.2049,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.1547,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0086,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.1378,
+              "level": 0.8409
+            },
+            {
+              "stage": 3,
+              "rate": 0.9822,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.1094,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 4.0753,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 20.0,
+          "break_point": "A1",
+          "scale_depth": 0.81,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0434,
+              "level": 0.6484
+            },
+            {
+              "stage": 2,
+              "rate": 0.6945,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 4.9497,
+              "level": 0.6484
+            },
+            {
+              "stage": 4,
+              "rate": 0.2188,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 0.5,
+          "frequency_fixed_mode": null,
+          "detune": 17.1,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0077,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.1228,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "ORCHESTRA",
+        "slot": 23
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          3.1425,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          7.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.2116,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.4232,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          2.8817,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": -12,
+        "lfo_speed": 0.461,
+        "lfo_delay": 1.91,
+        "pitch_mod_depth": 6,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 2.8817,
+          "frequency_ratio_mode": 2.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0022,
+              "level": 0.5453
+            },
+            {
+              "stage": 3,
+              "rate": 4.4097,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.3472,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 2.4232,
+          "frequency_ratio_mode": 2.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0022,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.003,
+              "level": 0.5453
+            },
+            {
+              "stage": 3,
+              "rate": 4.4097,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0244,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 1.2116,
+          "frequency_ratio_mode": 2.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "B7",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0217,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0027,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 4.4097,
+              "level": 0.0043
+            },
+            {
+              "stage": 4,
+              "rate": 0.0773,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 9.6928,
+          "frequency_ratio_mode": 2.0,
+          "frequency_fixed_mode": null,
+          "detune": 17.1,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0273,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 2.4749,
+              "level": 0.5453
+            },
+            {
+              "stage": 3,
+              "rate": 4.4097,
+              "level": 0.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0614,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 3.1425,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": -17.1,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0307,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0689,
+              "level": 0.5946
+            },
+            {
+              "stage": 3,
+              "rate": 0.3472,
+              "level": 0.4585
+            },
+            {
+              "stage": 4,
+              "rate": 0.0122,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "B7",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0014,
+              "level": 0.917
+            },
+            {
+              "stage": 2,
+              "rate": 0.0217,
+              "level": 0.917
+            },
+            {
+              "stage": 3,
+              "rate": 4.4097,
+              "level": 0.0043
+            },
+            {
+              "stage": 4,
+              "rate": 0.0773,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 24
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 25
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 26
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 27
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 28
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 29
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 30
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 31
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": {
+        "name": "",
+        "slot": 32
+      },
+      "global": {
+        "algorithm_matrix": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "output_mixer": [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "transpose": 0,
+        "lfo_speed": 0.647,
+        "lfo_delay": 0.0,
+        "pitch_mod_depth": 0,
+        "amp_mod_depth": 0.0,
+        "pitch_eg_levels": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "operators": [
+        {
+          "id": 6,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "output_level": 0.0,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "output_level": 12.57,
+          "frequency_ratio_mode": 1.0,
+          "frequency_fixed_mode": null,
+          "detune": 0.0,
+          "break_point": "A-1",
+          "scale_depth": 0.0,
+          "envelope": [
+            {
+              "stage": 1,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 2,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 3,
+              "rate": 0.0,
+              "level": 1.0
+            },
+            {
+              "stage": 4,
+              "rate": 0.0,
+              "level": 0.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
