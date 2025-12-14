@@ -19,7 +19,7 @@ GLOBAL_KEYS = [
 # Note: 'output_level' is excluded here because it is baked into the Matrix/Envelopes in the parser
 OP_SCALAR_KEYS = [
     "frequency_ratio_mode", "frequency_fixed_mode", 
-    "detune", "break_point", "scale_depth"
+    "detune"
 ]
 
 # Calculated Sizes
@@ -52,36 +52,17 @@ DEFAULT_DX7_SPEC = {
     "wiring": { "range": [0.0, 12.57] } # [0..4pi]
   },
   "operator": {
-    "frequency_ratio_mode": { "range": [0.5, 31.99] },
+    "ratio_mode": { "range": [0, 1] }, # lerps between fixed/ratio
+    "frequency_ratio_mode": { "range": [0.5, 61.69] },
     "frequency_fixed_mode": { "range": [1, 9772] },
     "detune": { "range": [-20, 20] },
-    "break_point": { "range": ["A-1", "C8"] },
-    "scale_depth": { "range": [0, 16] },
     "envelope": [
       { "rate": { "range": [0, 99] }, "level": { "range": [0, 1] } }
     ]
   }
 }
 
-NOTE_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
-
-def note_to_midi(note_str):
-    if not isinstance(note_str, str): return 0.0
-    try:
-        if '#' in note_str:
-            name = note_str[:2]
-            octave = int(note_str[2:])
-        else:
-            name = note_str[:1]
-            octave = int(note_str[1:])
-        semitone = NOTE_NAMES.index(name)
-        return (octave + 2) * 12 + semitone
-    except:
-        return 0.0
-
 def parse_range(r_arr):
-    if isinstance(r_arr[0], str):
-        return note_to_midi(r_arr[0]), note_to_midi(r_arr[1])
     return float(r_arr[0]), float(r_arr[1])
 
 def get_color_from_name(name):
@@ -187,8 +168,6 @@ def load_dx7_json(file_path):
                 if val is None:
                     dim_name = f"op{op_id}_{k}"
                     val = S.mins[dims.index(dim_name)] if dim_name in dims else 0.0
-                if k == "break_point" and isinstance(val, str):
-                    val = note_to_midi(val)
                 vector.append(float(val))
 
             env_list = curr_op.get("envelope", [])
@@ -236,21 +215,6 @@ class DX7OSCClient:
         
         wiring_matrix = data[OFFSET_MATRIX : OFFSET_MATRIX + SIZE_MATRIX]
         output_mixer  = data[OFFSET_MIXER  : OFFSET_MIXER + SIZE_MIXER]
-        
-        # --- 2. Feedback Mapping ---
-        # Map 0-7 matrix diagonals to 0.0-4.0 feedback gain
-        # Lookup table for feedback doubling (0, 1/64 ... 4.0)
-        FB_MAP = [0.0, 0.0625, 0.125, 0.25, 0.5, 1.0, 2.0, 4.0]
-        
-        processed_matrix = []
-        for i, val in enumerate(wiring_matrix):
-            # Diagonal check (Row == Col)
-            if (i // 6) == (i % 6):
-                idx = int(round(val))
-                idx = max(0, min(7, idx))
-                processed_matrix.append(FB_MAP[idx])
-            else:
-                processed_matrix.append(val)
 
         # --- 3. Unpack Operators ---
         op_ratios = []
@@ -266,15 +230,15 @@ class DX7OSCClient:
             start_ptr += SIZE_OP_PARAMS
             
             # Map based on OP_SCALAR_KEYS order:
-            # [0:Ratio, 1:Fixed, 2:Detune, 3:BP, 4:Scale, 5:R1, 6:L1 ... 12:L4]
+            # [0:Ratio, 1:Fixed, 2:Detune] -> Envelopes start at index 3
             
             op_ratios.append(chunk[0]) 
             op_detunes.append(chunk[2])
             
             # Envelope Extraction
-            # Indices: Rate=5,7,9,11 | Level=6,8,10,12
-            times = [chunk[5], chunk[7], chunk[9], chunk[11]]
-            levels = [chunk[6], chunk[8], chunk[10], chunk[12]]
+            # Indices: Rate=3,5,7,9 | Level=4,6,8,10
+            times = [chunk[3], chunk[5], chunk[7], chunk[9]]
+            levels = [chunk[4], chunk[6], chunk[8], chunk[10]]
             
             op_env_times.append(times)
             op_env_levels.append(levels)
@@ -294,7 +258,7 @@ class DX7OSCClient:
         # --- 5. Send ---
         # print(f"Sending OSC to {self.client._address}:{self.client._port}")
         self.client.send_message("/update_synth", [
-            "opWiringMatrix", *processed_matrix,
+            "opWiringMatrix", *wiring_matrix,
             "opOutMixer", *output_mixer,
             "opRatios", *op_ratios,
             "opEnvLevels", *flat_levels,

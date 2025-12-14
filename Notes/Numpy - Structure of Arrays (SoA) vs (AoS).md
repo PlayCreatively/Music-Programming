@@ -2,12 +2,12 @@
 title: ChatGPT
 source: https://chatgpt.com/g/g-p-68f1396df0a8819188a862a052a1398a-high-dimensional-exploration/c/690b4c5a-3868-832e-b449-30949af14f14
 author:
-  - "[[ChatGPT]]"
+  - "[[DX7 SuperCollider Creation]]"
 created: 2025-11-13
 tags:
   - clippings
 ---
-Nice. Time to actually build the thing instead of philosophising about it.
+Nice. Time to actually build the thing instead of philosophizing about it.
 
 Two ways to structure it now:
 
