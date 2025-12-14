@@ -8,5 +8,6 @@
   },
   "readableLineLength": true,
   "showUnsupportedFiles": true,
-  "attachmentFolderPath": "./attachments"
+  "attachmentFolderPath": "./attachments",
+  "alwaysUpdateLinks": true
 }

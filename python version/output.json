@@ -12,43 +12,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          0.7856,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 0.7854, 2.2214, 2.2214, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.0185, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -72,12 +42,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 8.47,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C8",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -103,12 +70,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 3.18,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -134,12 +98,9 @@
         },
         {
           "id": 4,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -165,12 +126,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -196,12 +154,9 @@
         },
         {
           "id": 2,
-          "output_level": 0.7856,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -227,12 +182,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -265,43 +217,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          1.0188,
-          1.8685,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          6.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 1.0185, 1.868, 2.2214, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 2.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.0185, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -325,12 +247,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 8.47,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -356,12 +275,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 3.18,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -387,12 +303,9 @@
         },
         {
           "id": 4,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -418,12 +331,9 @@
         },
         {
           "id": 3,
-          "output_level": 1.8685,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -449,12 +359,9 @@
         },
         {
           "id": 2,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -480,12 +387,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -518,49 +422,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          4.8464,
-          12.57,
-          12.57,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.4232,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0
-        ],
+            0.0, 4.845, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.4225,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.4225,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.4225,
+            0.0, 0.0, 0.0, 0.0, 0.0, 4.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
-          0.0,
+          1.0,
+          1.0,
+          1.0,
           0.0
         ],
         "transpose": 0,
@@ -578,12 +452,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.4232,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 14.3,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -609,12 +480,9 @@
         },
         {
           "id": 5,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 2.9,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -640,12 +508,9 @@
         },
         {
           "id": 4,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -671,12 +536,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -702,12 +564,9 @@
         },
         {
           "id": 2,
-          "output_level": 4.8464,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 11.4,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -733,12 +592,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -771,43 +627,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          4.8464,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          5.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.7135,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          6.285,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.1514,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 4.845, 0.0, 0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 1.713, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 6.2832, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.1514,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -831,12 +657,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 0.1514,
           "frequency_ratio_mode": 3.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 1.94,
           "envelope": [
             {
               "stage": 1,
@@ -862,12 +685,9 @@
         },
         {
           "id": 5,
-          "output_level": 6.285,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.65,
           "envelope": [
             {
               "stage": 1,
@@ -893,12 +713,9 @@
         },
         {
           "id": 4,
-          "output_level": 1.7135,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -17.1,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -924,12 +741,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -955,12 +769,9 @@
         },
         {
           "id": 2,
-          "output_level": 4.8464,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 17.1,
-          "break_point": "C#3",
-          "scale_depth": 0.81,
           "envelope": [
             {
               "stage": 1,
@@ -986,12 +797,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1024,49 +832,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          3.1425,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          6.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 3.1416, 0.0, 0.0, 0.0, 0.0,
+            0.0, 2.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 1.0185, 0.6604, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 12.5664,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
           1.0,
+          0.0,
+          0.0,
           0.0
         ],
         "transpose": 0,
@@ -1084,12 +862,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -17.1,
-          "break_point": "A-1",
-          "scale_depth": 1.94,
           "envelope": [
             {
               "stage": 1,
@@ -1115,12 +890,9 @@
         },
         {
           "id": 5,
-          "output_level": 0.6606,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -17.1,
-          "break_point": "A-1",
-          "scale_depth": 0.65,
           "envelope": [
             {
               "stage": 1,
@@ -1146,12 +918,9 @@
         },
         {
           "id": 4,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 17.1,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1177,12 +946,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1208,12 +974,9 @@
         },
         {
           "id": 2,
-          "output_level": 3.1425,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "C#3",
-          "scale_depth": 0.81,
           "envelope": [
             {
               "stage": 1,
@@ -1239,12 +1002,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1277,43 +1037,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          2.8817,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          3.4269,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.3303,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          6.8538,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 2.8809, 0.0, 0.0, 0.0, 0.0,
+            0.0, 4.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 3.4259, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.3302, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 6.8519,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -1337,12 +1067,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 6.8538,
           "frequency_ratio_mode": 1.5,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "D#4",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1368,12 +1095,9 @@
         },
         {
           "id": 5,
-          "output_level": 0.3303,
           "frequency_ratio_mode": 1.5,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "D#4",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1399,12 +1123,9 @@
         },
         {
           "id": 4,
-          "output_level": 3.4269,
           "frequency_ratio_mode": 1.5,
           "frequency_fixed_mode": null,
           "detune": -5.7,
-          "break_point": "D#4",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1430,12 +1151,9 @@
         },
         {
           "id": 3,
-          "output_level": 11.5267,
           "frequency_ratio_mode": 1.5,
           "frequency_fixed_mode": null,
           "detune": 11.4,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1461,12 +1179,9 @@
         },
         {
           "id": 2,
-          "output_level": 2.8817,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -20.0,
-          "break_point": "D#4",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1492,12 +1207,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1530,50 +1242,20 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          5.285,
-          0.0,
-          3.7371,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.3213,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 5.2835, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 3.736, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.3209, 0.0,
+            0.0, 0.0, 0.0, 0.0, 4.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
+          1.0,
           0.0,
           0.0,
-          0.0,
-          0.0
+          1.0
         ],
         "transpose": 0,
         "lfo_speed": 0.565,
@@ -1590,12 +1272,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 12.57,
           "frequency_ratio_mode": 3.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 1.94,
           "envelope": [
             {
               "stage": 1,
@@ -1621,12 +1300,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.3213,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.65,
           "envelope": [
             {
               "stage": 1,
@@ -1652,12 +1328,9 @@
         },
         {
           "id": 4,
-          "output_level": 3.7371,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -11.4,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1683,12 +1356,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1714,12 +1384,9 @@
         },
         {
           "id": 2,
-          "output_level": 5.285,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "C#3",
-          "scale_depth": 0.81,
           "envelope": [
             {
               "stage": 1,
@@ -1745,12 +1412,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1783,49 +1447,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          5.285,
-          12.57,
-          12.57,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.6425,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          5.0
-        ],
+            0.0, 5.2835, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.6418,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.6418,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.6418,
+            0.0, 0.0, 0.0, 0.0, 0.0, 1.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
-          0.0,
+          1.0,
+          1.0,
+          1.0,
           0.0
         ],
         "transpose": -12,
@@ -1843,12 +1477,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.6425,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1874,12 +1505,9 @@
         },
         {
           "id": 5,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1905,12 +1533,9 @@
         },
         {
           "id": 4,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1936,12 +1561,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1967,12 +1589,9 @@
         },
         {
           "id": 2,
-          "output_level": 5.285,
           "frequency_ratio_mode": 0.54,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -1998,12 +1617,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2036,49 +1652,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          0.2778,
-          12.57,
-          10.5701,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.4232,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0
-        ],
+            0.0, 0.2777, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.4225,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.4225,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.4225,
+            0.0, 0.0, 0.0, 0.0, 0.0, 4.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
-          0.0,
+          1.0,
+          1.0,
+          1.0,
           0.0
         ],
         "transpose": 0,
@@ -2096,12 +1682,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.4232,
           "frequency_ratio_mode": 1.01,
           "frequency_fixed_mode": null,
           "detune": -17.1,
-          "break_point": "C3",
-          "scale_depth": 2.26,
           "envelope": [
             {
               "stage": 1,
@@ -2127,12 +1710,9 @@
         },
         {
           "id": 5,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2158,12 +1738,9 @@
         },
         {
           "id": 4,
-          "output_level": 10.5701,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2189,12 +1766,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2220,12 +1794,9 @@
         },
         {
           "id": 2,
-          "output_level": 0.2778,
           "frequency_ratio_mode": 0.82,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "G3",
-          "scale_depth": 9.86,
           "envelope": [
             {
               "stage": 1,
@@ -2251,12 +1822,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2289,49 +1857,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          8.1506,
-          12.57,
-          10.5701,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.8817,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0
-        ],
+            0.0, 8.1483, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.8809,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.8809,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.8809,
+            0.0, 0.0, 0.0, 0.0, 0.0, 4.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
-          0.0,
+          1.0,
+          1.0,
+          1.0,
           0.0
         ],
         "transpose": -12,
@@ -2349,12 +1887,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.8817,
           "frequency_ratio_mode": 1.01,
           "frequency_fixed_mode": null,
           "detune": -11.4,
-          "break_point": "A-1",
-          "scale_depth": 0.48,
           "envelope": [
             {
               "stage": 1,
@@ -2380,12 +1915,9 @@
         },
         {
           "id": 5,
-          "output_level": 12.57,
           "frequency_ratio_mode": null,
           "frequency_fixed_mode": 2.5,
           "detune": 8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2411,12 +1943,9 @@
         },
         {
           "id": 4,
-          "output_level": 10.5701,
           "frequency_ratio_mode": null,
           "frequency_fixed_mode": 2.5,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2442,12 +1971,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": null,
           "frequency_fixed_mode": 2.5,
           "detune": -8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2473,12 +1999,9 @@
         },
         {
           "id": 2,
-          "output_level": 8.1506,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "G3",
-          "scale_depth": 16.0,
           "envelope": [
             {
               "stage": 1,
@@ -2504,12 +2027,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": null,
           "frequency_fixed_mode": 1.0,
           "detune": -20.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2542,43 +2062,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          9.6928,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          0.6058,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.8685,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 9.69, 2.2214, 0.6056, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 2.2214, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 1.868,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -2602,12 +2092,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 1.8685,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2633,12 +2120,9 @@
         },
         {
           "id": 5,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2664,12 +2148,9 @@
         },
         {
           "id": 4,
-          "output_level": 0.6058,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2695,12 +2176,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2726,12 +2204,9 @@
         },
         {
           "id": 2,
-          "output_level": 9.6928,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 11.4,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2757,12 +2232,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2795,43 +2267,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          1.0188,
-          2.4232,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          2.8817,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 1.0185, 2.4225, 2.8809, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.0185, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -2855,12 +2297,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 8.47,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2886,12 +2325,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 3.18,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2917,12 +2353,9 @@
         },
         {
           "id": 4,
-          "output_level": 2.8817,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2948,12 +2381,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.4232,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -2979,12 +2409,9 @@
         },
         {
           "id": 2,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3010,12 +2437,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3048,43 +2472,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          3.1425,
-          2.4232,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          7.4742,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          3.4269,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 3.1416, 2.4225, 7.472, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.0185, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 3.4259,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -3108,12 +2502,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 3.4269,
           "frequency_ratio_mode": 8.47,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3139,12 +2530,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 3.18,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3170,12 +2558,9 @@
         },
         {
           "id": 4,
-          "output_level": 7.4742,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3201,12 +2586,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.4232,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3232,12 +2614,9 @@
         },
         {
           "id": 2,
-          "output_level": 3.1425,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3263,12 +2642,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3301,43 +2677,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          9.6928,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          0.6058,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.8685,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 9.69, 2.2214, 0.6056, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 2.2214, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 1.868,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -3361,12 +2707,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 1.8685,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3392,12 +2735,9 @@
         },
         {
           "id": 5,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3423,12 +2763,9 @@
         },
         {
           "id": 4,
-          "output_level": 0.6058,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3454,12 +2791,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3485,12 +2819,9 @@
         },
         {
           "id": 2,
-          "output_level": 9.6928,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 11.4,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3516,12 +2847,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3554,49 +2882,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          8.1506,
-          12.57,
-          12.57,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          3.4269,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0
-        ],
+            0.0, 8.1483, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 3.4259,
+            0.0, 0.0, 0.0, 0.0, 0.0, 3.4259,
+            0.0, 0.0, 0.0, 0.0, 0.0, 3.4259,
+            0.0, 0.0, 0.0, 0.0, 0.0, 4.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
-          0.0,
+          1.0,
+          1.0,
+          1.0,
           0.0
         ],
         "transpose": -12,
@@ -3614,12 +2912,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 3.4269,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "C3",
-          "scale_depth": 8.73,
           "envelope": [
             {
               "stage": 1,
@@ -3645,12 +2940,9 @@
         },
         {
           "id": 5,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -5.7,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3676,12 +2968,9 @@
         },
         {
           "id": 4,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3707,12 +2996,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3738,12 +3024,9 @@
         },
         {
           "id": 2,
-          "output_level": 8.1506,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "C2",
-          "scale_depth": 0.65,
           "envelope": [
             {
               "stage": 1,
@@ -3769,12 +3052,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 2.9,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3807,49 +3087,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          3.1425,
-          12.57,
-          12.57,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0
-        ],
+            0.0, 3.1416, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 4.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
-          0.0,
+          1.0,
+          1.0,
+          1.0,
           0.0
         ],
         "transpose": -12,
@@ -3867,12 +3117,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "C3",
-          "scale_depth": 8.73,
           "envelope": [
             {
               "stage": 1,
@@ -3898,12 +3145,9 @@
         },
         {
           "id": 5,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -5.7,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3929,12 +3173,9 @@
         },
         {
           "id": 4,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3960,12 +3201,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -3991,12 +3229,9 @@
         },
         {
           "id": 2,
-          "output_level": 3.1425,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 5.7,
-          "break_point": "C2",
-          "scale_depth": 0.65,
           "envelope": [
             {
               "stage": 1,
@@ -4022,12 +3257,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 2.9,
-          "break_point": "C3",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4060,49 +3292,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          3.7371,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          6.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.5713,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          8.1506,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 3.736, 0.0, 0.0, 0.0, 0.0,
+            0.0, 2.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 1.5708, 3.4259, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 8.1483,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
           1.0,
+          0.0,
+          0.0,
           0.0
         ],
         "transpose": 0,
@@ -4120,12 +3322,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 8.1506,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 1.94,
           "envelope": [
             {
               "stage": 1,
@@ -4151,12 +3350,9 @@
         },
         {
           "id": 5,
-          "output_level": 3.4269,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.65,
           "envelope": [
             {
               "stage": 1,
@@ -4182,12 +3378,9 @@
         },
         {
           "id": 4,
-          "output_level": 1.5713,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4213,12 +3406,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": null,
           "frequency_fixed_mode": 4.5,
           "detune": -8.6,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4244,12 +3434,9 @@
         },
         {
           "id": 2,
-          "output_level": 3.7371,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 8.6,
-          "break_point": "C#3",
-          "scale_depth": 0.81,
           "envelope": [
             {
               "stage": 1,
@@ -4275,12 +3462,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": null,
           "frequency_fixed_mode": 4.3,
           "detune": -5.7,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4313,43 +3497,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          9.6928,
-          4.4442,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          7.4742,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          3.4269,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 9.69, 4.4429, 7.472, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.0185, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 3.4259,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -4373,12 +3527,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 3.4269,
           "frequency_ratio_mode": 8.47,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4404,12 +3555,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 3.18,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4435,12 +3583,9 @@
         },
         {
           "id": 4,
-          "output_level": 7.4742,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4466,12 +3611,9 @@
         },
         {
           "id": 3,
-          "output_level": 4.4442,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4497,12 +3639,9 @@
         },
         {
           "id": 2,
-          "output_level": 9.6928,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4528,12 +3667,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4566,43 +3702,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          2.6425,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          2.8817,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 2.6418, 2.2214, 2.8809, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.0185, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -4626,12 +3732,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 7.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4657,12 +3760,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 4.02,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4688,12 +3788,9 @@
         },
         {
           "id": 4,
-          "output_level": 2.8817,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4719,12 +3816,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4750,12 +3844,9 @@
         },
         {
           "id": 2,
-          "output_level": 2.6425,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4781,12 +3872,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4819,43 +3907,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          0.7856,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.0188,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 0.7854, 2.2214, 2.2214, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 1.0185, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.2214,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -4879,12 +3937,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 8.47,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4910,12 +3965,9 @@
         },
         {
           "id": 5,
-          "output_level": 1.0188,
           "frequency_ratio_mode": 3.18,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4941,12 +3993,9 @@
         },
         {
           "id": 4,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -4972,12 +4021,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5003,12 +4049,9 @@
         },
         {
           "id": 2,
-          "output_level": 0.7856,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5034,12 +4077,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5072,43 +4112,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          0.1801,
-          2.2221,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          1.4408,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.1801,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 0.1801, 2.2214, 1.4404, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 4.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.1801, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 12.5664,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -5132,12 +4142,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 12.57,
           "frequency_ratio_mode": 8.47,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5163,12 +4170,9 @@
         },
         {
           "id": 5,
-          "output_level": 0.1801,
           "frequency_ratio_mode": 6.24,
           "frequency_fixed_mode": null,
           "detune": -2.9,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5194,12 +4198,9 @@
         },
         {
           "id": 4,
-          "output_level": 1.4408,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "C5",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5225,12 +4226,9 @@
         },
         {
           "id": 3,
-          "output_level": 2.2221,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5256,12 +4254,9 @@
         },
         {
           "id": 2,
-          "output_level": 0.1801,
           "frequency_ratio_mode": 2.1,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "F5",
-          "scale_depth": 15.52,
           "envelope": [
             {
               "stage": 1,
@@ -5287,12 +4282,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5325,49 +4317,19 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          4.0753,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          6.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.8817,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          12.57,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 4.0741, 0.0, 0.0, 0.0, 0.0,
+            0.0, 2.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 2.8809, 0.6604, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 12.5664,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
-          0.0,
-          0.0,
           1.0,
+          0.0,
+          0.0,
           0.0
         ],
         "transpose": 0,
@@ -5385,12 +4347,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 12.57,
           "frequency_ratio_mode": 2.0,
           "frequency_fixed_mode": null,
           "detune": -17.1,
-          "break_point": "A-1",
-          "scale_depth": 2.75,
           "envelope": [
             {
               "stage": 1,
@@ -5416,12 +4375,9 @@
         },
         {
           "id": 5,
-          "output_level": 0.6606,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5447,12 +4403,9 @@
         },
         {
           "id": 4,
-          "output_level": 2.8817,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": -17.1,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5478,12 +4431,9 @@
         },
         {
           "id": 3,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5509,12 +4459,9 @@
         },
         {
           "id": 2,
-          "output_level": 4.0753,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 20.0,
-          "break_point": "A1",
-          "scale_depth": 0.81,
           "envelope": [
             {
               "stage": 1,
@@ -5540,12 +4487,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 0.5,
           "frequency_fixed_mode": null,
           "detune": 17.1,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5578,43 +4522,13 @@
       },
       "global": {
         "algorithm_matrix": [
-          0.0,
-          3.1425,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          7.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          1.2116,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.4232,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          2.8817,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0,
-          0.0
-        ],
+            0.0, 3.1416, 0.0, 0.0, 0.0, 0.0,
+            0.0, 4.0, 0.0, 0.0, 0.0, 0.0,
+            0.0, 0.0, 0.0, 1.2112, 0.0, 0.0,
+            0.0, 0.0, 0.0, 0.0, 2.4225, 0.0,
+            0.0, 0.0, 0.0, 0.0, 0.0, 2.8809,
+            0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+          ],
         "output_mixer": [
           1.0,
           0.0,
@@ -5638,12 +4552,9 @@
       "operators": [
         {
           "id": 6,
-          "output_level": 2.8817,
           "frequency_ratio_mode": 2.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5669,12 +4580,9 @@
         },
         {
           "id": 5,
-          "output_level": 2.4232,
           "frequency_ratio_mode": 2.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5700,12 +4608,9 @@
         },
         {
           "id": 4,
-          "output_level": 1.2116,
           "frequency_ratio_mode": 2.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "B7",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5731,12 +4636,9 @@
         },
         {
           "id": 3,
-          "output_level": 9.6928,
           "frequency_ratio_mode": 2.0,
           "frequency_fixed_mode": null,
           "detune": 17.1,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5762,12 +4664,9 @@
         },
         {
           "id": 2,
-          "output_level": 3.1425,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": -17.1,
-          "break_point": "A-1",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,
@@ -5793,12 +4692,9 @@
         },
         {
           "id": 1,
-          "output_level": 12.57,
           "frequency_ratio_mode": 1.0,
           "frequency_fixed_mode": null,
           "detune": 0.0,
-          "break_point": "B7",
-          "scale_depth": 0.0,
           "envelope": [
             {
               "stage": 1,

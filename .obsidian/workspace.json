@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "READE - Proposal.md",
+                "file": "AI collaboration portfolio.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "READE - Proposal"
+              "title": "AI collaboration portfolio"
             }
           }
         ]
@@ -181,23 +181,35 @@
       "copilot:Open Copilot Chat": false
     }
   },
-  "active": "69e8b55b412fbecf",
+  "active": "610289dc12593e8f",
   "lastOpenFiles": [
+    "Template - AI collaboration portfolio.md",
+    "Notes/Numpy - Structure of Arrays (SoA) vs (AoS).md",
+    "Notes/Journal.md",
+    "Notes/Gram-Schmidt.md",
+    "Notes/AI collaboration portfolio (Sound and Music Programming) — exemplar based on prior student work.md",
+    "Notes/2025-10-15.md",
+    "attachments/1570367893.gif",
+    "AI collaboration portfolio.md",
+    "Notes/Week 3 November - 9 November  Sound and Music Programming (2025)  My Moodle Sites.md",
+    "Clippings/DX7 SuperCollider Creation.md",
+    "Clippings",
+    "Notes/Project 2 - 2D pad Fourier-Transform matrix vector interpolation.md",
+    "Notes/Project v0.md",
+    "Notes/Project v1.md",
+    "Notes/quirky interfaces.md",
+    "READE - Proposal.md",
     "python version/output.json",
     "python version/__pycache__/OSC.cpython-312.pyc",
     "python version/OSC.py",
     "python version/OSC",
     "python version/__pycache__/loader.cpython-312.pyc",
     "python version/loader.py",
-    "Notes/Journal.md",
     "attachments/Pasted image 20251112193704.png",
     "Pasted image 20251119162845.jpg",
     "Pasted image 20251119163139.png",
     "attachments/Pasted image 20251104203836.png",
     "attachments/Pasted image 20251022140954.png",
-    "attachments/1570367893.gif",
-    "Notes/AI collaboration portfolio (Sound and Music Programming) — exemplar based on prior student work.md",
-    "Notes/2025-10-15.md",
     "Clippings/dynamic FM synth configuration.md",
     "Clippings 1/dynamic FM synth configuration.md",
     "Clippings 1",
@@ -205,21 +217,10 @@
     "Notes/DX7 alogrithm notes.md",
     "attachments/attachments",
     "Notes/Documentation Notes.md",
-    "Notes/Numpy - Structure of Arrays (SoA) vs (AoS).md",
     "python version/main.py",
-    "python version/__pycache__/style.cpython-312.pyc",
-    "python version/style.py",
-    "Clippings/ChatGPT.md",
     "Clippings/Sound and Music Programming assessment handbook 2025-26.docx.md",
     "Clippings/Untitled.md",
-    "Notes/Week 3 November - 9 November  Sound and Music Programming (2025)  My Moodle Sites.md",
-    "Notes/Gram-Schmidt.md",
-    "Notes/Project v0.md",
-    "Notes/Project 2 - 2D pad Fourier-Transform matrix vector interpolation.md",
-    "READE - Proposal.md",
     "attachments/Pasted image 20251104212521.png",
-    "Notes/quirky interfaces.md",
-    "Notes/Project v1.md",
     "attachments/Group 9.png",
     "attachments/animation-1.webp",
     "attachments/Desktop - 1.jpg",
@@ -227,8 +228,6 @@
     "Untitled.md",
     "Sound and Music Programming Proposal Form (ai).md",
     "user.md",
-    "Pasted.md",
-    "Welcome.md",
     "Untitled.canvas"
   ]
 }
