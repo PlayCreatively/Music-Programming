@@ -40,7 +40,7 @@ Having a beastly size synth with tens of parameters allows for a vast space of e
   > + Might surface meaningful meta parameters that control multiple parameters.
 
 > [!NOTE] Interesting thought
-> Probably in theory, a combination of variables could map out all possible sounds and by using gradient descent map out any sound onto that space, therefore ensuring a linear space to explore any and all sound 🤷
+> Probably in theory, a combination of variables could map out all possible sounds and by using gradient descent map out any sound onto that space, therefore need to ensure a linear space to explore any and all sound 🤷
 
 # Editor
 To make it easy to quickly wire up all the parameters, it might be optimal to create a function that allows you to select multiple input parameters and right clip to create a vector node that connects to all of them. Then that vector node can be connected to the 2d pad node

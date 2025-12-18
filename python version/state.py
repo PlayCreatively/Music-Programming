@@ -339,8 +339,8 @@ def project_point_on_plane(point: np.ndarray) -> tuple[np.ndarray, np.ndarray]: 
         dists = np.linalg.norm(diff)
     else:
         dists = np.linalg.norm(diff, axis=1)
-        
     return Presets_2D, dists
+        
 def get_selection_name() -> str:
     """Return the names of all currently selected presets."""
     assert preset_names is not None

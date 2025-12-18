@@ -1,9 +1,6 @@
 import platform
 import ctypes
 
-from matplotlib import patches
-from sympy import false
-
 # --- DPI awareness (same as your original) ---
 if platform.system() == "Windows":
     try:
@@ -183,6 +180,7 @@ def draw_pad():
         x, y = unit_to_screen(tx, ty)
         
         selected: bool = idx in S.selection
+        is_on_plane: bool = dist < 1e-5
         
         r = 8
         is_hovered = S.is_cursor_within_circle((x, y), r)
@@ -293,6 +291,9 @@ def draw_pad():
         
         cr, cg, cb = col[:3]
         draw_list.add_circle_filled(x, y, r * dist_inv, rgba_u32(cr, cg, cb))
+        
+        if is_on_plane:
+            draw_list.add_circle_filled(x, y, 2 * dist_inv, rgba_u32(255,255,255))
 
     # Mouse interaction for creating/selecting
     mouse_pad_x, mouse_pad_y = screen_to_unit(G.mouse_pos[0], G.mouse_pos[1])
@@ -307,11 +308,15 @@ def draw_pad():
             
             
     if S.selection == set() and S.active_preset_value is not None:
-        (x, y), _ = S.project_point_on_plane(S.active_preset_value)
+        (x, y), dist = S.project_point_on_plane(S.active_preset_value)
         px, py = unit_to_screen(x, y)
         r = 8
+        is_on_plane: bool = dist < 1e-5
+        
         draw_list.add_circle_filled(px, py, r + 3, white)
         draw_list.add_circle_filled(px, py, r, rgba_u32(155, 155, 155, 255))
+        if is_on_plane:
+            draw_list.add_circle_filled(x, y, 2 * dist_inv, rgba_u32(255,255,255))
         
     draw_list.pop_clip_rect()
 

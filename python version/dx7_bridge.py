@@ -57,7 +57,7 @@ DEFAULT_DX7_SPEC = {
     "frequency_fixed_mode": { "range": [1, 9772] },
     "detune": { "range": [-20, 20] },
     "envelope": [
-      { "rate": { "range": [0, 99] }, "level": { "range": [0, 1] } }
+      { "rate": { "range": [0, 99] }, "level": { "range": [0, 12] } }
     ]
   }
 }
