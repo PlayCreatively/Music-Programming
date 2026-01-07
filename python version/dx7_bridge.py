@@ -1,3 +1,8 @@
+"""
+DX7 Parameter Bridge & OSC Communication.
+Handles loading presets and sending parameters via Open Sound Control.
+"""
+
 import json
 import numpy as np
 import hashlib
