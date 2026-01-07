@@ -73,7 +73,13 @@ def get_color_from_name(name):
     return ((r + 255) // 2, (g + 255) // 2, (b + 255) // 2)
 
 def load_dx7_json(file_path):
-    """Parses JSON and populates state.py using the Shared Schema."""
+    """
+    Parses a JSON file containing DX7 parameter specifications and patches.
+    Populates the global state (state.py) with dimensions, bounds, and presets.
+    
+    Args:
+        file_path (str): Path to the JSON file to load.
+    """
     with open(file_path, 'r') as f:
         data = json.load(f)
 
@@ -137,7 +143,6 @@ def load_dx7_json(file_path):
                 mins.append(l_min); maxs.append(l_max)
 
     # Init State
-    print(f"Initializing Space with {len(dims)} dimensions...")
     S.init_space(dims)
     S.mins = np.array(mins, dtype=float)
     S.maxs = np.array(maxs, dtype=float)
@@ -190,8 +195,6 @@ def load_dx7_json(file_path):
             raise AssertionError(f"Preset '{p_name}' param '{param}' value {val} is out of bounds [{mn}, {mx}]")
 
         S.add_preset(p_name, color=col_tuple, value=np.array([vector]))
-    
-    print(f"Loaded {len(S.preset_names)} presets.")
 
 
 # =============================================================================
@@ -199,6 +202,10 @@ def load_dx7_json(file_path):
 # =============================================================================
 
 class DX7OSCClient:
+    """
+    Handles OSC communication with the SuperCollider synth engine.
+    Formats high-dimensional vectors into the specific message structure expected by the synth.
+    """
     def __init__(self, ip="127.0.0.1", port=57120):
         self.client = udp_client.SimpleUDPClient(ip, port)
         
@@ -256,7 +263,6 @@ class DX7OSCClient:
         flat_levels = [l for op in op_env_levels for l in op]
 
         # --- 5. Send ---
-        # print(f"Sending OSC to {self.client._address}:{self.client._port}")
         self.client.send_message("/update_synth", [
             "opWiringMatrix", *wiring_matrix,
             "opOutMixer", *output_mixer,

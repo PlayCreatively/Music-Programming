@@ -37,14 +37,12 @@ PAD_DRAG = {
     "start_tx_ty": (0.0, 0.0),  # normalized plane coords at drag start
 }
 
-def init_state():
-    S.init_space(["freq1", "freq2", "freq3"], n_vectors=0)
-    S.add_preset("Piano", (255, 205, 50))
-    S.add_preset("Fiddle", (255, 105, 150))
-    S.add_preset("Film", (255, 15, 250))
-
 # ---------- PAD DRAWING (ImGui draw list) ----------
 def draw_pad():
+    """
+    Renders the 2D slice viewpad using ImGui's draw list.
+    Handles user interaction for panning, zooming, and dragging presets.
+    """
     
     # Top-left of the pad in screen coordinates
     pad_x, pad_y = imgui.get_cursor_screen_pos()
@@ -129,10 +127,7 @@ def draw_pad():
         
         # Draw outline
         outline_col = rgba_u32(100, 100, 120, 200)
-        # add_polyline(points, color, closed=False, thickness=1.0) -> flags in older versions?
-        # Checking docs/source, some versions use 'closed' as a positional or flags.
-        # But to be safe, let's use path API for stroke too, or just pass positional args if we knew the signature.
-        # Let's use path API for stroke as well, it's safer.
+        # Use path API to ensure consistent stroke behavior across versions.
         draw_list.path_clear()
         for sx, sy in screen_poly:
             draw_list.path_line_to(sx, sy)
@@ -341,6 +336,11 @@ def draw_preset_row(idx):
         S.record_selection(idx)
 
 def draw_inspector():
+    """
+    Renders the right-hand side inspector panel.
+    Displays controls for the selected preset or the active unsaved preset.
+    Allows editing of high-dimensional parameters via sliders.
+    """
     # Top: current preset + sliders
     header(S.get_selection_name())
     

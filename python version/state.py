@@ -49,7 +49,6 @@ def init_space(dims: list[str], n_vectors: int = 0):
     """Initialize global space with given dimensions and optional empty vectors."""
     global param_names, mins, maxs, Basis, Slice_origin, Presets, preset_names, preset_colors
     param_names = list(dims)
-    param_names = list(dims)
     D = len(param_names)
 
     mins = np.zeros(D, dtype=float)
@@ -258,20 +257,10 @@ def clamp_movement(start: np.ndarray, end: np.ndarray) -> np.ndarray:
             t = (0.0 - s) / d
             
         if t < t_max:
-            # We only care about t >= 0, but if we are slightly out of bounds
-            # and moving in, t might be negative? 
-            # If s=1.1, d=-0.1 (moving in), t=(0-1.1)/-0.1 = 11.
-            # If s=1.1, d=0.1 (moving out), t=(1-1.1)/0.1 = -1.
-            # We want to restrict movement that goes OUT of bounds.
-            # If we are already out, and moving further out, t < 0.
-            # If we are out and moving in, t > 1 (for the far wall) or t large.
-            
-            # Simple logic: we want the smallest positive t that hits a boundary.
-            # But we also want to handle the case where we are already out?
-            # Assuming start is valid [0,1].
+            # Find the smallest positive t that hits a boundary, assuming start is valid [0,1].
             if t >= 0:
                 t_max = t
-            
+
     t_max = max(0.0, min(t_max, 1.0))
     return start + t_max * direction
 

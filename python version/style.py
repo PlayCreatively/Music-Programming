@@ -1,8 +1,7 @@
-import OpenGL.GL as gl
 import imgui
 
 def setup_style():
-    """Roughly match your dark theme, but kept minimal."""
+    """Dark theme for ImGui."""
     style = imgui.get_style()
 
     # Style numbers are just floats; tuples/lists are 2D vectors.
