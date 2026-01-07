@@ -1,4 +1,9 @@
+"""
+ImGui styling configuration and color helpers.
+"""
+
 import imgui
+from helper import rgba_f
 
 def setup_style():
     """Dark theme for ImGui."""
@@ -36,12 +41,4 @@ def setup_style():
     colors[imgui.COLOR_SEPARATOR] = rgba_f(70, 70, 70)
     colors[imgui.COLOR_SLIDER_GRAB] = rgba_f(180, 180, 180)
     colors[imgui.COLOR_SLIDER_GRAB_ACTIVE] = rgba_f(220, 220, 220)
-    
-# Simple helper for colors: 0–255 -> ImGui RGBA (0–1)
-def rgba_f(r, g, b, a=255):
-    return r / 255.0, g / 255.0, b / 255.0, a / 255.0
 
-
-def rgba_u32(r, g, b, a=255):
-    """Convert 0–255 RGBA to ImGui packed color (for draw_list)."""
-    return imgui.get_color_u32_rgba(*rgba_f(r, g, b, a))

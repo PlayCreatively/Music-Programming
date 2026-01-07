@@ -15,27 +15,12 @@ import imgui
 import numpy as np
 from imgui.integrations.glfw import GlfwRenderer
 
+import helper as H
+from helper import rgba_u32
 import state as S
 import globals as G
 import style
 import dx7_bridge
-
-# Simple helper for colors: 0–255 -> ImGui RGBA (0–1)
-def rgba_f(r, g, b, a=255):
-    return r / 255.0, g / 255.0, b / 255.0, a / 255.0
-
-
-def rgba_u32(r, g, b, a=255):
-    """Convert 0–255 RGBA to ImGui packed color (for draw_list)."""
-    return imgui.get_color_u32_rgba(*rgba_f(r, g, b, a))
-
-# Drag state for pad circles
-PAD_DRAG = {
-    "active": False,     # whether a drag is in progress
-    "idx": None,         # index of the preset being dragged
-    "start_mouse": (0.0, 0.0),
-    "start_tx_ty": (0.0, 0.0),  # normalized plane coords at drag start
-}
 
 # ---------- PAD DRAWING (ImGui draw list) ----------
 def draw_pad():
@@ -178,7 +163,7 @@ def draw_pad():
         is_on_plane: bool = dist < 1e-5
         
         r = 8
-        is_hovered = S.is_cursor_within_circle((x, y), r)
+        is_hovered = H.is_cursor_within_circle((x, y), r)
         if is_hovered:
             r += 2  # slightly larger on hover
             any_hovered = True
@@ -187,20 +172,20 @@ def draw_pad():
             S.record_selection(idx)
         
         # Drag start: click on a hovered circle
-        if is_hovered and G.mouse_down and not PAD_DRAG["active"]:          
+        if is_hovered and G.mouse_down and not G.PAD_DRAG["active"]:          
             if not imgui.get_io().key_ctrl:  # hold Ctrl to multi-select
-                PAD_DRAG["active"] = True
-                PAD_DRAG["dragging"] = False
-                PAD_DRAG["idx"] = idx
-                PAD_DRAG["start_mouse"] = G.mouse_pos
-                PAD_DRAG["start_tx_ty"] = (tx, ty)
-                PAD_DRAG["start_value"] = S.Presets[idx, :].copy()
+                G.PAD_DRAG["active"] = True
+                G.PAD_DRAG["dragging"] = False
+                G.PAD_DRAG["idx"] = idx
+                G.PAD_DRAG["start_mouse"] = G.mouse_pos
+                G.PAD_DRAG["start_tx_ty"] = (tx, ty)
+                G.PAD_DRAG["start_value"] = S.presets[idx, :].copy()
 
         # If this preset is the one being dragged, compute new position
-        if PAD_DRAG["active"] and PAD_DRAG["idx"] == idx:
+        if G.PAD_DRAG["active"] and G.PAD_DRAG["idx"] == idx:
             if G.mouse_down:
                 mx, my = G.mouse_pos
-                sx, sy = PAD_DRAG["start_mouse"]
+                sx, sy = G.PAD_DRAG["start_mouse"]
                 dx = mx - sx
                 dy = my - sy
                 
@@ -208,19 +193,19 @@ def draw_pad():
                 norm_dx = dx / (pad_inner_w * S.pad_zoom)
                 norm_dy = -dy / (pad_inner_h * S.pad_zoom)  # Y is inverted
                 
-                new_tx = PAD_DRAG["start_tx_ty"][0] + norm_dx
-                new_ty = PAD_DRAG["start_tx_ty"][1] + norm_dy
+                new_tx = G.PAD_DRAG["start_tx_ty"][0] + norm_dx
+                new_ty = G.PAD_DRAG["start_tx_ty"][1] + norm_dy
                 # clamp 0..1
                 new_tx = min(max(new_tx, 0.0), 1.0)
                 new_ty = min(max(new_ty, 0.0), 1.0)
                 
-                if not PAD_DRAG["dragging"]:
+                if not G.PAD_DRAG["dragging"]:
                     dist_from_start = ((mx - sx) ** 2 + (my - sy) ** 2)
                     if dist_from_start > 1:
-                        PAD_DRAG["dragging"] = True
+                        G.PAD_DRAG["dragging"] = True
                 else:
                     # A. Get the Starting Real Value
-                    start_real = PAD_DRAG["start_value"]
+                    start_real = G.PAD_DRAG["start_value"]
                     
                     # B. Convert Start Value to Normalized Space (0.0 to 1.0)
                     start_norm = S.to_unit(start_real, S.mins, S.maxs)
@@ -228,12 +213,12 @@ def draw_pad():
 
                     # C. Calculate the Delta Vector in High-D Normalized Space
                     # This maps the 2D pad movement onto the high-D hypercube
-                    # Basis vectors are usually unit-length in normalized space
+                    # basis vectors are usually unit-length in normalized space
                     delta_tx = norm_dx 
                     delta_ty = norm_dy 
                     
                     # Movement vector in N-dimensions
-                    movement_nd = (S.Basis[0, :] * delta_tx) + (S.Basis[1, :] * delta_ty)
+                    movement_nd = (S.basis[0, :] * delta_tx) + (S.basis[1, :] * delta_ty)
 
                     # D. Apply movement
                     target_norm = start_norm + movement_nd
@@ -242,13 +227,13 @@ def draw_pad():
                     new_norm = S.clamp_movement(start_norm, target_norm)
 
                     # F. Convert back to Real Units
-                    S.Presets[idx, :] = S.from_unit(new_norm, S.mins, S.maxs)
+                    S.presets[idx, :] = S.from_unit(new_norm, S.mins, S.maxs)
                     
             else:
                 # mouse released -> end drag
-                PAD_DRAG["active"] = False
-                PAD_DRAG["dragging"] = False
-                PAD_DRAG["idx"] = None
+                G.PAD_DRAG["active"] = False
+                G.PAD_DRAG["dragging"] = False
+                G.PAD_DRAG["idx"] = None
 
         if selected:
             # draw a line across the pad at the slider's value
@@ -362,7 +347,7 @@ def draw_inspector():
     
     else:
         selected_idx = next(iter(S.selection))
-        selected_preset = S.Presets[selected_idx, :]
+        selected_preset = S.presets[selected_idx, :]
 
     any_hovered = False
     
@@ -398,7 +383,7 @@ def draw_inspector():
             if inspecting_unsaved_point: # unsaved active preset
                 S.active_preset_value[i] = new_val
             else:
-                S.Presets[selected_idx, i] = new_val
+                S.presets[selected_idx, i] = new_val
 
         imgui.same_line()
         imgui.text(str(max))
@@ -413,7 +398,7 @@ def draw_inspector():
 
 def draw_presets():
         # Bottom: presets list
-    header("Presets")
+    header("presets")
     for idx in range(len(S.preset_names)):
         draw_preset_row(idx)
     
@@ -425,7 +410,7 @@ def draw_presets():
 
 # ---------- MAIN WINDOW BUILD ----------
 def draw_main_window():
-    # Fix position & size so it roughly matches your original layout
+    # Set position & size to match the layout
     imgui.set_next_window_position(12, 12)
     imgui.set_next_window_size(1260, 736)
 
@@ -476,8 +461,6 @@ def create_window():
 
 
 def main():
-    
-    
     # init_state()
     dx7_bridge.load_dx7_json("output.json")
 
