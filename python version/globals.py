@@ -19,13 +19,6 @@ mouse_pos: tuple[float, float]
 mouse_down: bool
 mouse_clicked: bool
 
-# Drag state for pad circles
-PAD_DRAG = {
-    "active": False,     # whether a drag is in progress
-    "idx": None,         # index of the preset being dragged
-    "start_mouse": (0.0, 0.0),
-    "start_tx_ty": (0.0, 0.0),  # normalized plane coords at drag start
-}
 
 def update_globals():
 	"""Update any globals that depend on mouse position."""
