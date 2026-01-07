@@ -1,12 +1,12 @@
 # AI collaboration portfolio
 ## Foreword
 
-As my use of LLMs are heavily dialogue based and due to them preferring to reply entire essays, I don’t just trim the output; I actively select individual sentences that capture the gist or match my immediate focus, based on my reply. So when reading the responds, keep in mind the major asterisk that they're heavily trimmed down. 
+As my use of LLMs are heavily dialogue driven and due to them preferring lengthy replies, I don’t just trim the output; I go as far as to actively cherry-pick select sentences that capture the overall gist or match my immediate focus, based on my reply. So when reading the responds, keep in mind the major asterisk that they're heavily trimmed down.
 ## 1. Strategic AI Briefing Documentation
 
-For this project, AI took the role of an informant, teacher, as well as an assistant programmer, therefore there was no one single project brief but instead, more of a continual dialogue.
+For this project, AI took the role of an informant, a teacher, as well as an assistant programmer; therefore there was no one single project brief, but instead, more of a continual dialogue.
 
-The actual implementation of the project began with me providing the LLM a visual mock-up of exactly how I envisioned the interface. I started with a mock-up so that I was not restricting my vision, which tends to happen when working at the implementation level. I provided it to ChatGPT 5.1, including what interactions it allows for. I asked for python libraries as I knew it would make the linear algebra part of the project, trivial.
+The actual implementation of the project began with me providing the LLM a visual mock-up of exactly how I envisioned the interface. I started with a mock-up so that I was not restricting my vision, which tends to happen when working at the implementation level. I provided it to ChatGPT 5.1, including what interactions it allows for. I asked explicitly for python libraries as I knew it would make the linear algebra part of the project, trivial.
 
 <img src="attachments/Desktop%20-%201.jpg" width="600">
 
@@ -141,7 +141,7 @@ Having seen the video by 3Blue1Brown on [Hilbert Curves](https://youtu.be/3s7h2M
 
 <img src="attachments/hilbert%20curve%20colored.png" width="300">
 
-and this is in 2D, I can only imagine that it becomes way worse the higher the dimensions are. But the only thing I knew about Hilbert Curves was that they can map 2D data down to 1D while preserving some locality. But since it recommended Hilbert Curves I could only assume it was relevant to higher dimensions.
+and this is only in 2 dimensions, I can only imagine that it becomes way worse the higher the dimensions are. But the only thing I knew about Hilbert Curves was that they can map 2D data down to 1D while preserving some locality. But since it recommended Hilbert Curves I could only assume it was relevant to higher dimensions.
 
 **Prompt**
 
@@ -191,11 +191,11 @@ nD space  →  1D Hilbert index  →  2D space
 Because both legs use Hilbert ordering, you preserve Hilbert’s strong locality properties as much as a dimension-reducing map can.
 ```
 
-As the LLM suggests, I can have a 1D Hilbert Curve exhaustively slither through any finite n-dimensional space, store the mapping from 1D to nD, then have it slither through 2D screen space and store that 1D to 2D mapping and with this I can do 2D → 1D → nD, which allows me to map an XY-pad to a somewhat locally coherent n-dimension space. And to quickly finish the thought, the resolution of the nD space would be limited by the resolution of the 2D space, which would be at the pixel level of the screen (assuming you can't zoom into the XY-pad).
+As the LLM suggests, I can have a 1D Hilbert Curve exhaustively slither through any finite n-dimensional space, store the mapping from 1D to nD, then have it slither through 2D screen space and store that 1D to 2D mapping and with this I can do 2D → 1D → nD, which allows me to map an XY-pad to a somewhat locally coherent n-dimensional space. And to quickly finish the thought, the resolution of the nD space would be limited by the resolution of the 2D space, which would be at the pixel level of the screen (assuming you can't zoom into the XY-pad).
 
 ### 2.2 Matrix Transposition
 
-I was struggling with understanding the code snippets since it was using NumPy's `ndarray` which doesn't have any inherent shape. Before I finally understood how to think about an array of vectors in terms of rows and columns, I asked why the syntax seemed reversed, since thinking about it in object oriented terms you'd first index the object (vector) and then the individual fields in the object (xyz); so understandably it seemed opposite to me.
+I was struggling with understanding the code snippets since it was using NumPy's `ndarray` which doesn't have any inherent shape. Before I finally understood how to think about an array of vectors in terms of rows and columns, I asked why the syntax seemed reversed, since thinking about it in object oriented terms you'd first index the object (vector) and then the individual fields in the object (xyz); so understandably it seemed reversed to me.
 
 **Prompt**
 
@@ -435,8 +435,6 @@ However, this is only relevant to jobs for which not enough time has been alloca
 - **Heuristics:** (H1) Usefulness; (H2) Intuitive understanding and clarity.
 
 ### 5.2 Influences
-
-2. [ ] Influences: What existing tools influenced your thinking and implementation (e.g. NIME tools, commercial software)? What did you learn from them, and how have they shaped your work?
 
 - **Software:** The Super Collider’s trick of reading the mouse’s X and Y coordinates to explore ranges of values inspired me to look for ways to explore a larger space while staying within the same interaction paradigm.
 - **Concepts:** My initial research into LLM's semantic vector spaces and how they encoded meaning as a point in high dimensional space, allowing for elementary vector arithmetic to uncover hidden vector encodings, like so:
