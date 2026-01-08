@@ -4,6 +4,8 @@
 As my use of LLMs are heavily dialogue driven and due to them preferring lengthy replies, I don’t just trim the output; I go as far as to actively cherry-pick select sentences that capture the overall gist or match my immediate focus, based on my reply. So when reading the responds, keep in mind the major asterisk that they're heavily trimmed down.
 ## 1. Strategic AI Briefing Documentation
 
+### 1.1 AI Incorporation 
+
 For this project, AI took the role of an informant, a teacher, as well as an assistant programmer; therefore there was no one single project brief, but instead, more of a continual dialogue.
 
 The actual implementation of the project began with me providing the LLM a visual mock-up of exactly how I envisioned the interface. I started with a mock-up so that I was not restricting my vision, which tends to happen when working at the implementation level. I provided it to ChatGPT 5.1, including what interactions it allows for. I asked explicitly for python libraries as I knew it would make the linear algebra part of the project, trivial.
@@ -478,7 +480,7 @@ However, this is only relevant to jobs for which not enough time has been alloca
 
 ### 5.5 Reference list
 
-- Grant Sanderson. (24, December 24). _But what is a Fourier series? | Chapter I, Essence of calculus_ [Video]. YouTube. [https://youtu.be/IQqtsm-bBRU?t=649](https://youtu.be/IQqtsm-bBRU?t=649)
+- Grant Sanderson. (24, December 24). _This open problem taught me what topology is_ [Video]. YouTube. [https://youtu.be/IQqtsm-bBRU?t=649](https://youtu.be/IQqtsm-bBRU?t=649)
 - Immediate mode (computer graphics). (2025). In _Wikipedia_. [https://en.wikipedia.org/w/index.php?title=Immediate_mode_(computer_graphics)&oldid=1298908603](https://en.wikipedia.org/w/index.php?title=Immediate_mode_\(computer_graphics\)&oldid=1298908603)
 - Latent and observable variables. (2025). In _Wikipedia_. [https://en.wikipedia.org/w/index.php?title=Latent_and_observable_variables&oldid=1291183159#Inferring_latent_variables](https://en.wikipedia.org/w/index.php?title=Latent_and_observable_variables&oldid=1291183159#Inferring_latent_variables)
 - Latent space. (2025). In _Wikipedia_. [https://en.wikipedia.org/w/index.php?title=Latent_space&oldid=1322694913](https://en.wikipedia.org/w/index.php?title=Latent_space&oldid=1322694913)
