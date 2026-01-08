@@ -349,6 +349,19 @@ def to_unit(preset:np.ndarray, mins, maxs):
 def from_unit(unit_preset:np.ndarray, mins, maxs):
     return mins + unit_preset * (maxs - mins)
 
+def pca_basis(points: np.ndarray, dim: int=2) -> np.ndarray:
+    """Compute the top 'dim' principal components of the given points."""
+    # Center the points
+    centered = points - np.mean(points, axis=0)
+    # Compute covariance matrix
+    cov = np.cov(centered, rowvar=False)
+    # Eigen decomposition
+    eigvals, eigvecs = np.linalg.eigh(cov)
+    # Sort eigenvectors by eigenvalues in descending order
+    sorted_indices = np.argsort(eigvals)[::-1]
+    top_eigvecs = eigvecs[:, sorted_indices[:dim]]
+    return top_eigvecs.T  # Return as (dim, D)
+
 # Project to 2-D and back
 def project(unit_preset:np.ndarray, mins, maxs, basis:np.ndarray, origin:np.ndarray=None):
     """(N,D) -> (N,2) in 0..1"""

@@ -488,6 +488,11 @@ def main():
     gl.glClearColor(0.1, 0.1, 0.1, 1.0)
     
     sender = dx7_bridge.DX7OSCClient(ip="127.0.0.1", port=57120)
+    
+    # Precompute PCA basis for initial view
+    unit_presets = S.to_unit(S.Presets, S.mins, S.maxs)
+    S.Basis = S.pca_basis(unit_presets, dim=2)
+    S.Slice_origin = np.mean(unit_presets, axis=0)
 
     # Main frame loop: everything is rebuilt every iteration.
     while not glfw.window_should_close(window):
