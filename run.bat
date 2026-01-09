@@ -1,3 +1,2 @@
 cd Project
-python main.py %*
-pause
+python main.py
