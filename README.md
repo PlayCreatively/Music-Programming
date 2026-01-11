@@ -10,6 +10,9 @@ The goal of this project is to provide an intuitive, frictionless and entry leve
 
 ## Setup
 ### Prerequisites
+> [!IMPORTANT]
+> This project was built and tested on Windows 11. While it should work on other operating systems, some adjustments may be necessary.
+
 1.  **Python Installed**: Ensure you have [Python](https://www.python.org/downloads/) installed on your system.
 2.  **Python Environment**: Ensure you have the following packages installed:
 ```bash
