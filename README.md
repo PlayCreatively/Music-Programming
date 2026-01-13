@@ -11,7 +11,11 @@ The goal of this project is to provide an intuitive, frictionless and entry leve
 ## Setup
 ### Prerequisites
 > [!IMPORTANT]
-> This project was built and tested on Windows 11. While it should work on other operating systems, some adjustments may be necessary.
+> **Windows Only:** This project was built and tested primarily on Windows 11.
+>
+> **Mac & Linux:** While the code is theoretically cross-platform, the `imgui[glfw]` dependency is known to have issues with missing binary wheels on these systems.
+> *   **Theoretical Solution:** Manually installing the GLFW library (e.g., `brew install glfw` on macOS or `sudo apt-get install libglfw3-dev` on Linux) may resolve these issues.
+> *   *Caveat:* This workaround has **not** been tested, and full functionality cannot be guaranteed on non-Windows platforms.
 
 1.  **Python Installed**: Ensure you have [Python 3.10 or later](https://www.python.org/downloads/) installed on your system.
 2.  **Python Environment**: Ensure you have the following packages installed:
