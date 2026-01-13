@@ -13,7 +13,7 @@ The goal of this project is to provide an intuitive, frictionless and entry leve
 > [!IMPORTANT]
 > This project was built and tested on Windows 11. While it should work on other operating systems, some adjustments may be necessary.
 
-1.  **Python Installed**: Ensure you have [Python](https://www.python.org/downloads/) installed on your system.
+1.  **Python Installed**: Ensure you have [Python 3.10 or later](https://www.python.org/downloads/) installed on your system.
 2.  **Python Environment**: Ensure you have the following packages installed:
 ```bash
 pip install "imgui[glfw]" "PyOpenGL" "numpy" "python-osc"
