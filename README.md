@@ -10,10 +10,7 @@ The goal of this project is to provide an intuitive, frictionless and entry leve
 
 ## Demo
 
-<video controls="true" width="720"  height="480" >
-  <source src="attachments/SOMUP demo recording.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/da8fb055-96cb-46b0-8103-5a71a0bc1395
 
 ## Setup
 ### Prerequisites
