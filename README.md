@@ -2,7 +2,7 @@
 *a playful act of exploration within a high-dimensional parameter space*
 
 ## Overview
-- ### [Project Proposal](README%20-%20Proposal.md)
+- ### [Project Proposal](Alexander%20Þorgeirsson%202544706%20SOMUP%20proposal.md)
 
 This project is an interactive application that allows users to explore a high-dimensional parameter space of a DX7 synthesizer through a 2D slice interface. Users can navigate, select, and manipulate DX7 presets represented as nodes within this space, and hear the corresponding audio output generated via OSC messages to a SuperCollider DX7 synthesis engine.
 
@@ -46,4 +46,4 @@ if you're running on a windows computer, you can simply double-click `run.bat` t
 The application sends OSC messages to `127.0.0.1:57120` with the address `/update_synth`. The parameters control a DX7-style FM synthesis engine found [here](https://github.com/PlayCreatively/Audio-Programming).
 
 ## Documentation
-- ### [AI Collaboration Portfolio](README%20-%20AI%20collaboration%20portfolio.md)
+- ### [AI Collaboration Portfolio](Alexander%20Þorgeirsson%202544706%20SOMUP%20AI%20collaboration%20portfolio.md)
