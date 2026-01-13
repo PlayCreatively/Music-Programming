@@ -8,6 +8,13 @@ This project is an interactive application that allows users to explore a high-d
 
 The goal of this project is to provide an intuitive, frictionless and entry level way for users to explore the complex parameter space of FM synthesis, fostering better flow and creativity in sound design.
 
+## Demo
+
+<video controls="true" width="720"  height="480" >
+  <source src="attachments/SOMUP demo recording.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## Setup
 ### Prerequisites
 > [!IMPORTANT]
